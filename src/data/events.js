@@ -174,25 +174,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 19662,
-    "title": "BBQ場利用案内",
-    "emoji": "🎪",
-    "category": "festival",
-    "label": "祭り・フェスタ",
-    "area": "高崎市",
-    "venue": "観音山ファミリーパーク",
-    "startDate": "2026-05-16",
-    "endDate": "2026-05-30",
-    "tags": [
-      "観音山ファミリーパーク",
-      "高崎市"
-    ],
-    "desc": "◆BBQ場利用案内 2026年開場期間：3月20日（土）～11月22日（日）まで 2月20日予約開始 （1カ月前より予約可能・・2/20は3/20の予約が可能です） 【閉場予定日】 木曜定休日（祝日を除く） 2026.5.16-17 イベン",
-    "url": "https://kfp-tomo.org/archives/10177",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 23558,
     "title": "自然観察会　観音山の魅力を探ろう～尾根道を歩く",
     "emoji": "🌿",
@@ -448,25 +429,6 @@ export const EVENTS = [
     ],
     "desc": "フレッセイ連取店にぐんまちゃんが出動するよ♫\nぐんまちゃんとの写真撮影会のほか、連取店限定抽選会も実施！\n\n①ぐんまち…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6727",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
-    "id": 42847,
-    "title": "2026.5.30-5.31【GUNMA outside Festival 2026 】開催による公園からのお知らせ",
-    "emoji": "🎈",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "高崎市",
-    "venue": "観音山ファミリーパーク",
-    "startDate": "2026-05-30",
-    "endDate": "2026-05-30",
-    "tags": [
-      "観音山ファミリーパーク",
-      "高崎市"
-    ],
-    "desc": "《観音山ファミリーパークよりお知らせ》 ◆GUNMA outside Festival 20256開催につきまして（5月30日-5月31日） ※詳細な情報は GUNMA outside Festival 2025主催者様-Instagram",
-    "url": "https://kfp-tomo.org/archives/12081",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1443,25 +1405,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 70806,
-    "title": "県民参加フェスタ",
-    "emoji": "🎪",
-    "category": "festival",
-    "label": "祭り・フェスタ",
-    "area": "高崎市",
-    "venue": "観音山ファミリーパーク",
-    "startDate": "2026-05-16",
-    "endDate": "2026-05-16",
-    "tags": [
-      "観音山ファミリーパーク",
-      "高崎市"
-    ],
-    "desc": "2026.5.16-17開催決定！ パーク最大のお祭り 2026年県民参加フェスタチラシ （PDFはこちらから） Q Aを最下部へ設けました 会場MAPとステージタイムスケジュール 《DAY-1》 🌞2025 5/16（土）10：00-1",
-    "url": "https://kfp-tomo.org/archives/9669",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 71120,
     "title": "第73回企画展　「‟害虫”たちの大博覧会～見るのはちょっと…？でもね、意外と気になるんです！～」（群馬県立自然史博物館／富岡市）",
     "emoji": "🦋",
@@ -1905,25 +1848,6 @@ export const EVENTS = [
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/snack-time-sichuan-red-panda/",
     "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
-    "id": 93020,
-    "title": "2026県民参加フェスタ　協賛企業様を募集します",
-    "emoji": "🎪",
-    "category": "festival",
-    "label": "祭り・フェスタ",
-    "area": "高崎市",
-    "venue": "観音山ファミリーパーク",
-    "startDate": "2026-05-16",
-    "endDate": "2026-05-16",
-    "tags": [
-      "観音山ファミリーパーク",
-      "高崎市"
-    ],
-    "desc": "2026県民参加フェスタ 開催決定！ 協賛企業様、団体様を募集します 協賛募集 ～共に夢をみる、子供たちと地域の絆を深めるサポーター～ 開催日時 日時： 2026年5月16日（土）・17日（日） 10:00〜15:00 会場： [観音山ファ",
-    "url": "https://kfp-tomo.org/archives/12694",
-    "free": true,
     "age": "詳細は公式サイトへ"
   },
   {
