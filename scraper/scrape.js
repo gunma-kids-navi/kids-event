@@ -18,6 +18,13 @@
  *   - ぐんまこどもの国          https://kodomonokuni.or.jp/event/
  *   - 観音山ファミリーパーク    https://kfp-tomo.org/
  *   - ぐんラボ！               https://www.gunlabo.net/event/
+ *   - ウォーカープラス          https://www.walkerplus.com/event_list/ar0310/
+ *   - じゃらん                  https://www.jalan.net/event/090000/
+ *
+ * 全国展開時の拡張方法:
+ *   WALKER_AREA_CODE と JALAN_PREF_CODE を変更するだけで他県に対応
+ *   ウォーカープラス例: ar0110=埼玉, ar0210=栃木, ar0110=埼玉, ar0310=群馬
+ *   じゃらん例: 080000=栃木, 090000=群馬, 110000=埼玉
  */
 
 import fetch from "node-fetch";
@@ -63,8 +70,38 @@ const KIDS_KEYWORDS = [
   "冒険",
   "科学館",
   "まつり",
+  "祭り",
+  "祭",
   "フェスタ",
+  "フェスティバル",
 ];
+
+// ===== 一般イベントアグリゲーター用（ウォーカープラス・じゃらん）の広めキーワード =====
+// 明確に子ども向けでなくても家族連れが楽しめるイベントを拾う
+const BROAD_FAMILY_KEYWORDS = [
+  ...KIDS_KEYWORDS,
+  "マルシェ",
+  "縁日",
+  "花火",
+  "ふれあい",
+  "牧場",
+  "農場",
+  "乗馬",
+  "ポニー",
+  "花まつり",
+  "花祭り",
+  "スタンプラリー",
+  "アスレチック",
+  "ハイキング",
+  "遠足",
+  "運動会",
+  "展示",
+  "博物館",
+  "美術館",
+];
+function isBroadlyFamilyFriendly(text) {
+  return BROAD_FAMILY_KEYWORDS.some((kw) => text.includes(kw));
+}
 
 // ===== カテゴリ推定 =====
 function guessCategory(text) {
@@ -515,7 +552,9 @@ async function scrapeGunmaKonchu() {
 
       const link = $(cells[2]).find("a").attr("href") || "";
       const fullUrl = link
-        ? link.startsWith("http") ? link : `https://www.pref.gunma.jp${link}`
+        ? link.startsWith("http")
+          ? link
+          : `https://www.pref.gunma.jp${link}`
         : base;
       const cat = guessCategory(name);
 
@@ -553,7 +592,10 @@ async function scrapeGunmaSafari() {
   try {
     const res = await fetch(url, {
       timeout: 10000,
-      headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" },
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      },
     });
     const html = await res.text();
     const $ = cheerio.load(html);
@@ -565,8 +607,10 @@ async function scrapeGunmaSafari() {
 
     $("li.cont05__item01").each((_, el) => {
       const $el = $(el);
-      const href = $el.find("a.cont05__imgLink01").attr("href") ||
-                   $el.find("a").first().attr("href") || "";
+      const href =
+        $el.find("a.cont05__imgLink01").attr("href") ||
+        $el.find("a").first().attr("href") ||
+        "";
       const title = $el.find("p.cont05__ttl01 a").text().trim();
       if (!title || !href) return;
 
@@ -717,23 +761,30 @@ async function scrapeGunmaKodomonoKuni() {
     // 日付文字列("5月17日(日)" etc.) → { startDate, endDate }
     function parseDateStr(dateStr) {
       // 全角日付を半角に
-      const s = dateStr.replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 65248));
+      const s = dateStr.replace(/[０-９]/g, (c) =>
+        String.fromCharCode(c.charCodeAt(0) - 65248),
+      );
       // 複数日 "5月31日・6月7日"
-      const multiMatch = s.match(/(\d{1,2})月(\d{1,2})日[^～〜\-–]*[・,]\s*(\d{1,2})月(\d{1,2})日/);
+      const multiMatch = s.match(
+        /(\d{1,2})月(\d{1,2})日[^～〜\-–]*[・,]\s*(\d{1,2})月(\d{1,2})日/,
+      );
       if (multiMatch) {
         const start = resolveDate(Number(multiMatch[1]), Number(multiMatch[2]));
-        const end   = resolveDate(Number(multiMatch[3]), Number(multiMatch[4]));
+        const end = resolveDate(Number(multiMatch[3]), Number(multiMatch[4]));
         return { startDate: start, endDate: end };
       }
       // 範囲 "5月8日～31日" or "5月8日～6月30日"
-      const rangeMatch = s.match(/(\d{1,2})月(\d{1,2})日[^\d]*[～〜\-–]\s*(?:(\d{1,2})月)?(\d{1,2})日/);
+      const rangeMatch = s.match(
+        /(\d{1,2})月(\d{1,2})日[^\d]*[～〜\-–]\s*(?:(\d{1,2})月)?(\d{1,2})日/,
+      );
       if (rangeMatch) {
-        const startM = Number(rangeMatch[1]), startD = Number(rangeMatch[2]);
-        const endM   = rangeMatch[3] ? Number(rangeMatch[3]) : startM;
-        const endD   = Number(rangeMatch[4]);
+        const startM = Number(rangeMatch[1]),
+          startD = Number(rangeMatch[2]);
+        const endM = rangeMatch[3] ? Number(rangeMatch[3]) : startM;
+        const endD = Number(rangeMatch[4]);
         return {
           startDate: resolveDate(startM, startD),
-          endDate:   resolveDate(endM, endD),
+          endDate: resolveDate(endM, endD),
         };
       }
       // 単日 "5月17日(日)"
@@ -752,7 +803,7 @@ async function scrapeGunmaKodomonoKuni() {
       seen.add(href);
 
       const dateText = $(el).find(".event_date").text().trim();
-      const title    = $(el).find(".event_tit").text().replace(/\s+/g, " ").trim();
+      const title = $(el).find(".event_tit").text().replace(/\s+/g, " ").trim();
       if (!dateText || !title) return;
 
       const parsed = parseDateStr(dateText);
@@ -811,21 +862,34 @@ async function scrapeKannonzanFP() {
 
     for (const post of data) {
       const titleRaw = post.title?.rendered || "";
-      const title = titleRaw.replace(/<[^>]+>/g, "").replace(/&[^;]+;/g, " ").trim();
+      const title = titleRaw
+        .replace(/<[^>]+>/g, "")
+        .replace(/&[^;]+;/g, " ")
+        .trim();
       if (!title) continue;
 
       const contentRaw = post.content?.rendered || "";
-      const content = contentRaw.replace(/<[^>]+>/g, " ").replace(/&[^;]+;/g, " ").replace(/\s+/g, " ").trim();
+      const content = contentRaw
+        .replace(/<[^>]+>/g, " ")
+        .replace(/&[^;]+;/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
       const link = post.link || `${base}/archives/${post.id}`;
       const combined = title + " " + content.slice(0, 600);
 
       // 日付パース: 2026年5月16日 or 2026.5.16 or 2026-05-16
       const datePatterns = [
         ...combined.matchAll(/(\d{4})年(\d{1,2})月(\d{1,2})日/g),
-      ].map((m) => `${m[1]}-${String(m[2]).padStart(2, "0")}-${String(m[3]).padStart(2, "0")}`);
+      ].map(
+        (m) =>
+          `${m[1]}-${String(m[2]).padStart(2, "0")}-${String(m[3]).padStart(2, "0")}`,
+      );
       const datePatterns2 = [
         ...combined.matchAll(/(\d{4})\.(\d{1,2})\.(\d{1,2})/g),
-      ].map((m) => `${m[1]}-${String(m[2]).padStart(2, "0")}-${String(m[3]).padStart(2, "0")}`);
+      ].map(
+        (m) =>
+          `${m[1]}-${String(m[2]).padStart(2, "0")}-${String(m[3]).padStart(2, "0")}`,
+      );
       const allDates = [...datePatterns, ...datePatterns2].sort();
 
       let startDate = allDates[0] || null;
@@ -861,6 +925,309 @@ async function scrapeKannonzanFP() {
   }
 
   console.log(`  [観音山ファミリーパーク] 取得: ${results.length}件`);
+  return results;
+}
+
+// ===== ウォーカープラス =====
+// 全国展開時: WALKER_AREA_CODE を変更するだけで他県に対応
+// 例: ar0110=北海道, ar0210=青森, ar0310=群馬(現在), ar0110=埼玉 等
+const WALKER_AREA_CODE = "ar0310"; // 群馬
+
+async function scrapeWalkerPlus() {
+  const UA =
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+  const today = new Date().toISOString().split("T")[0];
+  const horizon = new Date();
+  horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
+  const horizonStr = horizon.toISOString().split("T")[0];
+
+  const results = [];
+  // 複数ページ取得（ページパラメータが存在すれば）
+  for (let page = 1; page <= 5; page++) {
+    const url =
+      page === 1
+        ? `https://www.walkerplus.com/event_list/${WALKER_AREA_CODE}/`
+        : `https://www.walkerplus.com/event_list/${WALKER_AREA_CODE}/?page=${page}`;
+    console.log(`  [ウォーカープラス] page=${page}`);
+    try {
+      if (page > 1) await new Promise((r) => setTimeout(r, 1000));
+      const res = await fetch(url, {
+        timeout: 12000,
+        headers: { "User-Agent": UA },
+      });
+      if (!res.ok) break;
+      const html = await res.text();
+      const $ = cheerio.load(html);
+
+      let foundOnPage = 0;
+      // イベントカードをパース（div.m-mainlist-item）
+      $("div.m-mainlist-item").each((_, el) => {
+        const $el = $(el);
+
+        // タイトル
+        const $titleLink = $el.find("a[href*='/event/']").first();
+        const title =
+          $el.find(".m-mainlist-item__ttl").text().trim() ||
+          $titleLink.text().trim().split("\n")[0].trim();
+        if (!title || title.length < 4) return;
+
+        // URL
+        const href = $titleLink.attr("href") || "";
+        const fullUrl = href.startsWith("http")
+          ? href
+          : `https://www.walkerplus.com${href}`;
+        if (!fullUrl.includes("/event/")) return;
+
+        // 日付テキスト: "5月16日(土)〜5月17日(日)" 等
+        const dateText = $el
+          .find(".m-mainlist-item-event__period")
+          .text()
+          .trim();
+        // 開催場所
+        const placeText = $el
+          .find(
+            ".m-mainlist-item__map, .m-mainlist-item-event__place, .m-mainlist-item__venue",
+          )
+          .text()
+          .trim();
+        // タグ
+        const tags = $el
+          .find(
+            ".m-mainlist-item__tags span, .m-mainlist-item-event__tag, .m-mainlist-item__tag",
+          )
+          .map((_, t) => $(t).text().trim())
+          .get()
+          .filter(Boolean);
+
+        // ウォーカープラスは一般アグリゲーターのため広めのフィルタを使用
+        const combined =
+          title + " " + dateText + " " + placeText + " " + tags.join(" ");
+        if (
+          !isBroadlyFamilyFriendly(combined) &&
+          !tags.some((t) =>
+            /家族|子育て|キッズ|子ども|体験|野外|祭|花|マルシェ|フェス/.test(t),
+          )
+        )
+          return;
+
+        // 日付パース（例: "5月16日(土)〜5月17日(日)", "2026年5月16日" 等）
+        const now = new Date();
+        function resolveWalkerDate(month, day) {
+          const y =
+            month < now.getMonth() - 4
+              ? now.getFullYear() + 1
+              : now.getFullYear();
+          return `${y}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+        }
+        let startDate = null,
+          endDate = null;
+        // 日本語日付 (2026年5月16日)
+        const fullDate = dateText.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+        if (fullDate) {
+          startDate = `${fullDate[1]}-${fullDate[2].padStart(2, "0")}-${fullDate[3].padStart(2, "0")}`;
+        }
+        // 月日のみ (5月16日 or 5月16日〜17日 or 5月16日〜6月1日)
+        if (!startDate) {
+          const rangeM = dateText.match(
+            /(\d{1,2})月(\d{1,2})日[^～〜]*[～〜](?:(\d{1,2})月)?(\d{1,2})日/,
+          );
+          if (rangeM) {
+            startDate = resolveWalkerDate(Number(rangeM[1]), Number(rangeM[2]));
+            const em = rangeM[3] ? Number(rangeM[3]) : Number(rangeM[1]);
+            endDate = resolveWalkerDate(em, Number(rangeM[4]));
+          } else {
+            const single = dateText.match(/(\d{1,2})月(\d{1,2})日/);
+            if (single)
+              startDate = resolveWalkerDate(
+                Number(single[1]),
+                Number(single[2]),
+              );
+          }
+        }
+        if (!startDate) startDate = today;
+        if (!endDate) endDate = startDate;
+
+        // 期間外スキップ
+        if (endDate < today || startDate > horizonStr) return;
+
+        // 場所 → area / venue
+        const areaMatch = placeText.match(/(.{2,8}[都道府県市区町村])/);
+        const area = areaMatch
+          ? areaMatch[1].replace(/^群馬県/, "").trim()
+          : "群馬県";
+        const venue = placeText || area;
+
+        const cat = guessCategory(combined);
+        results.push({
+          id: stableId(title, fullUrl),
+          title: title.slice(0, 80),
+          emoji: guessEmoji(combined),
+          ...cat,
+          area: area || "群馬県",
+          venue: venue.slice(0, 60),
+          startDate,
+          endDate,
+          tags: [
+            ...new Set(["ウォーカープラス", area, ...tags].filter(Boolean)),
+          ],
+          desc: (placeText ? `【${placeText}】` : "") + title.slice(0, 100),
+          url: fullUrl,
+          free: /無料/.test(combined),
+          age: "詳細は公式サイトへ",
+          _source: "ウォーカープラス",
+        });
+        foundOnPage++;
+      });
+
+      // 次ページなければ終了
+      if (!html.includes("次へ") && !html.includes("next")) break;
+      if (foundOnPage === 0) break;
+    } catch (e) {
+      console.warn(`    ⚠ 取得失敗: ${e.message}`);
+      break;
+    }
+  }
+
+  console.log(`  [ウォーカープラス] 取得: ${results.length}件`);
+  return results;
+}
+
+// ===== じゃらん =====
+// 全国展開時: JALAN_PREF_CODE を変更するだけで他県に対応
+// 例: 010000=北海道, 080000=栃木, 090000=群馬(現在), 110000=埼玉 等
+const JALAN_PREF_CODE = "090000"; // 群馬
+
+async function scrapeJalan() {
+  const UA =
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+  const today = new Date().toISOString().split("T")[0];
+  const horizon = new Date();
+  horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
+  const horizonStr = horizon.toISOString().split("T")[0];
+
+  const results = [];
+
+  try {
+    const url = `https://www.jalan.net/event/${JALAN_PREF_CODE}/`;
+    console.log(`  [じゃらん] ${url}`);
+    const res = await fetch(url, {
+      timeout: 12000,
+      headers: { "User-Agent": UA },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    // Shift-JIS → UTF-8 変換
+    const buf = await res.arrayBuffer();
+    const decoder = new TextDecoder("shift_jis");
+    const html = decoder.decode(buf);
+    const $ = cheerio.load(html);
+
+    // JSON-LD から Event データを抽出（じゃらんは構造化データを埋め込んでいる）
+    $('script[type="application/ld+json"]').each((_, el) => {
+      let json;
+      try {
+        json = JSON.parse($(el).html() || "{}");
+      } catch {
+        return;
+      }
+      // 配列形式 [{...}]、単体 Event、または @graph 配列
+      const items = Array.isArray(json)
+        ? json
+        : Array.isArray(json["@graph"])
+          ? json["@graph"]
+          : json["@type"] === "Event"
+            ? [json]
+            : [];
+
+      for (const ev of items) {
+        if (ev["@type"] !== "Event") continue;
+        const title = (ev["name"] || "").trim();
+        const evUrl = (ev["url"] || "").replace(/\\\//g, "/");
+        if (!title || !evUrl) continue;
+
+        const startDate = (ev["startDate"] || "").split("T")[0];
+        const endDate = (ev["endDate"] || ev["startDate"] || "").split("T")[0];
+        if (!startDate || startDate > horizonStr || endDate < today) continue;
+
+        const loc = ev["location"] || {};
+        const region = (loc["addressRegion"] || "群馬県").replace("県", "");
+        const locality = (loc["addressLocality"] || "").trim();
+        const venue = (loc["name"] || locality || region).slice(0, 60);
+        const area = (locality || region).slice(0, 20);
+
+        // じゃらんは一般アグリゲーターのため広めのフィルタを使用
+        const combined = title + " " + venue + " " + area;
+        if (!isBroadlyFamilyFriendly(combined)) continue;
+
+        const cat = guessCategory(combined);
+        results.push({
+          id: stableId(title, evUrl),
+          title: title.slice(0, 80),
+          emoji: guessEmoji(combined),
+          ...cat,
+          area,
+          venue,
+          startDate,
+          endDate,
+          tags: [...new Set(["じゃらん", area, "観光"].filter(Boolean))],
+          desc: (venue ? `【${venue}】` : "") + title.slice(0, 100),
+          url: evUrl,
+          free: /無料/.test(combined),
+          age: "詳細は公式サイトへ",
+          _source: "じゃらん",
+        });
+      }
+    });
+
+    // JSON-LD でイベントが取れなかった場合は HTML からフォールバック
+    if (results.length === 0) {
+      $(".cassette-event, .item-eventInfo").each((_, el) => {
+        const $el = $(el);
+        const $a = $el.find("a[href*='/event/']").first();
+        const title =
+          $a.text().trim() || $el.find(".cassette-event__title").text().trim();
+        const href = $a.attr("href") || "";
+        if (!title || !href) return;
+
+        const fullUrl = href.startsWith("http")
+          ? href
+          : `https://www.jalan.net${href}`;
+        const dateText = $el
+          .find(".cassette-event__date, .item-date")
+          .text()
+          .trim();
+        const placeText = $el
+          .find(".cassette-event__place, .item-place")
+          .text()
+          .trim();
+        const combined = title + " " + placeText;
+        if (!isKidsRelated(combined)) return;
+
+        const startDate = parseJapaneseDate(dateText) || today;
+        const cat = guessCategory(combined);
+        results.push({
+          id: stableId(title, fullUrl),
+          title: title.slice(0, 80),
+          emoji: guessEmoji(combined),
+          ...cat,
+          area: placeText.slice(0, 20) || "群馬県",
+          venue: placeText.slice(0, 60) || "群馬県",
+          startDate,
+          endDate: startDate,
+          tags: ["じゃらん", "観光"],
+          desc: title.slice(0, 100),
+          url: fullUrl,
+          free: /無料/.test(combined),
+          age: "詳細は公式サイトへ",
+          _source: "じゃらん",
+        });
+      });
+    }
+  } catch (e) {
+    console.warn(`    ⚠ 取得失敗: ${e.message}`);
+  }
+
+  console.log(`  [じゃらん] 取得: ${results.length}件`);
   return results;
 }
 
@@ -1060,25 +1427,42 @@ async function main() {
 
   // 各ソースから並行取得
   console.log("📡 各市公式サイトを取得中...");
-  const [otaRss, takasakiCal, maebashiCal, otaCal, naturalHistory, tenmonDai, safari, konchu, kodomonoKuni, kannonzan] =
-    await Promise.allSettled([
-      scrapeOtaRSS(),
-      scrapeTakasakiCalendar(),
-      scrapeMaebashiCalendar(),
-      scrapeOtaCalendar(),
-      scrapeNaturalHistory(),
-      scrapeGunmaTenmonDai(),
-      scrapeGunmaSafari(),
-      scrapeGunmaKonchu(),
-      scrapeGunmaKodomonoKuni(),
-      scrapeKannonzanFP(),
-    ]).then((results) =>
-      results.map((r) => (r.status === "fulfilled" ? r.value : [])),
-    );
+  const [
+    otaRss,
+    takasakiCal,
+    maebashiCal,
+    otaCal,
+    naturalHistory,
+    tenmonDai,
+    safari,
+    konchu,
+    kodomonoKuni,
+    kannonzan,
+  ] = await Promise.allSettled([
+    scrapeOtaRSS(),
+    scrapeTakasakiCalendar(),
+    scrapeMaebashiCalendar(),
+    scrapeOtaCalendar(),
+    scrapeNaturalHistory(),
+    scrapeGunmaTenmonDai(),
+    scrapeGunmaSafari(),
+    scrapeGunmaKonchu(),
+    scrapeGunmaKodomonoKuni(),
+    scrapeKannonzanFP(),
+  ]).then((results) =>
+    results.map((r) => (r.status === "fulfilled" ? r.value : [])),
+  );
 
   // ぐんラボ！は順番にページ取得するため別途実行
   console.log("\n📡 ぐんラボ！を取得中...");
   const gunlabo = await scrapeGunlabo().catch(() => []);
+
+  // ウォーカープラス・じゃらんを並行取得
+  console.log("\n📡 ウォーカープラス・じゃらんを取得中...");
+  const [walkerplus, jalan] = await Promise.allSettled([
+    scrapeWalkerPlus(),
+    scrapeJalan(),
+  ]).then((rs) => rs.map((r) => (r.status === "fulfilled" ? r.value : [])));
 
   const scrapedRaw = [
     ...otaRss,
@@ -1092,6 +1476,8 @@ async function main() {
     ...kodomonoKuni,
     ...kannonzan,
     ...gunlabo,
+    ...walkerplus,
+    ...jalan,
   ];
 
   console.log(`\n📋 自動収集 raw: ${scrapedRaw.length}件`);
@@ -1109,7 +1495,9 @@ async function main() {
   horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
   const horizonStr = horizon.toISOString().split("T")[0];
   const scrapedInRange = scrapedUniq.filter((ev) => ev.startDate <= horizonStr);
-  console.log(`📋 期間フィルタ後（${HORIZON_MONTHS}ヶ月以内）: ${scrapedInRange.length}件`);
+  console.log(
+    `📋 期間フィルタ後（${HORIZON_MONTHS}ヶ月以内）: ${scrapedInRange.length}件`,
+  );
 
   // 手動 + 自動 をマージ（手動が優先）
   const allEvents = [...manualEvents, ...scrapedInRange];
