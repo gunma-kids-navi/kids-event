@@ -13,7 +13,7 @@ const routes = [
   { path: "/sources", component: SourcesView },
 ];
 
-export default createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   routes,
   linkExactActiveClass: "active",
@@ -21,3 +21,13 @@ export default createRouter({
     return { top: 0, behavior: "smooth" };
   },
 });
+
+router.afterEach((to) => {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "page_view", {
+      page_path: to.fullPath,
+    });
+  }
+});
+
+export default router;
