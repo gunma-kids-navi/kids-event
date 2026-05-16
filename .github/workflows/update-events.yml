@@ -3,7 +3,7 @@ name: イベント自動更新
 on:
   schedule:
     # 毎週月曜 午前10時（JST = UTC+9）に実行
-    - cron: '0 1 * * 1'
+    - cron: "0 1 * * 1"
   workflow_dispatch:
     # GitHub の Actions タブから手動実行も可能
 
@@ -11,7 +11,7 @@ jobs:
   scrape-and-update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # events.js をコミットするために必要
+      contents: write # events.js をコミットするために必要
 
     steps:
       - name: リポジトリをチェックアウト
@@ -20,7 +20,7 @@ jobs:
       - name: Node.js セットアップ
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: スクレイパー 依存パッケージをインストール
         working-directory: scraper
@@ -31,7 +31,7 @@ jobs:
         run: node scrape.js
 
       - name: フロントエンド 依存パッケージをインストール
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Vue アプリをビルド
         run: npm run build
