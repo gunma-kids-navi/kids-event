@@ -856,16 +856,41 @@ async function scrapeGunmaKodomonoKuni() {
 // ===== 観音山ファミリーパーク =====
 async function scrapeKannonzanFP() {
   const base = "https://kfp-tomo.org";
-  const apiUrl = `${base}/wp-json/wp/v2/posts?per_page=30&categories=4,5&_embed`;
-  console.log(`  [観音山ファミリーパーク] ${apiUrl}`);
+  // _embed で featured image を取得。サーバーが HTML を返す場合は _embed なしにフォールバック
+  const apiUrlEmbed = `${base}/wp-json/wp/v2/posts?per_page=30&categories=4,5&_embed`;
+  const apiUrlPlain = `${base}/wp-json/wp/v2/posts?per_page=30&categories=4,5`;
+  console.log(`  [観音山ファミリーパーク] ${apiUrlEmbed}`);
   const results = [];
 
   try {
-    const res = await fetch(apiUrl, {
-      timeout: 10000,
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
-    });
-    const data = await res.json();
+    let data;
+    let useEmbed = true;
+    try {
+      const res = await fetch(apiUrlEmbed, {
+        timeout: 10000,
+        headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
+      });
+      const text = await res.text();
+      if (text.trimStart().startsWith("<")) {
+        // HTMLが返ってきた → _embed なしで再試行
+        useEmbed = false;
+        console.warn(`    ⚠ _embed で HTML レスポンス。フォールバック中...`);
+        const res2 = await fetch(apiUrlPlain, {
+          timeout: 10000,
+          headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
+        });
+        data = await res2.json();
+      } else {
+        data = JSON.parse(text);
+      }
+    } catch {
+      useEmbed = false;
+      const res2 = await fetch(apiUrlPlain, {
+        timeout: 10000,
+        headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
+      });
+      data = await res2.json();
+    }
 
     const today = new Date().toISOString().split("T")[0];
     const horizon = new Date();
@@ -915,8 +940,8 @@ async function scrapeKannonzanFP() {
 
       const cat = guessCategory(combined);
 
-      // WordPress フィーチャード画像（_embed で取得）
-      const featuredMedia = post._embedded?.["wp:featuredmedia"];
+      // WordPress フィーチャード画像（_embed が成功した場合のみ）
+      const featuredMedia = useEmbed ? post._embedded?.["wp:featuredmedia"] : null;
       const imageUrl =
         Array.isArray(featuredMedia) && featuredMedia[0]?.source_url
           ? featuredMedia[0].source_url
