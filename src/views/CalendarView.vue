@@ -2,7 +2,12 @@
   <div class="page-content">
     <div class="container">
       <div class="calendar-nav">
-        <button class="btn btn-outline" id="cal-prev" @click="prevMonth">
+        <button
+          class="btn btn-outline"
+          id="cal-prev"
+          @click="prevMonth"
+          :disabled="isAtMinMonth"
+        >
           ‹ 前月
         </button>
         <h2 class="cal-month-title" id="cal-title">
@@ -207,6 +212,18 @@ function prevMonth() {
   }
   selectedDay.value = null; // 月変更時は選択をリセット
 }
+// 2ヶ月前を下限とする
+const MIN_DATE = new Date(TODAY);
+MIN_DATE.setMonth(MIN_DATE.getMonth() - 2);
+const minCalYear = MIN_DATE.getFullYear();
+const minCalMonth = MIN_DATE.getMonth();
+
+const isAtMinMonth = computed(
+  () =>
+    calYear.value < minCalYear ||
+    (calYear.value === minCalYear && calMonth.value <= minCalMonth),
+);
+
 // 6ヶ月先の年月を上限とする
 const MAX_DATE = new Date(TODAY);
 MAX_DATE.setMonth(MAX_DATE.getMonth() + 6);
