@@ -33,14 +33,11 @@ jobs:
       - name: フロントエンド 依存パッケージをインストール
         run: npm install --legacy-peer-deps
 
-      - name: Vue アプリをビルド
-        run: npm run build
-
       - name: 変更があれば自動コミット & プッシュ
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions [Bot]"
-          git add src/data/events.js dist/
+          git add src/data/events.js
           if git diff --staged --quiet; then
             echo "変更なし — コミットをスキップ"
           else
