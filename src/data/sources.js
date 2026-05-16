@@ -119,6 +119,30 @@ export const SOURCES = [
     kidsLabel: "家族向けイベント",
     rssUrl: null,
   },
+  {
+    name: "ウォーカープラス",
+    icon: "W",
+    matchUrl: "walkerplus.com",
+    calendarUrl: "https://www.walkerplus.com/event_list/ar0310/",
+    calendarLabel: "群馬県のイベント一覧",
+    newsletterUrl: null,
+    newsletterLabel: null,
+    kidsUrl: null,
+    kidsLabel: null,
+    rssUrl: null,
+  },
+  {
+    name: "じゃらん",
+    icon: "じ",
+    matchUrl: "jalan.net",
+    calendarUrl: "https://www.jalan.net/event/090000/",
+    calendarLabel: "群馬県のイベント・祭り一覧",
+    newsletterUrl: null,
+    newsletterLabel: null,
+    kidsUrl: null,
+    kidsLabel: null,
+    rssUrl: null,
+  },
 ];
 
 export const KIDS_KEYWORDS = [
