@@ -1122,6 +1122,43 @@ async function scrapeJalan() {
     const html = decoder.decode(buf);
     const $ = cheerio.load(html);
 
+    // HTML から会場・エリア情報をURLをキーにしてマップ化
+    const locationMap = {};
+    $("li.item").each((_, el) => {
+      const $el = $(el);
+      const href =
+        $el.find(".item-name a").attr("href") ||
+        $el.find("a[href*='/event/']").first().attr("href") ||
+        "";
+      const evUrl = href.startsWith("//")
+        ? "https:" + href
+        : href.startsWith("/")
+          ? "https://www.jalan.net" + href
+          : href;
+      if (!evUrl) return;
+
+      // じゃらんエリア名（例: "万座・嬬恋・北軽井沢"）
+      const jalanArea = $el.find("p.item-categories").text().trim();
+
+      // 「場所：群馬県○○市　会場名」形式のテキストを取得
+      let venueRaw = "";
+      $el.find("dl.item-eventInfo dt").each((_, dt) => {
+        if ($(dt).text().includes("場所")) {
+          venueRaw = $(dt).next("dd").text().trim();
+        }
+      });
+
+      // "群馬県嬬恋村　東海大学嬬恋高原研修センター" → area=嬬恋村, venue=東海大学...
+      const withoutPref = venueRaw.replace(/^群馬県/, "");
+      const cityMatch = withoutPref.match(/^(.+?[市町村郡])\s*/);
+      const areaName = cityMatch ? cityMatch[1] : jalanArea || "群馬";
+      const venueName = cityMatch
+        ? withoutPref.slice(cityMatch[0].length).trim() || withoutPref.trim()
+        : venueRaw || jalanArea || "群馬";
+
+      locationMap[evUrl] = { area: areaName, venue: venueName };
+    });
+
     // JSON-LD から Event データを抽出（じゃらんは構造化データを埋め込んでいる）
     $('script[type="application/ld+json"]').each((_, el) => {
       let json;
@@ -1149,11 +1186,10 @@ async function scrapeJalan() {
         const endDate = (ev["endDate"] || ev["startDate"] || "").split("T")[0];
         if (!startDate || startDate > horizonStr || endDate < today) continue;
 
-        const loc = ev["location"] || {};
-        const region = (loc["addressRegion"] || "群馬県").replace("県", "");
-        const locality = (loc["addressLocality"] || "").trim();
-        const venue = (loc["name"] || locality || region).slice(0, 60);
-        const area = (locality || region).slice(0, 20);
+        // HTML locationMap から会場・エリアを取得（JSON-LDのlocationより詳細）
+        const htmlLoc = locationMap[evUrl] || {};
+        const venue = (htmlLoc.venue || "群馬").slice(0, 60);
+        const area = (htmlLoc.area || "群馬").slice(0, 20);
 
         // じゃらんは一般アグリゲーターのため広めのフィルタを使用
         const combined = title + " " + venue + " " + area;

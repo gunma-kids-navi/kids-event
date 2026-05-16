@@ -58,16 +58,16 @@ export const EVENTS = [
     "emoji": "🎪",
     "category": "festival",
     "label": "祭り・フェスタ",
-    "area": "群馬",
-    "venue": "群馬",
+    "area": "嬬恋村",
+    "venue": "浅間高原シャクナゲ園",
     "startDate": "2026-05-08",
     "endDate": "2026-05-31",
     "tags": [
       "じゃらん",
-      "群馬",
+      "嬬恋村",
       "観光"
     ],
-    "desc": "【群馬】浅間高原シャクナゲ園まつり",
+    "desc": "【浅間高原シャクナゲ園】浅間高原シャクナゲ園まつり",
     "url": "https://www.jalan.net/event/evt_354935/",
     "free": false,
     "age": "詳細は公式サイトへ"
@@ -376,16 +376,16 @@ export const EVENTS = [
     "emoji": "🎈",
     "category": "culture",
     "label": "文化・学習",
-    "area": "群馬",
-    "venue": "群馬",
+    "area": "前橋市",
+    "venue": "赤城白樺牧場（受付/赤城山総合観光案内所）",
     "startDate": "2026-06-01",
     "endDate": "2026-06-15",
     "tags": [
       "じゃらん",
-      "群馬",
+      "前橋市",
       "観光"
     ],
-    "desc": "【群馬】普段は入れない！赤城白樺牧場　秘密の絶景ツアー",
+    "desc": "【赤城白樺牧場（受付/赤城山総合観光案内所）】普段は入れない！赤城白樺牧場　秘密の絶景ツアー",
     "url": "https://www.jalan.net/event/evt_357112/",
     "free": false,
     "age": "詳細は公式サイトへ"
@@ -1903,16 +1903,16 @@ export const EVENTS = [
     "emoji": "🌿",
     "category": "festival",
     "label": "祭り・フェスタ",
-    "area": "群馬",
-    "venue": "群馬",
+    "area": "桐生市",
+    "venue": "吾妻公園",
     "startDate": "2026-06-06",
     "endDate": "2026-06-21",
     "tags": [
       "じゃらん",
-      "群馬",
+      "桐生市",
       "観光"
     ],
-    "desc": "【群馬】吾妻公園　花菖蒲まつり",
+    "desc": "【吾妻公園】吾妻公園　花菖蒲まつり",
     "url": "https://www.jalan.net/event/evt_357109/",
     "free": false,
     "age": "詳細は公式サイトへ"
@@ -2149,16 +2149,16 @@ export const EVENTS = [
     "emoji": "🌿",
     "category": "festival",
     "label": "祭り・フェスタ",
-    "area": "群馬",
-    "venue": "群馬",
+    "area": "館林市",
+    "venue": "館林花菖蒲園（つつじが岡第二公園）",
     "startDate": "2026-05-30",
     "endDate": "2026-06-14",
     "tags": [
       "じゃらん",
-      "群馬",
+      "館林市",
       "観光"
     ],
-    "desc": "【群馬】たてばやし花菖蒲まつり",
+    "desc": "【館林花菖蒲園（つつじが岡第二公園）】たてばやし花菖蒲まつり",
     "url": "https://www.jalan.net/event/evt_354930/",
     "free": false,
     "age": "詳細は公式サイトへ"
