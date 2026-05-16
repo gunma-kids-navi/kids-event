@@ -86,6 +86,7 @@ export const SOURCES = [
   {
     name: "ぐんまこどもの国",
     icon: "国",
+    matchUrl: "kodomonokuni.or.jp",
     calendarUrl: "https://gunma-kodomonokuni.jp/",
     calendarLabel: "公式サイト（群馬県立金山総合公園）",
     newsletterUrl: null,
