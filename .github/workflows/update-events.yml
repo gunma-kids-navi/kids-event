@@ -1,0 +1,51 @@
+name: イベント自動更新
+
+on:
+  schedule:
+    # 毎週月曜 午前10時（JST = UTC+9）に実行
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+    # GitHub の Actions タブから手動実行も可能
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # events.js をコミットするために必要
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js セットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: スクレイパー 依存パッケージをインストール
+        working-directory: scraper
+        run: npm install
+
+      - name: イベントデータを収集
+        working-directory: scraper
+        run: node scrape.js
+
+      - name: フロントエンド 依存パッケージをインストール
+        run: npm install
+
+      - name: Vue アプリをビルド
+        run: npm run build
+
+      - name: 変更があれば自動コミット & プッシュ
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions [Bot]"
+          git add src/data/events.js dist/
+          if git diff --staged --quiet; then
+            echo "変更なし — コミットをスキップ"
+          else
+            CHANGED=$(git diff --staged --stat | tail -1)
+            git commit -m "chore: イベント自動更新 $(date +'%Y/%m/%d') — ${CHANGED}"
+            git push
+            echo "✅ 更新をプッシュしました"
+          fi

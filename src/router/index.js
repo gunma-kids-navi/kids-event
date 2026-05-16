@@ -1,0 +1,23 @@
+import { createRouter, createWebHashHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import EventsView from "../views/EventsView.vue";
+import CalendarView from "../views/CalendarView.vue";
+import AreaView from "../views/AreaView.vue";
+import SourcesView from "../views/SourcesView.vue";
+
+const routes = [
+  { path: "/", component: HomeView },
+  { path: "/events", component: EventsView },
+  { path: "/calendar", component: CalendarView },
+  { path: "/area", component: AreaView },
+  { path: "/sources", component: SourcesView },
+];
+
+export default createRouter({
+  history: createWebHashHistory(),
+  routes,
+  linkExactActiveClass: "active",
+  scrollBehavior() {
+    return { top: 0, behavior: "smooth" };
+  },
+});

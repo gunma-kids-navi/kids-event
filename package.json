@@ -1,0 +1,26 @@
+{
+  "name": "gunma-kids-events",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.0",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@pinia/testing": "^1.0.3",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vue/test-utils": "^2.4.10",
+    "happy-dom": "^20.9.0",
+    "vite": "^5.0.0",
+    "vitest": "^4.1.6"
+  }
+}
