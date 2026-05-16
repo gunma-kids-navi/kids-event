@@ -1,7 +1,17 @@
 <template>
   <div class="event-card" @click="$emit('open-modal', event)">
     <div class="event-card-img">
-      {{ event.emoji }}
+      <img
+        v-if="event.image"
+        :src="event.image"
+        :alt="event.title"
+        class="event-card-img-photo"
+        loading="lazy"
+        @error="imgError = true"
+      />
+      <template v-if="!event.image || imgError">
+        {{ event.emoji }}
+      </template>
       <span class="event-card-badge" :class="statusClass(status)">
         {{ statusLabel(status) }}
         <span
@@ -44,7 +54,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import {
   getStatus,
   statusLabel,
@@ -57,6 +67,7 @@ import {
 const props = defineProps({ event: { type: Object, required: true } });
 defineEmits(["open-modal"]);
 
+const imgError = ref(false);
 const status = computed(() => getStatus(props.event));
 const remainDays = computed(() => daysLeft(props.event));
 const startDays = computed(() => daysToStart(props.event));

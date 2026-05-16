@@ -621,10 +621,22 @@ async function scrapeGunmaSafari() {
 
       const cat = guessCategory(title);
 
+      // サムネイル画像URL（リスト画面の画像リンクから取得）
+      const rawImg =
+        $el.find("a.cont05__imgLink01 img").attr("src") ||
+        $el.find("img").first().attr("src") ||
+        null;
+      const imageUrl = rawImg
+        ? rawImg.startsWith("http")
+          ? rawImg
+          : `https://safari.co.jp${rawImg}`
+        : null;
+
       results.push({
         id: stableId(title, href),
         title: title.slice(0, 80),
         emoji: guessEmoji(title),
+        image: imageUrl,
         ...cat,
         area: "富岡市",
         venue: "群馬サファリパーク",
@@ -844,7 +856,7 @@ async function scrapeGunmaKodomonoKuni() {
 // ===== 観音山ファミリーパーク =====
 async function scrapeKannonzanFP() {
   const base = "https://kfp-tomo.org";
-  const apiUrl = `${base}/wp-json/wp/v2/posts?per_page=30&categories=4,5`;
+  const apiUrl = `${base}/wp-json/wp/v2/posts?per_page=30&categories=4,5&_embed`;
   console.log(`  [観音山ファミリーパーク] ${apiUrl}`);
   const results = [];
 
@@ -903,10 +915,18 @@ async function scrapeKannonzanFP() {
 
       const cat = guessCategory(combined);
 
+      // WordPress フィーチャード画像（_embed で取得）
+      const featuredMedia = post._embedded?.["wp:featuredmedia"];
+      const imageUrl =
+        Array.isArray(featuredMedia) && featuredMedia[0]?.source_url
+          ? featuredMedia[0].source_url
+          : null;
+
       results.push({
         id: stableId(title, link),
         title: title.slice(0, 80),
         emoji: guessEmoji(combined),
+        image: imageUrl,
         ...cat,
         area: "高崎市",
         venue: "観音山ファミリーパーク",
@@ -1346,10 +1366,19 @@ async function scrapeGunlabo() {
 
         const cat = guessCategory(title + desc);
 
+        // サムネイル画像URL（リスト画面から取得）
+        const rawImg = $el.find("img").first().attr("src") || null;
+        const imageUrl = rawImg
+          ? rawImg.startsWith("http")
+            ? rawImg
+            : `https://www.gunlabo.net${rawImg}`
+          : null;
+
         results.push({
           id: stableId(title, fullUrl),
           title: title.slice(0, 80),
           emoji: guessEmoji(title + desc),
+          image: imageUrl,
           ...cat,
           area,
           venue,
