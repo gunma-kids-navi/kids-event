@@ -103,6 +103,43 @@ function isBroadlyFamilyFriendly(text) {
   return BROAD_FAMILY_KEYWORDS.some((kw) => text.includes(kw));
 }
 
+// ===== 群馬県内市町村名からエリア推定 =====
+// 長い名前（郡名付き）を先に並べて部分一致の誤判定を防ぐ
+const GUNMA_AREA_NAMES = [
+  // 郡名付き（より具体的なので先に判定）
+  "佐波郡玉村町", "利根郡みなかみ町", "利根郡川場村", "利根郡片品村",
+  "利根郡昭和村", "多野郡上野村", "多野郡神流町",
+  "吾妻郡中之条町", "吾妻郡長野原町", "吾妻郡嬬恋村", "吾妻郡草津町",
+  "吾妻郡高山村", "吾妻郡東吾妻町",
+  "北群馬郡榛東村", "北群馬郡吉岡町",
+  "甘楽郡下仁田町", "甘楽郡南牧村", "甘楽郡甘楽町",
+  "邑楽郡板倉町", "邑楽郡明和町", "邑楽郡千代田町", "邑楽郡大泉町", "邑楽郡邑楽町",
+  // 市（郡なし）
+  "前橋市", "高崎市", "桐生市", "伊勢崎市", "太田市", "沼田市", "館林市",
+  "渋川市", "藤岡市", "富岡市", "安中市", "みどり市",
+  // 町村（郡なし）
+  "中之条町", "長野原町", "嬬恋村", "草津町", "高山村", "東吾妻町",
+  "片品村", "川場村", "昭和村", "みなかみ町",
+  "下仁田町", "南牧村", "甘楽町",
+  "板倉町", "明和町", "千代田町", "大泉町", "邑楽町", "玉村町",
+  "榛東村", "吉岡町",
+  "上野村", "神流町",
+];
+
+/**
+ * テキスト中から群馬県内の市町村名を検出してエリア名を返す。
+ * 見つからない場合は null を返す。
+ * 改行・タブ等の空白は正規化してから検索する。
+ */
+function resolveAreaFromText(text) {
+  if (!text) return null;
+  const normalized = text.replace(/\s+/g, " ");
+  for (const name of GUNMA_AREA_NAMES) {
+    if (normalized.includes(name)) return name;
+  }
+  return null;
+}
+
 // ===== カテゴリ推定 =====
 function guessCategory(text) {
   if (/工作|ものづくり|クラフト|アート|絵|版画|染め|陶芸/.test(text))
@@ -522,11 +559,11 @@ async function scrapeNaturalHistory() {
   return results;
 }
 
-// ===== ぐんま昂虫の森 =====
+// ===== ぐんま昆虫の森 =====
 async function scrapeGunmaKonchu() {
   const url = "https://www.pref.gunma.jp/site/giw/629706.html";
   const base = "https://www.pref.gunma.jp/site/giw/";
-  console.log(`  [ぐんま昂虫の森] ${url}`);
+  console.log(`  [ぐんま昆虫の森] ${url}`);
   const results = [];
 
   try {
@@ -564,22 +601,22 @@ async function scrapeGunmaKonchu() {
         emoji: guessEmoji(name),
         ...cat,
         area: "桐生市",
-        venue: "ぐんま昂虫の森",
+        venue: "ぐんま昆虫の森",
         startDate: today,
         endDate,
-        tags: ["昂虫の森", "桐生市", "昂虫", period],
-        desc: `ぐんま昂虫の森で${period}開催中の体験プログラムです。詳細は公式サイトをご確認ください。`,
+        tags: ["昆虫の森", "桐生市", "昆虫", period],
+        desc: `ぐんま昆虫の森で${period}開催中の体験プログラムです。詳細は公式サイトをご確認ください。`,
         url: fullUrl || base,
         free: false,
         age: "詳細は公式サイトへ",
-        _source: "ぐんま昂虫の森",
+        _source: "ぐんま昆虫の森",
       });
     });
   } catch (e) {
     console.warn(`    ⚠ 取得失敗: ${e.message}`);
   }
 
-  console.log(`  [ぐんま昂虫の森] 取得: ${results.length}件`);
+  console.log(`  [ぐんま昆虫の森] 取得: ${results.length}件`);
   return results;
 }
 
@@ -1468,14 +1505,20 @@ function isValidEvent(ev) {
 
 // ===== イベントの重複除去 =====
 function deduplicateEvents(events) {
-  const seen = new Map();
+  const seenById = new Map();
+  const seenByTitleDate = new Map();
+  const result = [];
   for (const ev of events) {
-    const key = ev.id;
-    if (!seen.has(key)) {
-      seen.set(key, ev);
-    }
+    // ID重複チェック
+    if (seenById.has(ev.id)) continue;
+    // タイトル+開始日が同じイベントは別URLでも重複とみなす
+    const titleDateKey = `${ev.title}|${ev.startDate}`;
+    if (seenByTitleDate.has(titleDateKey)) continue;
+    seenById.set(ev.id, true);
+    seenByTitleDate.set(titleDateKey, true);
+    result.push(ev);
   }
-  return Array.from(seen.values());
+  return result;
 }
 
 // ===== events.js を生成 =====
@@ -1580,11 +1623,31 @@ async function main() {
   const scrapedUniq = deduplicateEvents(scrapedFiltered);
   console.log(`📋 重複除去後: ${scrapedUniq.length}件`);
 
+  // エリアが「群馬県」のイベントを市町村に振り分け
+  const scrapedAreaResolved = scrapedUniq.map((ev) => {
+    if (ev.area !== "群馬県" && ev.area !== "群馬") return ev;
+    // title / venue / desc / tags を全結合して市町村名を探す
+    const combinedText = [ev.title, ev.venue, ev.desc, ...(ev.tags || [])]
+      .filter(Boolean)
+      .join(" ");
+    const resolved = resolveAreaFromText(combinedText);
+    if (resolved) {
+      console.log(`  📍 エリア解決: "${ev.title.slice(0, 20)}…" → ${resolved}`);
+      return { ...ev, area: resolved };
+    }
+    // 解決できない場合は「群馬県（県全体）」に統一
+    return { ...ev, area: "群馬県（県全体）" };
+  });
+  const resolvedCount = scrapedAreaResolved.filter(
+    (ev) => ev.area !== "群馬県（県全体）",
+  ).length - scrapedUniq.filter((ev) => ev.area !== "群馬県" && ev.area !== "群馬").length;
+  console.log(`📋 エリア解決: ${resolvedCount}件を市町村に振り分け`);
+
   // 期間上限フィルタ（今日から HORIZON_MONTHS ヶ月先まで）
   const horizon = new Date();
   horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
   const horizonStr = horizon.toISOString().split("T")[0];
-  const scrapedInRange = scrapedUniq.filter((ev) => ev.startDate <= horizonStr);
+  const scrapedInRange = scrapedAreaResolved.filter((ev) => ev.startDate <= horizonStr);
   console.log(
     `📋 期間フィルタ後（${HORIZON_MONTHS}ヶ月以内）: ${scrapedInRange.length}件`,
   );

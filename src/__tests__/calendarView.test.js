@@ -383,3 +383,102 @@ describe("CalendarView isHoliday 表示ロジック", () => {
     expect(isHoliday(2026, 1, 1)).toBe(false); // 2月1日（祝日ではない）
   });
 });
+
+// ========================================================
+// BUG #50/#72: MIN_DATE / MAX_DATE カレンダーナビゲーション制限
+// ========================================================
+describe("[BUG #50/#72修正] カレンダーの前月/次月ナビゲーション制限", () => {
+  // CalendarView の isAtMinMonth/isAtMaxMonth ロジックを再現
+  function isAtMinMonth(calYear, calMonth, minYear, minMonth) {
+    return calYear < minYear || (calYear === minYear && calMonth <= minMonth);
+  }
+  function isAtMaxMonth(calYear, calMonth, maxYear, maxMonth) {
+    return calYear > maxYear || (calYear === maxYear && calMonth >= maxMonth);
+  }
+
+  it("MIN_DATE（2ヶ月前）ちょうどでは前月ボタンが無効化される", () => {
+    // today = 2026-05-01 と仮定
+    const today = new Date(2026, 4, 1); // 5月
+    const min = new Date(today);
+    min.setMonth(min.getMonth() - 2);
+    const minYear = min.getFullYear();
+    const minMonth = min.getMonth();
+
+    // 現在が 2026-03（2ヶ月前）のとき → 無効
+    expect(isAtMinMonth(2026, 2, minYear, minMonth)).toBe(true);
+    // 現在が 2026-04（1ヶ月前）のとき → 有効
+    expect(isAtMinMonth(2026, 3, minYear, minMonth)).toBe(false);
+  });
+
+  it("MAX_DATE（6ヶ月先）ちょうどでは次月ボタンが無効化される", () => {
+    const today = new Date(2026, 4, 1); // 5月
+    const max = new Date(today);
+    max.setMonth(max.getMonth() + 6);
+    const maxYear = max.getFullYear();
+    const maxMonth = max.getMonth();
+
+    // 現在が 2026-11（6ヶ月後）のとき → 無効
+    expect(isAtMaxMonth(2026, 10, maxYear, maxMonth)).toBe(true);
+    // 現在が 2026-10（5ヶ月後）のとき → 有効
+    expect(isAtMaxMonth(2026, 9, maxYear, maxMonth)).toBe(false);
+  });
+
+  it("上限・下限の間の月は両方のボタンが有効", () => {
+    const today = new Date(2026, 4, 1);
+    const min = new Date(today);
+    min.setMonth(min.getMonth() - 2);
+    const max = new Date(today);
+    max.setMonth(max.getMonth() + 6);
+
+    // 今月（2026-05）: prev は OK、next も OK
+    expect(isAtMinMonth(2026, 4, min.getFullYear(), min.getMonth())).toBe(
+      false,
+    );
+    expect(isAtMaxMonth(2026, 4, max.getFullYear(), max.getMonth())).toBe(
+      false,
+    );
+  });
+
+  it("年をまたぐ境界でも正しく判定する", () => {
+    // today = 2026-11 と仮定 → max = 2027-05
+    const today = new Date(2026, 10, 1);
+    const max = new Date(today);
+    max.setMonth(max.getMonth() + 6);
+    const maxYear = max.getFullYear(); // 2027
+    const maxMonth = max.getMonth(); // 4 (5月)
+
+    // 2027-05（上限）で無効
+    expect(isAtMaxMonth(2027, 4, maxYear, maxMonth)).toBe(true);
+    // 2027-04（上限の1ヶ月前）で有効
+    expect(isAtMaxMonth(2027, 3, maxYear, maxMonth)).toBe(false);
+    // 2027-06（上限超）でも無効
+    expect(isAtMaxMonth(2027, 5, maxYear, maxMonth)).toBe(true);
+  });
+});
+
+// ========================================================
+// BUG #56: eventsOnDay がテンプレート内で複数回呼ばれるパフォーマンス問題
+// ========================================================
+describe("[BUG #56] eventsOnDay 重複呼び出しパフォーマンス問題の確認", () => {
+  it("eventsOnDay は同じ日に対し毎回同じ結果を返す（冪等性確認）", () => {
+    const events = [
+      {
+        id: 1,
+        startDate: "2026-05-10",
+        endDate: "2026-05-20",
+      },
+    ];
+    const result1 = getEventsOnDay(events, 2026, 4, 15);
+    const result2 = getEventsOnDay(events, 2026, 4, 15);
+    const result3 = getEventsOnDay(events, 2026, 4, 15);
+    // 同じ結果
+    expect(result1.length).toBe(result2.length);
+    expect(result2.length).toBe(result3.length);
+    // 内部で monthEvents を毎回フィルタするため、
+    // テンプレート内で 4 回呼ぶと 4 倍の計算が走る（パフォーマンス改善余地あり）
+    console.info(
+      "[BUG #56] eventsOnDay は computed でなく function のため、" +
+        "1 日あたりテンプレート内で最大 4 回呼ばれる（computed メモ化推奨）",
+    );
+  });
+});

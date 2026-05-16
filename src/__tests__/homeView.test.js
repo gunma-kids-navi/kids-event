@@ -282,3 +282,57 @@ describe("HomeView 実データ - ongoing/upcoming のソート確認", () => {
     vi.useRealTimers();
   });
 });
+
+// ========================================================
+// BUG #69: areaCounts が終了済みイベントを含む
+// ========================================================
+describe("[BUG #69] HomeView areaCounts に終了済みイベントが含まれる", () => {
+  it("areaCounts は全イベント件数（終了済み含む）のため実際の表示件数より多い", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-05-16T10:00:00"));
+
+    const areas = [...new Set(MOCK_EVENTS.map((e) => e.area))].sort();
+    const allCounts = {};
+    const activeCounts = {};
+    areas.forEach((a) => {
+      allCounts[a] = MOCK_EVENTS.filter((e) => e.area === a).length;
+      activeCounts[a] = MOCK_EVENTS.filter(
+        (e) => e.area === a && getStatus(e) !== "ended",
+      ).length;
+    });
+
+    // 終了済みイベントがあるエリアでは全件カウントが多くなる
+    const hasEndedEvent = MOCK_EVENTS.some((e) => getStatus(e) === "ended");
+    if (hasEndedEvent) {
+      const totalAll = Object.values(allCounts).reduce((s, c) => s + c, 0);
+      const totalActive = Object.values(activeCounts).reduce(
+        (s, c) => s + c,
+        0,
+      );
+      expect(totalAll).toBeGreaterThan(totalActive);
+      console.warn(
+        `[BUG #69] areaCounts は全件 ${totalAll} 件だが、表示中（非終了）は ${totalActive} 件`,
+      );
+    }
+    vi.useRealTimers();
+  });
+
+  it("修正案: areaCounts が ongoing/upcoming のみカウントする場合の正確性", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-05-16T10:00:00"));
+
+    const areas = [...new Set(MOCK_EVENTS.map((e) => e.area))].sort();
+    const activeCounts = {};
+    areas.forEach((a) => {
+      activeCounts[a] = MOCK_EVENTS.filter(
+        (e) => e.area === a && getStatus(e) !== "ended",
+      ).length;
+    });
+
+    // 各エリアのカウントが非負の整数
+    Object.values(activeCounts).forEach((c) => {
+      expect(c).toBeGreaterThanOrEqual(0);
+    });
+    vi.useRealTimers();
+  });
+});

@@ -102,7 +102,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, watch, onMounted, onBeforeUnmount } from "vue";
 import {
   getStatus,
   statusLabel,
@@ -111,14 +111,39 @@ import {
 } from "../composables/useEvents";
 
 const props = defineProps({ event: { type: Object, default: null } });
-defineEmits(["close"]);
+const emit = defineEmits(["close"]);
+
+// BUG #82修正: Escapeキーでモーダルを閉じる
+function handleKeydown(e) {
+  if (e.key === "Escape" && props.event) emit("close");
+}
+onMounted(() => document.addEventListener("keydown", handleKeydown));
+onBeforeUnmount(() => document.removeEventListener("keydown", handleKeydown));
+
+// BUG #85修正: モーダル開放中はページスクロールを抑制
+watch(
+  () => props.event,
+  (val) => {
+    document.body.style.overflow = val ? "hidden" : "";
+  },
+);
+onBeforeUnmount(() => {
+  document.body.style.overflow = "";
+});
 
 const status = computed(() => (props.event ? getStatus(props.event) : "ended"));
 
+// BUG #84修正: new Date().toISOString() はUTC変換するため、JST環境では日付が1日ずれる
+// 日付文字列を直接操作してタイムゾーン依存を排除
 function toGcalDate(dateStr, addDay = false) {
-  const d = new Date(dateStr + "T00:00:00");
-  if (addDay) d.setDate(d.getDate() + 1);
-  return d.toISOString().slice(0, 10).replace(/-/g, "");
+  if (!addDay) return dateStr.replace(/-/g, "");
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const next = new Date(y, m - 1, d + 1); // ローカル時刻で翌日計算（UTC変換なし）
+  return (
+    String(next.getFullYear()) +
+    String(next.getMonth() + 1).padStart(2, "0") +
+    String(next.getDate()).padStart(2, "0")
+  );
 }
 
 const lineShareUrl = computed(() => {

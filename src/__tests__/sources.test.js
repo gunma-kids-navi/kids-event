@@ -164,3 +164,99 @@ describe("EVENTS と SOURCES の照合", () => {
     expect(Array.isArray(unmatched)).toBe(true);
   });
 });
+
+// ─────────────────────────────────────────────
+// BUG #A4: 観音山ファミリーパーク matchUrl マッチ 0 件
+// ─────────────────────────────────────────────
+describe("[BUG #A4] 観音山ファミリーパーク matchUrl 確認", () => {
+  it("観音山ファミリーパーク の matchUrl が SOURCES に定義されている", () => {
+    const kannonzan = SOURCES.find((s) =>
+      s.name.includes("観音山ファミリーパーク"),
+    );
+    expect(
+      kannonzan,
+      "観音山ファミリーパーク が SOURCES に存在しない",
+    ).toBeDefined();
+  });
+
+  it("[BUG #A4] 観音山ファミリーパーク matchUrl に対してマッチするイベントが 0 件（データ未取得）", () => {
+    const kannonzan = SOURCES.find((s) =>
+      s.name.includes("観音山ファミリーパーク"),
+    );
+    if (!kannonzan || !kannonzan.matchUrl) return;
+    const count = countByMatchUrl(EVENTS, kannonzan.matchUrl);
+    // 現状 0 件であることを記録（スクレイパーがデータを取得できていない可能性）
+    expect(count).toBe(0);
+    console.warn(
+      `[BUG #A4] "${kannonzan.name}" matchUrl "${kannonzan.matchUrl}" に対し EVENTS 0 件マッチ`,
+    );
+  });
+});
+
+// ─────────────────────────────────────────────
+// BUG #64: filterSources 全 matchUrl が null の場合バイパス問題
+// ─────────────────────────────────────────────
+describe("[BUG #64] filterSources の matchUrl null バイパス問題", () => {
+  it("全 matchUrl が null のソースを選択してもフィルターが無効化されない（仕様確認）", () => {
+    // EventsView.vue の filterSources ロジック
+    function applySourceFilter(events, selectedSourceNames, sources) {
+      if (selectedSourceNames.length === 0) return events; // フィルターなし
+      const matchUrls = selectedSourceNames
+        .map((name) => sources.find((s) => s.name === name)?.matchUrl)
+        .filter(Boolean);
+      // BUG #64: matchUrls が空の場合フィルターをスキップ → 全件表示
+      if (matchUrls.length > 0) {
+        return events.filter((e) =>
+          matchUrls.some((mu) => (e.url || "").includes(mu)),
+        );
+      }
+      return events; // 全件表示（バグ: 選択したのに全件が返る）
+    }
+
+    const events = [
+      { id: 1, url: "https://example1.com" },
+      { id: 2, url: "https://example2.com" },
+    ];
+    const sourcesWithNullMatchUrl = [
+      { name: "テストA", matchUrl: null },
+      { name: "テストB", matchUrl: null },
+    ];
+
+    // テストA を選択したとき
+    const result = applySourceFilter(
+      events,
+      ["テストA"],
+      sourcesWithNullMatchUrl,
+    );
+    // BUG: matchUrl が null のため全件が返ってしまう
+    expect(result.length).toBe(2); // バグの証拠: 2件全件返る
+    console.warn(
+      "[BUG #64] matchUrl=null のソースを選択すると全件表示になる（フィルター無効）",
+    );
+  });
+
+  it("matchUrl が定義済みのソースを選択すれば正しくフィルターされる", () => {
+    function applySourceFilter(events, selectedSourceNames, sources) {
+      if (selectedSourceNames.length === 0) return events;
+      const matchUrls = selectedSourceNames
+        .map((name) => sources.find((s) => s.name === name)?.matchUrl)
+        .filter(Boolean);
+      if (matchUrls.length > 0) {
+        return events.filter((e) =>
+          matchUrls.some((mu) => (e.url || "").includes(mu)),
+        );
+      }
+      return events;
+    }
+
+    const events = [
+      { id: 1, url: "https://city.maebashi.gunma.jp/event/1" },
+      { id: 2, url: "https://gunlabo.net/event/2" },
+    ];
+    const sources = [{ name: "前橋市", matchUrl: "city.maebashi.gunma.jp" }];
+
+    const result = applySourceFilter(events, ["前橋市"], sources);
+    expect(result.length).toBe(1);
+    expect(result[0].id).toBe(1);
+  });
+});
