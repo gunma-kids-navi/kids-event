@@ -45,8 +45,6 @@ gunma_event/
 │   ├── style.css            # グローバルスタイル
 │   ├── router/
 │   │   └── index.js         # Vue Router 定義（Hash モード）
-│   ├── stores/
-│   │   └── favorites.js     # Pinia お気に入りストア
 │   ├── composables/
 │   │   └── useEvents.js     # 日付・ステータスユーティリティ
 │   ├── data/
@@ -62,15 +60,18 @@ gunma_event/
 │   │   ├── EventsView.vue   # イベント一覧・フィルター画面
 │   │   ├── CalendarView.vue # カレンダー画面
 │   │   ├── AreaView.vue     # エリアマップ画面
-│   │   ├── SourcesView.vue  # 情報源一覧画面
-│   │   └── FavoritesView.vue # お気に入り画面（ルート未登録）
+│   │   └── SourcesView.vue  # 情報源一覧画面
 │   └── __tests__/
 │       ├── setup.js             # テストグローバルセットアップ
 │       ├── useEvents.test.js    # 日付ユーティリティテスト
 │       ├── calendarView.test.js # カレンダーロジックテスト
 │       ├── dataIntegrity.test.js # データ整合性テスト
 │       ├── eventsView.test.js   # フィルター・検索・ソートテスト
-│       └── favorites.test.js    # お気に入りストアテスト
+│       ├── areaView.test.js     # エリアマップロジックテスト
+│       ├── holidays.test.js     # 祝日判定テスト
+│       ├── homeView.test.js     # ホーム画面ロジックテスト
+│       ├── router.test.js       # ルート定義テスト
+│       └── sources.test.js      # 情報源一覧テスト
 └── scraper/
     ├── package.json
     └── scrape.js            # イベント自動収集スクリプト
@@ -150,6 +151,7 @@ node scrape.js
 | kidsUrl         | string \| null | 子育て情報 URL         |
 | kidsLabel       | string \| null | 子育て情報リンクラベル |
 | rssUrl          | string \| null | RSS フィード URL       |
+| matchUrl        | string \| null | 情報源フィルター照合文字列（URL の一部） |
 
 ---
 
@@ -179,14 +181,6 @@ Vue Router の Hash モード（`createWebHashHistory`）を使用します。
 | `/calendar` | CalendarView   | カレンダー   |
 | `/area`     | AreaView       | エリアマップ |
 | `/sources`  | SourcesView    | 情報源       |
-
----
-
-## お気に入り機能
-
-- Pinia ストア（`useFavoritesStore`）で管理
-- `localStorage` キー: `gunma_favs`（JSON 配列）
-- 不正 JSON が保存されている場合は空配列で初期化
 
 ---
 
