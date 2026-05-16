@@ -236,3 +236,92 @@ describe("KIDS_KEYWORDS", () => {
     expect(eventsModule.KIDS_KEYWORDS).toBeUndefined();
   });
 });
+
+// ========================================================
+// BUG #41〜#43, #54, #60: データ品質・重複・誤字テスト
+// ========================================================
+describe("[BUG #41修正確認] events.js desc の「昂虫」誤字", () => {
+  it("desc・venue・tags に「昂虫」誤字が残っていない（修正済み）", () => {
+    const typoDesc = EVENTS.filter((e) => (e.desc || "").includes("昂虫"));
+    const typoVenue = EVENTS.filter((e) => (e.venue || "").includes("昂虫"));
+    const typoTags = EVENTS.filter((e) =>
+      (e.tags || []).some((t) => t.includes("昂虫")),
+    );
+    expect(typoDesc.length).toBe(0);
+    expect(typoVenue.length).toBe(0);
+    expect(typoTags.length).toBe(0);
+  });
+});
+
+describe("[BUG #42/#43] events.js URL 重複", () => {
+  it("[BUG #42/#43] 同一 URL を持つイベントが存在する（重複 URL）", () => {
+    const urlCount = {};
+    EVENTS.forEach((e) => {
+      urlCount[e.url] = (urlCount[e.url] || 0) + 1;
+    });
+    const duplicated = Object.entries(urlCount)
+      .filter(([, count]) => count > 1)
+      .map(([url, count]) => ({ url, count }));
+
+    expect(duplicated.length).toBeGreaterThan(0); // バグの証拠
+    duplicated.forEach(({ url, count }) => {
+      const ids = EVENTS.filter((e) => e.url === url).map((e) => e.id);
+      console.warn(
+        `[BUG #42/#43] URL重複 (${count}件): ${url} → ids: ${ids.join(", ")}`,
+      );
+    });
+    // 修正後はこのテストが 0 件になる:
+    // expect(duplicated.length).toBe(0);
+  });
+
+  it("昆虫の森の複数イベントがトップページURLを共有している", () => {
+    const topPageUrl = "https://www.pref.gunma.jp/site/giw/";
+    const shareTopPage = EVENTS.filter((e) => e.url === topPageUrl);
+    // 個別ページURLが取れずトップページURLを共有している問題
+    expect(shareTopPage.length).toBeGreaterThan(1); // バグの証拠（1件以上の重複）
+    console.warn(
+      `[BUG #42] 昆虫の森トップページURLを${shareTopPage.length}件が共有`,
+    );
+  });
+});
+
+describe("[BUG #54] events.js の age フィールドが単一値", () => {
+  it("全イベントの age が同一値（スクレイパーのデフォルト値のまま）", () => {
+    const ages = [...new Set(EVENTS.map((e) => e.age))];
+    // 多様な年齢ターゲットがあれば複数種類のはずだが、現在は1種類のみ
+    expect(ages.length).toBe(1); // バグの証拠：1種類しかない
+    console.warn(
+      `[BUG #54] 全 ${EVENTS.length} 件の age が "${ages[0]}" のみ（年齢情報の多様性なし）`,
+    );
+    // 修正後（スクレイパーが正しく age を取得できた場合）:
+    // expect(ages.length).toBeGreaterThan(1);
+  });
+});
+
+describe("[BUG #60] EventsView タイトルソートで title が null/undefined のときクラッシュ", () => {
+  it("title が undefined のとき localeCompare は TypeError をスローする", () => {
+    // 本番コード: a.title.localeCompare(b.title, "ja")
+    // title が undefined のとき TypeError がスローされる
+    const undefinedTitle = undefined;
+    expect(() => {
+      undefinedTitle.localeCompare("test", "ja");
+    }).toThrow(TypeError);
+  });
+
+  it("修正例: (a.title || '') でクラッシュを防止できる", () => {
+    const events = [
+      { id: 1, title: undefined },
+      { id: 2, title: "通常イベント" },
+      { id: 3, title: null },
+    ];
+    expect(() => {
+      events.sort((a, b) => (a.title || "").localeCompare(b.title || "", "ja"));
+    }).not.toThrow();
+  });
+
+  it("実データは全件 title が存在するため現時点では発生しない", () => {
+    const noTitle = EVENTS.filter((e) => !e.title);
+    expect(noTitle.length).toBe(0); // 現データでは問題なし
+    // 将来スクレイパーが title を取れないイベントを追加したとき発生する
+  });
+});

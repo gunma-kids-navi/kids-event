@@ -180,7 +180,7 @@ const filtered = computed(() => {
       return parseDate(a.startDate) - parseDate(b.startDate);
     if (sortOrder.value === "date-desc")
       return parseDate(b.startDate) - parseDate(a.startDate);
-    return a.title.localeCompare(b.title, "ja");
+    return (a.title || "").localeCompare(b.title || "", "ja");
   });
   return evs;
 });

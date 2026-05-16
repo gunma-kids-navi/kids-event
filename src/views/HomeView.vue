@@ -3,11 +3,17 @@
   <section class="hero">
     <div class="hero-inner">
       <p class="hero-sub">群馬県内の</p>
-      <h1 class="hero-title">子ども向けイベント<br>あつめました。</h1>
-      <p class="hero-desc">体験教室・展覧会・ワークショップ・野外イベントまで<br>群馬で開催中の子ども向けイベントを集約しています。</p>
+      <h1 class="hero-title">子ども向けイベント<br />あつめました。</h1>
+      <p class="hero-desc">
+        体験教室・展覧会・ワークショップ・野外イベントまで<br />群馬で開催中の子ども向けイベントを集約しています。
+      </p>
       <div class="hero-actions">
-        <router-link to="/events" class="btn btn-primary">イベントを探す →</router-link>
-        <router-link to="/calendar" class="btn btn-outline">カレンダーで見る</router-link>
+        <router-link to="/events" class="btn btn-primary"
+          >イベントを探す →</router-link
+        >
+        <router-link to="/calendar" class="btn btn-outline"
+          >カレンダーで見る</router-link
+        >
       </div>
     </div>
     <div class="hero-deco">
@@ -35,7 +41,10 @@
           <span class="stat-label">掲載イベント</span>
         </div>
       </div>
-      <p class="stats-note">掲載しているイベント　体験・展覧会 / ワークショップ / スポーツ・自然 / 文化・学習 / 祭り・フェスタ</p>
+      <p class="stats-note">
+        掲載しているイベント　体験・展覧会 / ワークショップ / スポーツ・自然 /
+        文化・学習 / 祭り・フェスタ
+      </p>
     </div>
   </section>
 
@@ -44,13 +53,22 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">⏳ 開催中のイベント</h2>
-        <router-link to="/events" class="section-more">すべて見る →</router-link>
+        <router-link to="/events" class="section-more"
+          >すべて見る →</router-link
+        >
       </div>
       <div class="events-grid">
         <template v-if="ongoing.length">
-          <EventCard v-for="ev in ongoing.slice(0, 3)" :key="ev.id" :event="ev" @open-modal="openModal(ev)" />
+          <EventCard
+            v-for="ev in ongoing.slice(0, 3)"
+            :key="ev.id"
+            :event="ev"
+            @open-modal="openModal(ev)"
+          />
         </template>
-        <p v-else style="color:var(--text-muted)">現在開催中のイベントはありません</p>
+        <p v-else style="color: var(--text-muted)">
+          現在開催中のイベントはありません
+        </p>
       </div>
     </div>
   </section>
@@ -60,13 +78,22 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">📅 近日開催のイベント</h2>
-        <router-link to="/events" class="section-more">すべて見る →</router-link>
+        <router-link to="/events" class="section-more"
+          >すべて見る →</router-link
+        >
       </div>
       <div class="events-grid">
         <template v-if="upcoming.length">
-          <EventCard v-for="ev in upcoming.slice(0, 3)" :key="ev.id" :event="ev" @open-modal="openModal(ev)" />
+          <EventCard
+            v-for="ev in upcoming.slice(0, 3)"
+            :key="ev.id"
+            :event="ev"
+            @open-modal="openModal(ev)"
+          />
         </template>
-        <p v-else style="color:var(--text-muted)">近日開催のイベントはありません</p>
+        <p v-else style="color: var(--text-muted)">
+          近日開催のイベントはありません
+        </p>
       </div>
     </div>
   </section>
@@ -93,25 +120,35 @@
 </template>
 
 <script setup>
-import { computed, inject } from 'vue'
-import { useRouter } from 'vue-router'
-import { EVENTS } from '../data/events'
-import { getStatus } from '../composables/useEvents'
-import EventCard from '../components/EventCard.vue'
+import { computed, inject } from "vue";
+import { useRouter } from "vue-router";
+import { EVENTS } from "../data/events";
+import { getStatus, parseDate } from "../composables/useEvents";
+import EventCard from "../components/EventCard.vue";
 
-const router = useRouter()
-const openModal = inject('openModal')
+const router = useRouter();
+const openModal = inject("openModal");
 
-const ongoing = computed(() => EVENTS.filter(e => getStatus(e) === 'ongoing'))
-const upcoming = computed(() => EVENTS.filter(e => getStatus(e) === 'upcoming'))
-const areas = computed(() => [...new Set(EVENTS.map(e => e.area))].sort())
+const ongoing = computed(() =>
+  EVENTS.filter((e) => getStatus(e) === "ongoing").sort(
+    (a, b) => parseDate(a.startDate) - parseDate(b.startDate),
+  ),
+);
+const upcoming = computed(() =>
+  EVENTS.filter((e) => getStatus(e) === "upcoming").sort(
+    (a, b) => parseDate(a.startDate) - parseDate(b.startDate),
+  ),
+);
+const areas = computed(() => [...new Set(EVENTS.map((e) => e.area))].sort());
 const areaCounts = computed(() => {
-  const counts = {}
-  areas.value.forEach(a => { counts[a] = EVENTS.filter(e => e.area === a).length })
-  return counts
-})
+  const counts = {};
+  areas.value.forEach((a) => {
+    counts[a] = EVENTS.filter((e) => e.area === a).length;
+  });
+  return counts;
+});
 
 function goToArea(area) {
-  router.push({ path: '/events', query: { area } })
+  router.push({ path: "/events", query: { area } });
 }
 </script>

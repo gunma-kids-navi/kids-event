@@ -938,9 +938,6 @@ a {
 .page-hero--area {
   background: linear-gradient(135deg, #f0fff4, #e8f8f6);
 }
-.page-hero--favorites {
-  background: linear-gradient(135deg, #fff8e1, #fff3e8);
-}
 .page-hero--sources {
   background: linear-gradient(135deg, #f0f4ff, #e8f8f6);
 }
