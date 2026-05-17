@@ -20,6 +20,7 @@
  *   - ぐんラボ！               https://www.gunlabo.net/event/
  *   - ウォーカープラス          https://www.walkerplus.com/event_list/ar0310/
  *   - じゃらん                  https://www.jalan.net/event/090000/
+ *   - 群馬県観光公式サイト      https://gunma-kanko.jp/events
  *
  * 全国展開時の拡張方法:
  *   WALKER_AREA_CODE と JALAN_PREF_CODE を変更するだけで他県に対応
@@ -98,6 +99,23 @@ const BROAD_FAMILY_KEYWORDS = [
   "展示",
   "博物館",
   "美術館",
+  "鯉のぼり",
+  "こいのぼり",
+  "ホタル",
+  "ほたる",
+  "ウォーキング",
+  "ウォーク",
+  "ガイドウォーク",
+  "散策",
+  "ツアー",
+  "エコツアー",
+  "星空",
+  "天体",
+  "花見",
+  "お花見",
+  "紅葉",
+  "収穫",
+  "摘み取り",
 ];
 function isBroadlyFamilyFriendly(text) {
   return BROAD_FAMILY_KEYWORDS.some((kw) => text.includes(kw));
@@ -107,23 +125,66 @@ function isBroadlyFamilyFriendly(text) {
 // 長い名前（郡名付き）を先に並べて部分一致の誤判定を防ぐ
 const GUNMA_AREA_NAMES = [
   // 郡名付き（より具体的なので先に判定）
-  "佐波郡玉村町", "利根郡みなかみ町", "利根郡川場村", "利根郡片品村",
-  "利根郡昭和村", "多野郡上野村", "多野郡神流町",
-  "吾妻郡中之条町", "吾妻郡長野原町", "吾妻郡嬬恋村", "吾妻郡草津町",
-  "吾妻郡高山村", "吾妻郡東吾妻町",
-  "北群馬郡榛東村", "北群馬郡吉岡町",
-  "甘楽郡下仁田町", "甘楽郡南牧村", "甘楽郡甘楽町",
-  "邑楽郡板倉町", "邑楽郡明和町", "邑楽郡千代田町", "邑楽郡大泉町", "邑楽郡邑楽町",
+  "佐波郡玉村町",
+  "利根郡みなかみ町",
+  "利根郡川場村",
+  "利根郡片品村",
+  "利根郡昭和村",
+  "多野郡上野村",
+  "多野郡神流町",
+  "吾妻郡中之条町",
+  "吾妻郡長野原町",
+  "吾妻郡嬬恋村",
+  "吾妻郡草津町",
+  "吾妻郡高山村",
+  "吾妻郡東吾妻町",
+  "北群馬郡榛東村",
+  "北群馬郡吉岡町",
+  "甘楽郡下仁田町",
+  "甘楽郡南牧村",
+  "甘楽郡甘楽町",
+  "邑楽郡板倉町",
+  "邑楽郡明和町",
+  "邑楽郡千代田町",
+  "邑楽郡大泉町",
+  "邑楽郡邑楽町",
   // 市（郡なし）
-  "前橋市", "高崎市", "桐生市", "伊勢崎市", "太田市", "沼田市", "館林市",
-  "渋川市", "藤岡市", "富岡市", "安中市", "みどり市",
+  "前橋市",
+  "高崎市",
+  "桐生市",
+  "伊勢崎市",
+  "太田市",
+  "沼田市",
+  "館林市",
+  "渋川市",
+  "藤岡市",
+  "富岡市",
+  "安中市",
+  "みどり市",
   // 町村（郡なし）
-  "中之条町", "長野原町", "嬬恋村", "草津町", "高山村", "東吾妻町",
-  "片品村", "川場村", "昭和村", "みなかみ町",
-  "下仁田町", "南牧村", "甘楽町",
-  "板倉町", "明和町", "千代田町", "大泉町", "邑楽町", "玉村町",
-  "榛東村", "吉岡町",
-  "上野村", "神流町",
+  "中之条町",
+  "長野原町",
+  "嬬恋村",
+  "草津町",
+  "高山村",
+  "東吾妻町",
+  "片品村",
+  "川場村",
+  "昭和村",
+  "みなかみ町",
+  "下仁田町",
+  "南牧村",
+  "甘楽町",
+  "板倉町",
+  "明和町",
+  "千代田町",
+  "大泉町",
+  "邑楽町",
+  "玉村町",
+  "榛東村",
+  "吉岡町",
+  "上野村",
+  "神流町",
 ];
 
 /**
@@ -905,7 +966,9 @@ async function scrapeKannonzanFP() {
     try {
       const res = await fetch(apiUrlEmbed, {
         timeout: 10000,
-        headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
+        headers: {
+          "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
+        },
       });
       const text = await res.text();
       if (text.trimStart().startsWith("<")) {
@@ -914,7 +977,9 @@ async function scrapeKannonzanFP() {
         console.warn(`    ⚠ _embed で HTML レスポンス。フォールバック中...`);
         const res2 = await fetch(apiUrlPlain, {
           timeout: 10000,
-          headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
+          headers: {
+            "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
+          },
         });
         data = await res2.json();
       } else {
@@ -924,7 +989,9 @@ async function scrapeKannonzanFP() {
       useEmbed = false;
       const res2 = await fetch(apiUrlPlain, {
         timeout: 10000,
-        headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
+        headers: {
+          "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
+        },
       });
       data = await res2.json();
     }
@@ -978,7 +1045,9 @@ async function scrapeKannonzanFP() {
       const cat = guessCategory(combined);
 
       // WordPress フィーチャード画像（_embed が成功した場合のみ）
-      const featuredMedia = useEmbed ? post._embedded?.["wp:featuredmedia"] : null;
+      const featuredMedia = useEmbed
+        ? post._embedded?.["wp:featuredmedia"]
+        : null;
       const imageUrl =
         Array.isArray(featuredMedia) && featuredMedia[0]?.source_url
           ? featuredMedia[0].source_url
@@ -1349,6 +1418,130 @@ async function scrapeJalan() {
   return results;
 }
 
+// ===== 群馬県観光公式サイト (gunma-kanko.jp) =====
+async function scrapeGunmaKanko() {
+  const url = "https://gunma-kanko.jp/events";
+  console.log(`  [群馬県観光公式] ${url}`);
+  const results = [];
+
+  // gunma-kanko.jp エリア名 → 代表市町村のマッピング
+  const AREA_MAP = {
+    前橋エリア: "前橋市",
+    高崎エリア: "高崎市",
+    西部エリア: "富岡市",
+    北部エリア: "沼田市",
+    利根沼田エリア: "沼田市",
+    県央エリア: "渋川市",
+    東部エリア: "桐生市",
+    吾妻エリア: "中之条町",
+    南部エリア: "館林市",
+    太田エリア: "太田市",
+    伊勢崎エリア: "伊勢崎市",
+    館林エリア: "館林市",
+  };
+
+  try {
+    const res = await fetch(url, {
+      timeout: 12000,
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const html = await res.text();
+    const $ = cheerio.load(html);
+
+    const today = new Date().toISOString().split("T")[0];
+    const horizon = new Date();
+    horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
+    const horizonStr = horizon.toISOString().split("T")[0];
+
+    $("a[href]").each((_, el) => {
+      const $el = $(el);
+      const href = $el.attr("href") || "";
+      // /events/数字 のイベント詳細URLのみ対象
+      if (!/\/events\/\d+/.test(href)) return;
+
+      const text = $el.text().replace(/\s+/g, " ").trim();
+
+      // エリア抽出（「〇〇エリア」パターン）
+      const areaMatch = text.match(/([^\s]+エリア)/);
+      const rawArea = areaMatch ? areaMatch[1] : null;
+      const area =
+        rawArea && AREA_MAP[rawArea] ? AREA_MAP[rawArea] : rawArea || "群馬県";
+
+      // 日付抽出: 「開催日：YYYY年M月D日」または範囲
+      const parsedDates = (() => {
+        // YYYY年M月D日（曜）〜M月D日（曜）
+        const range1 = text.match(
+          /(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日[^〜～\d]*[〜～]\s*(\d{1,2})月\s*(\d{1,2})日/,
+        );
+        if (range1) {
+          const y = range1[1];
+          return {
+            startDate: `${y}-${range1[2].padStart(2, "0")}-${range1[3].padStart(2, "0")}`,
+            endDate: `${y}-${range1[4].padStart(2, "0")}-${range1[5].padStart(2, "0")}`,
+          };
+        }
+        // YYYY年M月D日のみ
+        const single = text.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+        if (single) {
+          const d = `${single[1]}-${single[2].padStart(2, "0")}-${single[3].padStart(2, "0")}`;
+          return { startDate: d, endDate: d };
+        }
+        return null;
+      })();
+      if (!parsedDates) return;
+
+      const { startDate, endDate } = parsedDates;
+      if (endDate < today || startDate > horizonStr) return;
+
+      // タイトル: 日付・エリア・先頭の数字記号などを除去
+      const title = text
+        .replace(/開催日[：:][^\s]+\s*/g, "")
+        .replace(
+          /\d{4}年\d{1,2}月\d{1,2}日[（(）)（）曜日\s・〜～\-–\/a-zA-Z\d]*/,
+          "",
+        )
+        .replace(/[^\s]+エリア/, "")
+        .replace(/^[\s１-９\d\s「」。、・\-–]+/, "")
+        .trim();
+      if (!title || title.length < 4) return;
+
+      // 広めのファミリー向けフィルタ（ぐんラボ・ウォーカープラスと同基準）
+      if (!isBroadlyFamilyFriendly(title + " " + rawArea)) return;
+
+      const fullUrl = href.startsWith("http")
+        ? href
+        : `https://gunma-kanko.jp${href}`;
+      const cat = guessCategory(title);
+
+      results.push({
+        id: stableId(title, fullUrl),
+        title: title.slice(0, 80),
+        emoji: guessEmoji(title),
+        ...cat,
+        area,
+        venue: area,
+        startDate,
+        endDate,
+        tags: [...new Set(["群馬県観光公式", area, rawArea].filter(Boolean))],
+        desc: `${rawArea ?? "群馬"}で開催。詳細は群馬県観光公式サイトをご確認ください。`,
+        url: fullUrl,
+        free: /無料/.test(text),
+        age: "詳細は公式サイトへ",
+        _source: "群馬県観光公式",
+      });
+    });
+  } catch (e) {
+    console.warn(`    ⚠ 取得失敗: ${e.message}`);
+  }
+
+  console.log(`  [群馬県観光公式] 取得: ${results.length}件`);
+  return results;
+}
+
 // ===== ぐんラボ！ イベント =====
 async function scrapeGunlabo() {
   const BASE = "https://www.gunlabo.net/event/";
@@ -1590,11 +1783,12 @@ async function main() {
   console.log("\n📡 ぐんラボ！を取得中...");
   const gunlabo = await scrapeGunlabo().catch(() => []);
 
-  // ウォーカープラス・じゃらんを並行取得
-  console.log("\n📡 ウォーカープラス・じゃらんを取得中...");
-  const [walkerplus, jalan] = await Promise.allSettled([
+  // ウォーカープラス・じゃらん・群馬県観光公式を並行取得
+  console.log("\n📡 ウォーカープラス・じゃらん・群馬県観光公式を取得中...");
+  const [walkerplus, jalan, gunmaKanko] = await Promise.allSettled([
     scrapeWalkerPlus(),
     scrapeJalan(),
+    scrapeGunmaKanko(),
   ]).then((rs) => rs.map((r) => (r.status === "fulfilled" ? r.value : [])));
 
   const scrapedRaw = [
@@ -1611,6 +1805,7 @@ async function main() {
     ...gunlabo,
     ...walkerplus,
     ...jalan,
+    ...gunmaKanko,
   ];
 
   console.log(`\n📋 自動収集 raw: ${scrapedRaw.length}件`);
@@ -1638,16 +1833,19 @@ async function main() {
     // 解決できない場合は「群馬県（県全体）」に統一
     return { ...ev, area: "群馬県（県全体）" };
   });
-  const resolvedCount = scrapedAreaResolved.filter(
-    (ev) => ev.area !== "群馬県（県全体）",
-  ).length - scrapedUniq.filter((ev) => ev.area !== "群馬県" && ev.area !== "群馬").length;
+  const resolvedCount =
+    scrapedAreaResolved.filter((ev) => ev.area !== "群馬県（県全体）").length -
+    scrapedUniq.filter((ev) => ev.area !== "群馬県" && ev.area !== "群馬")
+      .length;
   console.log(`📋 エリア解決: ${resolvedCount}件を市町村に振り分け`);
 
   // 期間上限フィルタ（今日から HORIZON_MONTHS ヶ月先まで）
   const horizon = new Date();
   horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
   const horizonStr = horizon.toISOString().split("T")[0];
-  const scrapedInRange = scrapedAreaResolved.filter((ev) => ev.startDate <= horizonStr);
+  const scrapedInRange = scrapedAreaResolved.filter(
+    (ev) => ev.startDate <= horizonStr,
+  );
   console.log(
     `📋 期間フィルタ後（${HORIZON_MONTHS}ヶ月以内）: ${scrapedInRange.length}件`,
   );

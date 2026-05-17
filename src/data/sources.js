@@ -143,6 +143,18 @@ export const SOURCES = [
     kidsLabel: null,
     rssUrl: null,
   },
+  {
+    name: "群馬県観光公式",
+    icon: "公",
+    matchUrl: "gunma-kanko.jp",
+    calendarUrl: "https://gunma-kanko.jp/events",
+    calendarLabel: "ぐんまのイベント一覧",
+    newsletterUrl: null,
+    newsletterLabel: null,
+    kidsUrl: null,
+    kidsLabel: null,
+    rssUrl: null,
+  },
 ];
 
 export const KIDS_KEYWORDS = [
