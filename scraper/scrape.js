@@ -198,7 +198,10 @@ function resolveAreaFromText(text) {
   if (!text) return null;
   const normalized = text.replace(/\s+/g, " ");
   for (const name of GUNMA_AREA_NAMES) {
-    if (normalized.includes(name)) return name;
+    if (normalized.includes(name)) {
+      // "利根郡みなかみ町" → "みなかみ町" のように郡名を除去して短い名前に統一
+      return name.includes("郡") ? name.replace(/^[^郡]+郡/, "") : name;
+    }
   }
   return null;
 }
@@ -334,7 +337,16 @@ function loadManualEvents() {
     const match = content.match(/const EVENTS\s*=\s*(\[[\s\S]*?\]);/);
     if (!match) return [];
     const events = eval(match[1]);
-    return events.filter((e) => e.id < 10000);
+    return events
+      .filter((e) => e.id < 10000)
+      .map((e) => ({
+        ...e,
+        // "利根郡みなかみ町" → "みなかみ町" のように郡名を除去して統一
+        area:
+          e.area && e.area.includes("郡")
+            ? e.area.replace(/^[^郡]+郡/, "")
+            : e.area,
+      }));
   } catch {
     return [];
   }
@@ -1874,8 +1886,17 @@ async function main() {
 
   console.log(`\n📋 自動収集 raw: ${scrapedRaw.length}件`);
 
+  // エリア正規化: "利根郡みなかみ町" → "みなかみ町" など郡名を除去して統一
+  const scrapedNormalized = scrapedRaw.map((ev) => ({
+    ...ev,
+    area:
+      ev.area && ev.area.includes("郡")
+        ? ev.area.replace(/^[^郡]+郡/, "")
+        : ev.area,
+  }));
+
   // ゴミデータ除去
-  const scrapedFiltered = scrapedRaw.filter(isValidEvent);
+  const scrapedFiltered = scrapedNormalized.filter(isValidEvent);
   console.log(`📋 バリデーション後: ${scrapedFiltered.length}件`);
 
   // 重複除去
