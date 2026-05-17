@@ -36,6 +36,10 @@ describe("router - ルート定義", () => {
   it("情報源ルート '/sources' が存在する", () => {
     expect(paths).toContain("/sources");
   });
+
+  it("お問い合わせルート '/contact' が存在する", () => {
+    expect(paths).toContain("/contact");
+  });
 });
 
 // ─────────────────────────────────────────────

@@ -4,6 +4,7 @@ import EventsView from "../views/EventsView.vue";
 import CalendarView from "../views/CalendarView.vue";
 import AreaView from "../views/AreaView.vue";
 import SourcesView from "../views/SourcesView.vue";
+import ContactView from "../views/ContactView.vue";
 
 const routes = [
   { path: "/", component: HomeView },
@@ -11,6 +12,7 @@ const routes = [
   { path: "/calendar", component: CalendarView },
   { path: "/area", component: AreaView },
   { path: "/sources", component: SourcesView },
+  { path: "/contact", component: ContactView },
 ];
 
 const router = createRouter({
