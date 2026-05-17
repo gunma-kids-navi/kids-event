@@ -118,7 +118,7 @@ const BROAD_FAMILY_KEYWORDS = [
   "摘み取り",
 ];
 function isBroadlyFamilyFriendly(text) {
-  return BROAD_FAMILY_KEYWORDS.some((kw) => text.includes(kw));
+  return BROAD_FAMILY_KEYWORDS.some((kw) => text.includes(kw)) && !isNgContent(text);
 }
 
 // ===== 群馬県内市町村名からエリア推定 =====
@@ -257,9 +257,58 @@ function parseJapaneseDate(text) {
   return null;
 }
 
+// ===== 子ども向けでない内容を除外する NGキーワード =====
+const NG_KEYWORDS = [
+  // 介護・医療・福祉
+  "介護",
+  "看護",
+  "認知症",
+  "ヘルパー",
+  "福祉士",
+  "訪問介護",
+  "在宅医療",
+  "緩和ケア",
+  "リハビリ",
+  // シニア・高齢者向け
+  "シニア",
+  "高齢者",
+  "老人",
+  "敬老",
+  "熟年",
+  // 成人・就労・ビジネス向け
+  "成人向け",
+  "就職",
+  "転職",
+  "求人",
+  "採用",
+  "起業",
+  "創業",
+  "ビジネス",
+  "セミナー",
+  "研修",
+  "講習会",
+  "資格取得",
+  "免許",
+  // 行政・手続き
+  "確定申告",
+  "税務",
+  "年金",
+  "保険料",
+  "住民票",
+  // 婚活・成人交流
+  "婚活",
+  "出会い",
+  "女子会",
+];
+
+// ===== テキストが NG（子ども向けでない）かチェック =====
+function isNgContent(text) {
+  return NG_KEYWORDS.some((kw) => text.includes(kw));
+}
+
 // ===== テキストが子ども関連かチェック =====
 function isKidsRelated(text) {
-  return KIDS_KEYWORDS.some((kw) => text.includes(kw));
+  return KIDS_KEYWORDS.some((kw) => text.includes(kw)) && !isNgContent(text);
 }
 
 // ===== 既存の events.js から手動イベント（id < 10000）を読み取る =====
