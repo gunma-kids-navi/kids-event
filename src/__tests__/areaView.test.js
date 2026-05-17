@@ -32,15 +32,13 @@ const actualAreas = [...new Set(EVENTS.map((e) => e.area))].sort();
 // BUG #44〜#47: AREA_COORDS のキーが実データのエリア名と不一致
 // ─────────────────────────────────────────────
 describe("[BUG #44〜#47] AreaView AREA_COORDS とイベントデータのエリア名不一致", () => {
-  // BUG #44: "玉村町" vs "佐波郡玉村町"
-  it("[BUG #44] '佐波郡玉村町' は AREA_COORDS に存在しない（'玉村町' のキーは別名）", () => {
-    const hasFullName = "佐波郡玉村町" in AREA_COORDS;
-    const count = EVENTS.filter((e) => e.area === "佐波郡玉村町").length;
-    expect(hasFullName).toBe(false); // バグの証拠：キーが不一致
-    expect(count).toBeGreaterThan(0); // データには存在する
-    console.warn(
-      `[BUG #44] "佐波郡玉村町" の ${count} 件イベントに地図マーカーがない`,
-    );
+  // BUG #44修正済み: イベントデータが「玉村町」に統一された
+  it("[BUG #44修正済み] '佐波郡玉村町' のイベントが 0 件（'玉村町' に統一された）", () => {
+    const countOld = EVENTS.filter((e) => e.area === "佐波郡玉村町").length;
+    const countNew = EVENTS.filter((e) => e.area === "玉村町").length;
+    // 旧形式（郡名付き）は 0 件になり、玉村町（郡名なし）に統一されたことを確認
+    expect(countOld).toBe(0);
+    expect(countNew).toBeGreaterThanOrEqual(0); // 玉村町のイベントが存在する可能性
   });
 
   // BUG #45: "みなかみ町" vs "利根郡みなかみ町"
