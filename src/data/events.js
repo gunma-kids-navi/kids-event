@@ -682,26 +682,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 42847,
-    "title": "2026.5.30-5.31【GUNMA outside Festival 2026 】開催による公園からのお知らせ",
-    "emoji": "🎈",
-    "image": "https://kfp-tomo.org/wp-content/uploads/2025/04/5ba897d6d697425ab4b38f14e988b482.jpg",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "高崎市",
-    "venue": "観音山ファミリーパーク",
-    "startDate": "2026-05-30",
-    "endDate": "2026-05-30",
-    "tags": [
-      "観音山ファミリーパーク",
-      "高崎市"
-    ],
-    "desc": "《観音山ファミリーパークよりお知らせ》 ◆GUNMA outside Festival 20256開催につきまして（5月30日-5月31日） ※詳細な情報は GUNMA outside Festival 2025主催者様-Instagram",
-    "url": "https://kfp-tomo.org/archives/12081",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 43052,
     "title": "ベビーサロン「みんなで輪になってしゃべろう」",
     "emoji": "🎈",
