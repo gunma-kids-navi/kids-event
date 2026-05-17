@@ -118,7 +118,9 @@ const BROAD_FAMILY_KEYWORDS = [
   "摘み取り",
 ];
 function isBroadlyFamilyFriendly(text) {
-  return BROAD_FAMILY_KEYWORDS.some((kw) => text.includes(kw)) && !isNgContent(text);
+  return (
+    BROAD_FAMILY_KEYWORDS.some((kw) => text.includes(kw)) && !isNgContent(text)
+  );
 }
 
 // ===== 群馬県内市町村名からエリア推定 =====
@@ -299,6 +301,19 @@ const NG_KEYWORDS = [
   "婚活",
   "出会い",
   "女子会",
+  // 金融・資産運用
+  "老後",
+  "資産",
+  "インフレ",
+  "円安",
+  "投資",
+  "資金運用",
+  "株式",
+  "NISA",
+  "iDeCo",
+  "保険見直し",
+  "ローン",
+  "不動産",
 ];
 
 // ===== テキストが NG（子ども向けでない）かチェック =====
