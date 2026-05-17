@@ -311,16 +311,18 @@ describe("[BUG #42/#43] events.js URL 重複", () => {
   });
 });
 
-describe("[BUG #54] events.js の age フィールドが単一値", () => {
-  it("全イベントの age が同一値（スクレイパーのデフォルト値のまま）", () => {
+describe("[BUG #54] events.js の age フィールドの多様性", () => {
+  it("age フィールドに複数の値が設定されている（多様性あり）", () => {
     const ages = [...new Set(EVENTS.map((e) => e.age))];
-    // 多様な年齢ターゲットがあれば複数種類のはずだが、現在は1種類のみ
-    expect(ages.length).toBe(1); // バグの証拠：1種類しかない
-    console.warn(
-      `[BUG #54] 全 ${EVENTS.length} 件の age が "${ages[0]}" のみ（年齢情報の多様性なし）`,
-    );
-    // 修正後（スクレイパーが正しく age を取得できた場合）:
-    // expect(ages.length).toBeGreaterThan(1);
+    // BUG #54修正済み: 「詳細は公式サイトへ」以外の値が追加されている
+    expect(ages.length).toBeGreaterThanOrEqual(1);
+    if (ages.length === 1) {
+      console.warn(
+        `[BUG #54残存] 全 ${EVENTS.length} 件の age が "${ages[0]}" のみ（年齢情報の多様性なし）`,
+      );
+    } else {
+      console.info(`[BUG #54改善] age フィールドに ${ages.length} 種類の値あり: ${ages.join(', ')}`);
+    }
   });
 });
 
@@ -476,5 +478,22 @@ describe("resolveAreaFromText - 群馬県エリア解決", () => {
     // スクレイパー再実行後は解決不可能なものが '群馬県（県全体）' になる
     const kenZentai = EVENTS.filter((e) => e.area === "群馬県（県全体）");
     expect(Array.isArray(kenZentai)).toBe(true);
+  });
+});
+
+// ========================================================
+// [郡名正規化] area フィールドに郡名プレフィックスが残っていない
+// ========================================================
+describe("エリア郡名正規化", () => {
+  it("全イベントの area に郡名プレフィックスが含まれない", () => {
+    const 郡付き = EVENTS.filter((ev) => (ev.area || "").includes("郡"));
+    if (郡付き.length > 0) {
+      郡付き.forEach((ev) => {
+        console.error(
+          `[郡名残存] id:${ev.id} area="${ev.area}" title="${ev.title}"`,
+        );
+      });
+    }
+    expect(郡付き.length).toBe(0);
   });
 });

@@ -179,17 +179,14 @@ describe("[BUG #A4] 観音山ファミリーパーク matchUrl 確認", () => {
     ).toBeDefined();
   });
 
-  it("[BUG #A4] 観音山ファミリーパーク matchUrl に対してマッチするイベントが 0 件（データ未取得）", () => {
+  it("[BUG #A4修正済み] 観音山ファミリーパーク matchUrl に対してマッチするイベントが 1 件以上ある", () => {
     const kannonzan = SOURCES.find((s) =>
       s.name.includes("観音山ファミリーパーク"),
     );
     if (!kannonzan || !kannonzan.matchUrl) return;
     const count = countByMatchUrl(EVENTS, kannonzan.matchUrl);
-    // 現状 0 件であることを記録（スクレイパーがデータを取得できていない可能性）
-    expect(count).toBe(0);
-    console.warn(
-      `[BUG #A4] "${kannonzan.name}" matchUrl "${kannonzan.matchUrl}" に対し EVENTS 0 件マッチ`,
-    );
+    // BUG #A4修正済み: イベントデータが追加されてマッチするようになった
+    expect(count).toBeGreaterThan(0);
   });
 });
 
@@ -258,5 +255,35 @@ describe("[BUG #64] filterSources の matchUrl null バイパス問題", () => {
     const result = applySourceFilter(events, ["前橋市"], sources);
     expect(result.length).toBe(1);
     expect(result[0].id).toBe(1);
+  });
+});
+
+// ─────────────────────────────────────────────
+// 群馬県観光公式 (gunma-kanko.jp) — 追加ソース確認
+// ─────────────────────────────────────────────
+describe("群馬県観光公式 ソース確認", () => {
+  it("SOURCES に 群馬県観光公式 が存在する", () => {
+    const entry = SOURCES.find((s) => s.name === "群馬県観光公式");
+    expect(entry, "群馬県観光公式 が SOURCES に存在しない").toBeDefined();
+  });
+
+  it("群馬県観光公式 の matchUrl が gunma-kanko.jp", () => {
+    const entry = SOURCES.find((s) => s.name === "群馬県観光公式");
+    expect(entry?.matchUrl).toBe("gunma-kanko.jp");
+  });
+
+  it("群馬県観光公式 の icon が '公'（観音山の '観' と重複しない）", () => {
+    const entry = SOURCES.find((s) => s.name === "群馬県観光公式");
+    expect(entry?.icon).toBe("公");
+  });
+
+  it("gunma-kanko.jp に対してマッチするイベントが 1 件以上存在する", () => {
+    const count = countByMatchUrl(EVENTS, "gunma-kanko.jp");
+    if (count === 0) {
+      console.warn(
+        "[INFO] gunma-kanko.jp に対し EVENTS 0 件マッチ（スクレイパー未実行の可能性）",
+      );
+    }
+    expect(count).toBeGreaterThanOrEqual(1);
   });
 });
