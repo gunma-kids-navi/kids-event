@@ -6,6 +6,55 @@
 import { describe, it, expect } from "vitest";
 import { EVENTS } from "../data/events.js";
 
+// 自治体番号順（総務省 地方公共団体コード準拠）
+const MUNICIPALITY_ORDER = [
+  "前橋市",
+  "高崎市",
+  "桐生市",
+  "伊勢崎市",
+  "太田市",
+  "沼田市",
+  "館林市",
+  "渋川市",
+  "藤岡市",
+  "富岡市",
+  "安中市",
+  "みどり市",
+  "榛東村",
+  "吉岡町",
+  "上野村",
+  "神流町",
+  "下仁田町",
+  "南牧村",
+  "甘楽町",
+  "中之条町",
+  "長野原町",
+  "嬬恋村",
+  "草津町",
+  "高山村",
+  "東吾妻町",
+  "片品村",
+  "川場村",
+  "昭和村",
+  "みなかみ町",
+  "玉村町",
+  "板倉町",
+  "明和町",
+  "千代田町",
+  "大泉町",
+  "邑楽町",
+];
+function sortByMunicipality(areas) {
+  return [...areas].sort((a, b) => {
+    const ai = MUNICIPALITY_ORDER.indexOf(a);
+    const bi = MUNICIPALITY_ORDER.indexOf(b);
+    if (ai === -1 && bi === -1) return a.localeCompare(b, "ja");
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+}
+
 // AreaView.vue の AREA_COORDS を再現
 const AREA_COORDS = {
   前橋市: [36.3894, 139.0634],
@@ -25,8 +74,8 @@ const AREA_COORDS = {
   "群馬県（県全体）": [36.4807, 138.9878],
 };
 
-// EVENTS から実際のエリア一覧を取得
-const actualAreas = [...new Set(EVENTS.map((e) => e.area))].sort();
+// EVENTS から実際のエリア一覧を取得（自治体コード順）
+const actualAreas = sortByMunicipality([...new Set(EVENTS.map((e) => e.area))]);
 
 // ─────────────────────────────────────────────
 // BUG #44〜#47: AREA_COORDS のキーが実データのエリア名と不一致
@@ -158,6 +207,32 @@ describe("AreaView areaEvents", () => {
         "[INFO] areaEvents の表示はデータ配列順で、startDate 昇順ではありません",
       );
     }
+  });
+});
+
+// ─────────────────────────────────────────────
+// AreaView areas 自治体コード順ソート
+// ─────────────────────────────────────────────
+describe("AreaView areas 自治体コード順ソート", () => {
+  it("前橋市が高崎市より前に来る", () => {
+    const sorted = sortByMunicipality(["高崎市", "前橋市"]);
+    expect(sorted[0]).toBe("前橋市");
+  });
+
+  it("EVENTS 内に前橋市が存在する場合、actualAreas で 前橋市 が高崎市より前", () => {
+    const hasMaebashi = EVENTS.some((e) => e.area === "前橋市");
+    const hasTakasaki = EVENTS.some((e) => e.area === "高崎市");
+    if (hasMaebashi && hasTakasaki) {
+      const mi = actualAreas.indexOf("前橋市");
+      const ti = actualAreas.indexOf("高崎市");
+      expect(mi).toBeLessThan(ti);
+    }
+  });
+
+  it("MUNICIPALITY_ORDER に含まれないエリアは末尾になる", () => {
+    const sorted = sortByMunicipality(["未知エリア", "前橋市"]);
+    expect(sorted[0]).toBe("前橋市");
+    expect(sorted[1]).toBe("未知エリア");
   });
 });
 

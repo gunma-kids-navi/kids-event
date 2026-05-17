@@ -357,7 +357,7 @@ async function scrapeOtaRSS() {
   const url = "https://www.city.ota.gunma.jp/rss/10/list1.xml";
   console.log(`  [太田市 RSS] ${url}`);
   try {
-    const res = await fetch(url, { timeout: 10000 });
+    const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
     const xml = await res.text();
     const parser = new XMLParser({ ignoreAttributes: false });
     const result = parser.parse(xml);
@@ -424,7 +424,7 @@ async function scrapeTakasakiCalendar() {
     const url = `${baseUrl}index.php?dsp=1&y=${y}&m=${m}&d=1`;
     try {
       const res = await fetch(url, {
-        timeout: 10000,
+        signal: AbortSignal.timeout(10000),
         headers: {
           "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
         },
@@ -508,7 +508,7 @@ async function scrapeMaebashiCalendar() {
 
   try {
     const res = await fetch(jsonUrl, {
-      timeout: 10000,
+      signal: AbortSignal.timeout(10000),
       headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
     });
     const data = await res.json();
@@ -567,7 +567,7 @@ async function scrapeOtaCalendar() {
 
   try {
     const res = await fetch(url, {
-      timeout: 10000,
+      signal: AbortSignal.timeout(10000),
       headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
     });
     const html = await res.text();
@@ -631,7 +631,7 @@ async function scrapeNaturalHistory() {
 
   try {
     const res = await fetch(url, {
-      timeout: 10000,
+      signal: AbortSignal.timeout(10000),
       headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
     });
     const html = await res.text();
@@ -705,7 +705,7 @@ async function scrapeGunmaKonchu() {
 
   try {
     const res = await fetch(url, {
-      timeout: 10000,
+      signal: AbortSignal.timeout(10000),
       headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
     });
     const html = await res.text();
@@ -765,7 +765,7 @@ async function scrapeGunmaSafari() {
 
   try {
     const res = await fetch(url, {
-      timeout: 10000,
+      signal: AbortSignal.timeout(10000),
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -841,7 +841,7 @@ async function scrapeGunmaTenmonDai() {
 
   try {
     const res = await fetch(url, {
-      timeout: 10000,
+      signal: AbortSignal.timeout(10000),
       headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
     });
     const html = await res.text();
@@ -924,7 +924,7 @@ async function scrapeGunmaKodomonoKuni() {
 
   try {
     const res = await fetch(url, {
-      timeout: 10000,
+      signal: AbortSignal.timeout(10000),
       headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
     });
     const html = await res.text();
@@ -1041,7 +1041,7 @@ async function scrapeKannonzanFP() {
     let useEmbed = true;
     try {
       const res = await fetch(apiUrlEmbed, {
-        timeout: 10000,
+        signal: AbortSignal.timeout(10000),
         headers: {
           "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
         },
@@ -1052,7 +1052,7 @@ async function scrapeKannonzanFP() {
         useEmbed = false;
         console.warn(`    ⚠ _embed で HTML レスポンス。フォールバック中...`);
         const res2 = await fetch(apiUrlPlain, {
-          timeout: 10000,
+          signal: AbortSignal.timeout(10000),
           headers: {
             "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
           },
@@ -1064,7 +1064,7 @@ async function scrapeKannonzanFP() {
     } catch {
       useEmbed = false;
       const res2 = await fetch(apiUrlPlain, {
-        timeout: 10000,
+        signal: AbortSignal.timeout(10000),
         headers: {
           "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
         },
@@ -1179,7 +1179,7 @@ async function scrapeWalkerPlus() {
     try {
       if (page > 1) await new Promise((r) => setTimeout(r, 1000));
       const res = await fetch(url, {
-        timeout: 12000,
+        signal: AbortSignal.timeout(12000),
         headers: { "User-Agent": UA },
       });
       if (!res.ok) break;
@@ -1338,7 +1338,7 @@ async function scrapeJalan() {
     const url = `https://www.jalan.net/event/${JALAN_PREF_CODE}/`;
     console.log(`  [じゃらん] ${url}`);
     const res = await fetch(url, {
-      timeout: 12000,
+      signal: AbortSignal.timeout(12000),
       headers: { "User-Agent": UA },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -1518,7 +1518,7 @@ async function scrapeGunmaKanko() {
 
   try {
     const res = await fetch(url, {
-      timeout: 12000,
+      signal: AbortSignal.timeout(12000),
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -1638,7 +1638,7 @@ async function scrapeGunlabo() {
       // レートリミット対策（1秒待機）
       if (page > 1) await new Promise((r) => setTimeout(r, 1000));
       const res = await fetch(url, {
-        timeout: 10000,
+        signal: AbortSignal.timeout(10000),
         headers: {
           "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
         },

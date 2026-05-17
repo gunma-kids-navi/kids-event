@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # events.js をコミットするために必要
+      actions: write # デプロイワークフローを起動するために必要
 
     steps:
       - name: リポジトリをチェックアウト
@@ -34,15 +35,32 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: 変更があれば自動コミット & プッシュ
+        id: push
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions [Bot]"
           git add src/data/events.js
           if git diff --staged --quiet; then
             echo "変更なし — コミットをスキップ"
+            echo "pushed=false" >> $GITHUB_OUTPUT
           else
             CHANGED=$(git diff --staged --stat | tail -1)
             git commit -m "chore: イベント自動更新 $(date +'%Y/%m/%d') — ${CHANGED}"
             git push
             echo "✅ 更新をプッシュしました"
+            echo "pushed=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: デプロイワークフローを起動
+        if: steps.push.outputs.pushed == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yml',
+              ref: 'main'
+            })
+            console.log('✅ デプロイワークフローを起動しました')

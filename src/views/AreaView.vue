@@ -56,8 +56,65 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
+// 自治体番号順（総務省 地方公共団体コード準拠）
+const MUNICIPALITY_ORDER = [
+  // 市（10201〜10212）
+  "前橋市",
+  "高崎市",
+  "桐生市",
+  "伊勢崎市",
+  "太田市",
+  "沼田市",
+  "館林市",
+  "渋川市",
+  "藤岡市",
+  "富岡市",
+  "安中市",
+  "みどり市",
+  // 北群馬郡（10301〜）
+  "榛東村",
+  "吉岡町",
+  // 多野郡（10421〜）
+  "上野村",
+  "神流町",
+  // 甘楽郡（10521〜）
+  "下仁田町",
+  "南牧村",
+  "甘楽町",
+  // 吾妻郡（10541〜）
+  "中之条町",
+  "長野原町",
+  "嬬恋村",
+  "草津町",
+  "高山村",
+  "東吾妻町",
+  // 利根郡（10561〜）
+  "片品村",
+  "川場村",
+  "昭和村",
+  "みなかみ町",
+  // 佐波郡（10601〜）
+  "玉村町",
+  // 邑楽郡（10681〜）
+  "板倉町",
+  "明和町",
+  "千代田町",
+  "大泉町",
+  "邑楽町",
+];
+
 const openModal = inject("openModal");
-const areas = computed(() => [...new Set(EVENTS.map((e) => e.area))].sort());
+const areas = computed(() => {
+  const unique = [...new Set(EVENTS.map((e) => e.area))];
+  return unique.sort((a, b) => {
+    const ai = MUNICIPALITY_ORDER.indexOf(a);
+    const bi = MUNICIPALITY_ORDER.indexOf(b);
+    if (ai === -1 && bi === -1) return a.localeCompare(b, "ja");
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+});
 function areaEvents(area) {
   return EVENTS.filter((e) => e.area === area);
 }
