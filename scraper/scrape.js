@@ -1798,20 +1798,32 @@ async function scrapeGunmaEsu() {
         let startDate = null,
           endDate = null;
 
-        // YYYY年M月D日 形式
-        const jpDateMatches = [
-          ...bodyText.matchAll(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/g),
-        ];
-        if (jpDateMatches.length > 0) {
-          const m = jpDateMatches[0];
-          startDate = `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
-          if (jpDateMatches.length > 1) {
-            const m2 = jpDateMatches[jpDateMatches.length - 1];
-            endDate = `${m2[1]}-${m2[2].padStart(2, "0")}-${m2[3].padStart(2, "0")}`;
+        // ① 同月内の範囲表記: YYYY年M月D1日〜D2日 / D1日・D2日（曜日カッコ付きも対応）
+        const sameMonthRange = bodyText.match(
+          /(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日[^〜～~・\d]*[〜～~・]\s*(?:[（(][^）)]*[）)])?\s*(\d{1,2})日/,
+        );
+        if (sameMonthRange) {
+          const [, y, mo, d1, d2] = sameMonthRange;
+          startDate = `${y}-${mo.padStart(2, "0")}-${d1.padStart(2, "0")}`;
+          endDate = `${y}-${mo.padStart(2, "0")}-${d2.padStart(2, "0")}`;
+        }
+
+        // ② YYYY年M月D日 形式（単独 or 複数フル日付）
+        if (!startDate) {
+          const jpDateMatches = [
+            ...bodyText.matchAll(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/g),
+          ];
+          if (jpDateMatches.length > 0) {
+            const m = jpDateMatches[0];
+            startDate = `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
+            if (jpDateMatches.length > 1) {
+              const m2 = jpDateMatches[jpDateMatches.length - 1];
+              endDate = `${m2[1]}-${m2[2].padStart(2, "0")}-${m2[3].padStart(2, "0")}`;
+            }
           }
         }
 
-        // YYYY.M.D 形式（「2026.5.30」など）
+        // ③ YYYY.M.D 形式（「2026.5.30」など）
         if (!startDate) {
           const dotDates = [
             ...bodyText.matchAll(/(\d{4})\.(\d{1,2})\.(\d{1,2})/g),
