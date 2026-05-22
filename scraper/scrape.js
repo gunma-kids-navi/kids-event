@@ -1823,17 +1823,28 @@ async function scrapeGunmaEsu() {
           }
         }
 
-        // ③ YYYY.M.D 形式（「2026.5.30」など）
+        // ③ YYYY.M.D 形式（「2026.5.30」など、同月範囲「2026.5.30(土)・31(日)」も対応）
         if (!startDate) {
-          const dotDates = [
-            ...bodyText.matchAll(/(\d{4})\.(\d{1,2})\.(\d{1,2})/g),
-          ];
-          if (dotDates.length > 0) {
-            const m = dotDates[0];
-            startDate = `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
-            if (dotDates.length > 1) {
-              const m2 = dotDates[dotDates.length - 1];
-              endDate = `${m2[1]}-${m2[2].padStart(2, "0")}-${m2[3].padStart(2, "0")}`;
+          // ③-a 同月内の範囲表記: 2026.5.30(土)・31(日) など
+          const dotSameMonthRange = bodyText.match(
+            /(\d{4})\.(\d{1,2})\.(\d{1,2})[^〜～~・\d]*[〜～~・]\s*(?:[（(][^）)]*[）)])?\s*(\d{1,2})/,
+          );
+          if (dotSameMonthRange) {
+            const [, y, mo, d1, d2] = dotSameMonthRange;
+            startDate = `${y}-${mo.padStart(2, "0")}-${d1.padStart(2, "0")}`;
+            endDate = `${y}-${mo.padStart(2, "0")}-${d2.padStart(2, "0")}`;
+          } else {
+            // ③-b 単独または複数フル日付
+            const dotDates = [
+              ...bodyText.matchAll(/(\d{4})\.(\d{1,2})\.(\d{1,2})/g),
+            ];
+            if (dotDates.length > 0) {
+              const m = dotDates[0];
+              startDate = `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
+              if (dotDates.length > 1) {
+                const m2 = dotDates[dotDates.length - 1];
+                endDate = `${m2[1]}-${m2[2].padStart(2, "0")}-${m2[3].padStart(2, "0")}`;
+              }
             }
           }
         }

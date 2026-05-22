@@ -610,7 +610,7 @@ export const EVENTS = [
     "area": "前橋市",
     "venue": "富士見公民館（前橋市富士見町田島866-1）",
     "startDate": "2026-05-30",
-    "endDate": "2026-05-30",
+    "endDate": "2026-05-31",
     "tags": [
       "群馬eスポーツ連合",
       "eスポーツ",
@@ -848,6 +848,26 @@ export const EVENTS = [
     ],
     "desc": "フレッセイ連取店にぐんまちゃんが出動するよ♫\nぐんまちゃんとの写真撮影会のほか、連取店限定抽選会も実施！\n\n①ぐんまち…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6727",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 42847,
+    "title": "2026.5.30-5.31【GUNMA outside Festival 2026 】開催による公園からのお知らせ",
+    "emoji": "🎈",
+    "image": "https://kfp-tomo.org/wp-content/uploads/2025/04/5ba897d6d697425ab4b38f14e988b482.jpg",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "高崎市",
+    "venue": "観音山ファミリーパーク",
+    "startDate": "2026-05-30",
+    "endDate": "2026-05-30",
+    "tags": [
+      "観音山ファミリーパーク",
+      "高崎市"
+    ],
+    "desc": "《観音山ファミリーパークよりお知らせ》 ◆GUNMA outside Festival 20256開催につきまして（5月30日-5月31日） ※詳細な情報は GUNMA outside Festival 2025主催者様-Instagram",
+    "url": "https://kfp-tomo.org/archives/12081",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
