@@ -1675,6 +1675,7 @@ async function scrapeGunlabo() {
           ),
         );
         if (!isFamilyTag && !isKidsRelated(title + desc)) return;
+        if (isNgContent(title + desc)) return;
 
         const fullUrl = href.startsWith("http") ? href : BASE + href;
 

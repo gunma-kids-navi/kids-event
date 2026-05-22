@@ -2831,27 +2831,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 97294,
-    "title": "医師と歩く森林セラピー＆認知症予防講演会",
-    "emoji": "🌿",
-    "image": "https://www.gunlabo.net/images_c/event/image6692.jpg?1776323006",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "上野村",
-    "venue": "上野村産業情報センター",
-    "startDate": "2026-05-31",
-    "endDate": "2026-05-31",
-    "tags": [
-      "多野郡上野村",
-      "体験",
-      "自然"
-    ],
-    "desc": "医学的エビデンスに基づいた森林セラピー体験と認知症予防講演会を組み合わせた特別企画「医師と歩く森林セラピー＆専門医に聞…",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=6692",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 97568,
     "title": "令和8年　館林まつり【群馬の花火大会・夏祭り特集2026】",
     "emoji": "🌿",

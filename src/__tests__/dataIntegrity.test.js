@@ -497,3 +497,107 @@ describe("エリア郡名正規化", () => {
     expect(郡付き.length).toBe(0);
   });
 });
+
+// ========================================================
+// [BUG #4修正確認] isNgContent / scrapeGunlabo の NG フィルタ
+// ========================================================
+
+// scrape.js の NG_KEYWORDS・isNgContent・isKidsRelated を再現
+const NG_KEYWORDS = [
+  "介護", "看護", "認知症", "ヘルパー", "福祉士", "訪問介護", "在宅医療",
+  "緩和ケア", "リハビリ",
+  "シニア", "高齢者", "老人", "敬老", "熟年",
+  "成人向け", "就職", "転職", "求人", "採用", "起業", "創業", "ビジネス",
+  "セミナー", "研修", "講習会", "資格取得", "免許",
+  "確定申告", "税務", "年金", "保険料", "住民票",
+  "婚活", "出会い", "女子会",
+  "老後", "資産", "インフレ", "円安", "投資", "資金運用", "株式",
+  "NISA", "iDeCo", "保険見直し", "ローン", "不動産",
+];
+const KIDS_KEYWORDS_LOCAL = [
+  "子ども", "こども", "子供", "親子", "キッズ", "ちびっこ", "小学", "幼児",
+  "保育", "児童", "少年", "少女", "工作", "体験", "ワークショップ", "教室",
+  "講座", "あそび", "遊び", "自然観察", "プラネタリウム", "昆虫", "動物",
+  "キャンプ", "冒険", "科学館", "まつり", "祭り", "祭", "フェスタ", "フェスティバル",
+];
+function isNgContent(text) {
+  return NG_KEYWORDS.some((kw) => text.includes(kw));
+}
+function isKidsRelated(text) {
+  return KIDS_KEYWORDS_LOCAL.some((kw) => text.includes(kw)) && !isNgContent(text);
+}
+
+describe("[BUG #4修正確認] isNgContent が NG キーワードを正しく検出する", () => {
+  it("「認知症」を含むテキストは NG と判定される", () => {
+    expect(isNgContent("医師と歩く森林セラピー＆認知症予防講演会")).toBe(true);
+  });
+
+  it("「老後」を含むテキストは NG と判定される", () => {
+    expect(isNgContent("インフレと円安が老後資金に与える本当の影響")).toBe(true);
+  });
+
+  it("子ども向けの正常なテキストは NG と判定されない", () => {
+    expect(isNgContent("親子で楽しむ昆虫観察ワークショップ")).toBe(false);
+  });
+
+  it("NG キーワードなしのテキストは NG と判定されない", () => {
+    expect(isNgContent("夏祭り・花火大会")).toBe(false);
+  });
+});
+
+describe("[BUG #4修正確認] isFamilyTag=true でも isNgContent が機能すること", () => {
+  // 修正前: isFamilyTag=true のとき isKidsRelated をスキップ → NG チェック無効
+  // 修正後: isNgContent を独立して呼ぶためフィルタが必ず動作する
+
+  it("「体験」タグ付きでも NG キーワード含むイベントは除外される（修正動作を再現）", () => {
+    // ぐんラボ！スクレイパー内のフィルタ処理を再現
+    function shouldInclude(title, desc, tags) {
+      const FAMILY_TAG_RE = /家族|子育て|こども|子ども|キッズ|子供|ワークショップ|学習|体験|自然|野外|祭・伝統行事|花火/;
+      const isFamilyTag = tags.some((t) => FAMILY_TAG_RE.test(t));
+      if (!isFamilyTag && !isKidsRelated(title + desc)) return false;
+      if (isNgContent(title + desc)) return false; // BUG #4 修正行
+      return true;
+    }
+
+    // 「体験」タグ → isFamilyTag=true だが「認知症」で NG
+    expect(shouldInclude(
+      "医師と歩く森林セラピー＆認知症予防講演会",
+      "認知症予防の講演",
+      ["体験", "自然"],
+    )).toBe(false);
+
+    // 「体験」タグ → isFamilyTag=true、「老後」で NG
+    expect(shouldInclude(
+      "インフレと円安が老後資金に与える本当の影響",
+      "老後の資産運用について",
+      ["学習"],
+    )).toBe(false);
+
+    // 「体験」タグ → isFamilyTag=true、NG キーワードなし → 含める
+    expect(shouldInclude(
+      "親子で楽しむ自然体験",
+      "子どもと一緒に自然を楽しもう",
+      ["体験", "自然"],
+    )).toBe(true);
+  });
+});
+
+describe("[BUG #4修正確認] events.js に NG キーワードが混入していない", () => {
+  const NG_SAMPLE = ["認知症", "老後", "介護", "シニア", "婚活", "就職", "転職", "NISA", "iDeCo"];
+
+  NG_SAMPLE.forEach((kw) => {
+    it(`title または desc に「${kw}」を含むイベントが存在しない`, () => {
+      const found = EVENTS.filter(
+        (ev) =>
+          (ev.title || "").includes(kw) ||
+          (ev.desc || "").includes(kw),
+      );
+      if (found.length > 0) {
+        found.forEach((ev) =>
+          console.error(`[BUG #4残存] id:${ev.id} "${ev.title}"`),
+        );
+      }
+      expect(found.length).toBe(0);
+    });
+  });
+});
