@@ -1741,6 +1741,157 @@ async function scrapeGunlabo() {
   return results;
 }
 
+// ===== 群馬県eスポーツ連合 (gespo) =====
+async function scrapeGunmaEsu() {
+  const base = "https://gunma-esu.com";
+  const listUrl = `${base}/news/`;
+  console.log(`  [群馬eスポーツ連合] ${listUrl}`);
+  const results = [];
+
+  const today = new Date().toISOString().split("T")[0];
+  const horizon = new Date();
+  horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
+  const horizonStr = horizon.toISOString().split("T")[0];
+
+  try {
+    // 1. リストページから記事URLを収集
+    const res = await fetch(listUrl, {
+      signal: AbortSignal.timeout(10000),
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
+    });
+    const html = await res.text();
+    const $ = cheerio.load(html);
+
+    const articleUrls = [];
+    $("a[href]").each((_, el) => {
+      const href = $(el).attr("href") || "";
+      if (/\/news\/\d+\/?$/.test(href)) {
+        const fullUrl = href.startsWith("http") ? href : `${base}${href}`;
+        if (!articleUrls.includes(fullUrl)) {
+          articleUrls.push(fullUrl);
+        }
+      }
+    });
+    console.log(`  [群馬eスポーツ連合] 記事URL取得: ${articleUrls.length}件`);
+
+    // 2. 各記事を並行取得
+    const articleResults = await Promise.allSettled(
+      articleUrls.map(async (url) => {
+        const r = await fetch(url, {
+          signal: AbortSignal.timeout(10000),
+          headers: {
+            "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
+          },
+        });
+        const h = await r.text();
+        const $a = cheerio.load(h);
+
+        // タイトル
+        const title = $a("h1").first().text().trim().replace(/\s+/g, " ");
+        if (!title || title.length < 5) return null;
+
+        // 本文テキスト全体（ナビ等を除いたメインコンテンツ）
+        const bodyText = $a("body").text().replace(/\s+/g, " ");
+
+        // 日付解析（複数フォーマット対応）
+        let startDate = null,
+          endDate = null;
+
+        // YYYY年M月D日 形式
+        const jpDateMatches = [
+          ...bodyText.matchAll(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/g),
+        ];
+        if (jpDateMatches.length > 0) {
+          const m = jpDateMatches[0];
+          startDate = `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
+          if (jpDateMatches.length > 1) {
+            const m2 = jpDateMatches[jpDateMatches.length - 1];
+            endDate = `${m2[1]}-${m2[2].padStart(2, "0")}-${m2[3].padStart(2, "0")}`;
+          }
+        }
+
+        // YYYY.M.D 形式（「2026.5.30」など）
+        if (!startDate) {
+          const dotDates = [
+            ...bodyText.matchAll(/(\d{4})\.(\d{1,2})\.(\d{1,2})/g),
+          ];
+          if (dotDates.length > 0) {
+            const m = dotDates[0];
+            startDate = `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
+            if (dotDates.length > 1) {
+              const m2 = dotDates[dotDates.length - 1];
+              endDate = `${m2[1]}-${m2[2].padStart(2, "0")}-${m2[3].padStart(2, "0")}`;
+            }
+          }
+        }
+
+        if (!startDate) return null;
+        if (!endDate || endDate < startDate) endDate = startDate;
+
+        // 期間外はスキップ
+        if (endDate < today || startDate > horizonStr) return null;
+
+        // 会場抽出（括弧が閉じたところで終わる）
+        const venueMatch = bodyText.match(
+          /[〇○◯]?\s*(?:会場|開催場所)[：:]\s*([^〇〇〇\n。、]{4,50}?)(?:\s*[〇○◯]|\s*$)/,
+        );
+        const venueRaw = venueMatch ? venueMatch[1].trim() : null;
+        // 末尾に残った「〇料金」などを除去
+        const venue = venueRaw
+          ? venueRaw.replace(/\s*[〇○◯].+$/, "").trim()
+          : "群馬県（詳細は公式サイト）";
+
+        // 概要（最初の意味のある文）
+        const descMatch = bodyText.match(
+          /(?:^|\s)([ぁ-ヶー一-龯a-zA-Z]{10,}[。！？])/,
+        );
+        const desc = descMatch
+          ? descMatch[1].trim()
+          : "詳細は公式サイトをご確認ください。";
+
+        const areaResolved =
+          resolveAreaFromText(bodyText.slice(0, 800)) || "前橋市";
+        const combined = title + " " + bodyText.slice(0, 300);
+        const cat = guessCategory(combined);
+        const isEsports =
+          /マインクラフト|ゲーム|eスポ|espo|LAN|大会|ゲーミング/.test(combined);
+
+        return {
+          id: stableId(title, url),
+          title: title.slice(0, 80),
+          emoji: isEsports ? "🎮" : guessEmoji(combined),
+          ...cat,
+          area: areaResolved,
+          venue: venue.slice(0, 60),
+          startDate,
+          endDate,
+          tags: [
+            ...new Set(
+              ["群馬eスポーツ連合", "eスポーツ", areaResolved].filter(Boolean),
+            ),
+          ],
+          desc: desc.slice(0, 120),
+          url,
+          free: /無料/.test(bodyText),
+          age: "詳細は公式サイトへ",
+          _source: "群馬eスポーツ連合",
+        };
+      }),
+    );
+
+    for (const r of articleResults) {
+      if (r.status === "fulfilled" && r.value) {
+        results.push(r.value);
+      }
+    }
+  } catch (e) {
+    console.warn(`    ⚠ 取得失敗: ${e.message}`);
+  }
+
+  console.log(`  [群馬eスポーツ連合] 取得: ${results.length}件`);
+  return results;
+}
+
 // ===== 明らかにゴミなデータを除外 =====
 const UI_TITLES = new Set([
   "イベント検索",
@@ -1859,12 +2010,15 @@ async function main() {
   console.log("\n📡 ぐんラボ！を取得中...");
   const gunlabo = await scrapeGunlabo().catch(() => []);
 
-  // ウォーカープラス・じゃらん・群馬県観光公式を並行取得
-  console.log("\n📡 ウォーカープラス・じゃらん・群馬県観光公式を取得中...");
-  const [walkerplus, jalan, gunmaKanko] = await Promise.allSettled([
+  // ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合を並行取得
+  console.log(
+    "\n📡 ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合を取得中...",
+  );
+  const [walkerplus, jalan, gunmaKanko, gunmaEsu] = await Promise.allSettled([
     scrapeWalkerPlus(),
     scrapeJalan(),
     scrapeGunmaKanko(),
+    scrapeGunmaEsu(),
   ]).then((rs) => rs.map((r) => (r.status === "fulfilled" ? r.value : [])));
 
   const scrapedRaw = [
@@ -1882,6 +2036,7 @@ async function main() {
     ...walkerplus,
     ...jalan,
     ...gunmaKanko,
+    ...gunmaEsu,
   ];
 
   console.log(`\n📋 自動収集 raw: ${scrapedRaw.length}件`);

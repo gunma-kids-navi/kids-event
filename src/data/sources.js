@@ -155,6 +155,18 @@ export const SOURCES = [
     kidsLabel: null,
     rssUrl: null,
   },
+  {
+    name: "群馬eスポーツ連合",
+    icon: "e",
+    matchUrl: "gunma-esu.com",
+    calendarUrl: "https://gunma-esu.com/news/",
+    calendarLabel: "イベント・ニュース",
+    newsletterUrl: null,
+    newsletterLabel: null,
+    kidsUrl: "https://gunma-esu.com/news/",
+    kidsLabel: "子ども向けeスポーツ・ゲームイベント",
+    rssUrl: null,
+  },
 ];
 
 export const KIDS_KEYWORDS = [

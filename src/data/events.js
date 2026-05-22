@@ -133,6 +133,27 @@ export const EVENTS = [
     "age": "どなたでも"
   },
   {
+    "id": 10832,
+    "title": "六華地蔵祭　ROCKAZIZO(前橋市中央イベント広場／前橋市)",
+    "emoji": "🎵",
+    "image": "https://www.gunlabo.net/images_c/event/image6744.jpeg?1779091662",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "前橋市",
+    "venue": "前橋市中央イベント広場",
+    "startDate": "2026-06-14",
+    "endDate": "2026-06-14",
+    "tags": [
+      "前橋市",
+      "音楽",
+      "街・地域"
+    ],
+    "desc": "6月14日に前橋中央イベント広場にて地域密着型音楽ライブイベントを行います。ぜひご観覧ください。",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=6744",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 11133,
     "title": "『きりダン！』～桐生駅前ダンスフェスティバル＆マルシェ～",
     "emoji": "🎈",
@@ -195,6 +216,28 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 13116,
+    "title": "山レレしようよ。(山とスキーの店 石井DreamBox／伊勢崎市)",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event/image6746.jpg?1779115776",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "伊勢崎市",
+    "venue": "山とスキーの店石井 DreamBOX",
+    "startDate": "2026-05-24",
+    "endDate": "2026-05-24",
+    "tags": [
+      "伊勢崎市",
+      "音楽",
+      "ワークショップ",
+      "体験"
+    ],
+    "desc": "山レレしようよ。 \n5/24(日) 13:00〜17:00\n（先着順／同時参加 4名まで）\n\n⸻\n\n✨ だいたい20分…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=6746",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 13769,
     "title": "定期歴史講座「かみつけ塾」（5月17日）",
     "emoji": "🏺",
@@ -209,6 +252,26 @@ export const EVENTS = [
     ],
     "desc": "定期歴史講座「かみつけ塾」（5月17日） 講演・講座",
     "url": "https://www.city.takasaki.gunma.jp/site/cultural-assets/5542.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 14163,
+    "title": "小野池あじさい公園　あじさいまつり",
+    "emoji": "🎪",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "渋川市",
+    "venue": "小野池あじさい公園",
+    "startDate": "2026-06-13",
+    "endDate": "2026-07-05",
+    "tags": [
+      "じゃらん",
+      "渋川市",
+      "観光"
+    ],
+    "desc": "【小野池あじさい公園】小野池あじさい公園　あじさいまつり",
+    "url": "https://www.jalan.net/event/evt_357105/",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -260,8 +323,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "桐生市",
     "venue": "ぐんま昆虫の森",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "昆虫の森",
       "桐生市",
@@ -303,8 +366,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "前橋市",
     "venue": "群馬県\n        \n          前橋市\n        \n        赤城山各所（大沼湖畔、白樺牧場、",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-05-22",
     "tags": [
       "ウォーカープラス",
       "入場無料"
@@ -312,6 +375,28 @@ export const EVENTS = [
     "desc": "【群馬県\n        \n          前橋市\n        \n        赤城山各所（大沼湖畔、白樺牧場、覚満淵）】【花・見ごろ】赤城山　レンゲツツジ",
     "url": "https://www.walkerplus.com/event/ar0310e578518/",
     "free": true,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 22797,
+    "title": "OYAKO NATU FES（桐生織物会館／桐生市）",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event/image5864.jpg?1779154838",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "桐生市",
+    "venue": "桐生織物会館",
+    "startDate": "2026-07-25",
+    "endDate": "2026-07-25",
+    "tags": [
+      "桐生市",
+      "夏休み",
+      "ワークショップ",
+      "マルシェ"
+    ],
+    "desc": "暑い夏も安心の屋内で、親子で最高の思い出を作ろう！\n\n夏の思い出を彩る、最高のラインナップが勢揃い！\n\n今回も、親子で…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=5864",
+    "free": false,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -476,6 +561,27 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 30242,
+    "title": "ぐんまの民俗芸能in県立女子大vol.6～人形浄瑠璃～",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event/image6255.jpg?1779174786",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "玉村町",
+    "venue": "群馬県立女子大学　講堂",
+    "startDate": "2026-06-20",
+    "endDate": "2026-06-20",
+    "tags": [
+      "佐波郡玉村町",
+      "伝統芸能",
+      "学習"
+    ],
+    "desc": "人形の構造を説明するワークショップや公演、群馬の人形芝居についてのレクチャーなど、初めての方でも理解を深めながらお楽し…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=6255",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 31686,
     "title": "科学講座パステルアートと色の科学10：00の回",
     "emoji": "🎨",
@@ -493,6 +599,26 @@ export const EVENTS = [
     "desc": "5月31日(日)・6月7日(日)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/pasuteru_1000/",
     "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 33843,
+    "title": "【富士見公民館】MAEBASHI eスポCLUB 探究学習ワークショップ",
+    "emoji": "🎮",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "前橋市",
+    "venue": "富士見公民館（前橋市富士見町田島866-1）",
+    "startDate": "2026-05-30",
+    "endDate": "2026-05-30",
+    "tags": [
+      "群馬eスポーツ連合",
+      "eスポーツ",
+      "前橋市"
+    ],
+    "desc": "初心者や子どもだけのグループ学習に不安があっても大丈夫！",
+    "url": "https://gunma-esu.com/news/1569/",
+    "free": true,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -609,8 +735,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "富岡市",
     "venue": "群馬サファリパーク",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "群馬サファリパーク",
       "富岡市",
@@ -618,6 +744,28 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/snack-time-capybara/",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 40131,
+    "title": "Musuhiマルシェ（アメイジンググレイス前橋・パティスリーアメイジンググレイスカフェ／前橋市）",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event/image6747.jpeg?1779143840",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "前橋市",
+    "venue": "アメイジンググレイス前橋／パティスリーアメイジンググレイスカフェ",
+    "startDate": "2026-05-31",
+    "endDate": "2026-05-31",
+    "tags": [
+      "前橋市",
+      "マルシェ",
+      "家族",
+      "体験"
+    ],
+    "desc": "5月31日（日）\n前橋の結婚式場「アメイジンググレイス前橋」にて「Musuhiマルシェ」開催！\n\nご家族やお友だちをお…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=6747",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -636,6 +784,28 @@ export const EVENTS = [
     ],
     "desc": "藍染で大桝絞りの浴衣地を染める 講演・講座",
     "url": "https://www.city.takasaki.gunma.jp/site/senryou/74194.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 41318,
+    "title": "甘楽町花火大会／甘楽町商工会夏まつり【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event_tag/0008.png?1322546386",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "甘楽町",
+    "venue": "甘楽ふれあいの丘",
+    "startDate": "2026-08-14",
+    "endDate": "2026-08-14",
+    "tags": [
+      "甘楽郡甘楽町",
+      "花火",
+      "祭・伝統行事",
+      "街・地域"
+    ],
+    "desc": "甘楽町商工会主催の夏まつりに合わせて実施される甘楽町花火大会。\n大輪の花火が、甘楽の真夏の夜空を彩ります。\n\n※開催状…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=2642",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -682,6 +852,26 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 42847,
+    "title": "2026.5.30-5.31【GUNMA outside Festival 2026 】開催による公園からのお知らせ",
+    "emoji": "🎈",
+    "image": "https://kfp-tomo.org/wp-content/uploads/2025/04/5ba897d6d697425ab4b38f14e988b482.jpg",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "高崎市",
+    "venue": "観音山ファミリーパーク",
+    "startDate": "2026-05-30",
+    "endDate": "2026-05-30",
+    "tags": [
+      "観音山ファミリーパーク",
+      "高崎市"
+    ],
+    "desc": "《観音山ファミリーパークよりお知らせ》 ◆GUNMA outside Festival 20256開催につきまして（5月30日-5月31日） ※詳細な情報は GUNMA outside Festival 2025主催者様-Instagram",
+    "url": "https://kfp-tomo.org/archives/12081",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 43052,
     "title": "ベビーサロン「みんなで輪になってしゃべろう」",
     "emoji": "🎈",
@@ -702,26 +892,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 43159,
-    "title": "ぐんま方言かるた体験会",
-    "emoji": "🎈",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "太田市",
-    "venue": "ぐんまこどもの国 児童会館",
-    "startDate": "2026-06-14",
-    "endDate": "2026-06-14",
-    "tags": [
-      "ぐんまこどもの国",
-      "太田市",
-      "児童会館"
-    ],
-    "desc": "6月14日(日)開催。詳細は公式サイトをご確認ください。",
-    "url": "https://kodomonokuni.or.jp/event/hougenkaruta/",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 43253,
     "title": "ウォーキングゾーン エサやり体験(トラ・ライオン）週末祝のみ",
     "emoji": "🎈",
@@ -730,8 +900,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "富岡市",
     "venue": "群馬サファリパーク",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "群馬サファリパーク",
       "富岡市",
@@ -740,6 +910,27 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/carnivore-feeding-experience/",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 43373,
+    "title": "ホンダカーズ群馬 地域安全フェスタ　2026夏（ホンダカーズ群馬 前橋大島店／前橋市）",
+    "emoji": "🎪",
+    "image": "https://www.gunlabo.net/images_c/event/image5886.jpg?1779064759",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "前橋市",
+    "venue": "ホンダカーズ群馬 前橋大島店",
+    "startDate": "2026-06-13",
+    "endDate": "2026-06-13",
+    "tags": [
+      "前橋市",
+      "体験",
+      "家族"
+    ],
+    "desc": "毎回大好評の「地域安全フェスタ」、今回はHonda Cars群馬 前橋大島店で開催！\n\n群馬県警察やザスパ群馬、前橋東…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=5886",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -759,6 +950,28 @@ export const EVENTS = [
     ],
     "desc": "令和８年度前期イベントガイド 2026年4月1日(水)～2026年9月30日(水) その他",
     "url": "https://www.gmnh.pref.gunma.jp/event/id9372/",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 43523,
+    "title": "赤堀花しょうぶ園（伊勢崎市）",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image1303.jpg?1496107276",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "伊勢崎市",
+    "venue": "赤堀花しょうぶ園",
+    "startDate": "2026-06-05",
+    "endDate": "2026-06-21",
+    "tags": [
+      "伊勢崎市",
+      "植物",
+      "野外",
+      "花見"
+    ],
+    "desc": "約25,000株もの花しょうぶが咲き誇る赤堀花しょうぶ園で毎年開催されているイベントです。\n紫と白の花の美しいグラデー…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=1303",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -833,8 +1046,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "桐生市",
     "venue": "ぐんま昆虫の森",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "昆虫の森",
       "桐生市",
@@ -884,48 +1097,6 @@ export const EVENTS = [
     ],
     "desc": "6月13日(土)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/%e3%81%a1%e3%82%87%e3%81%93%e3%81%a3%e3%81%a8%e3%83%97%e3%83%a9%e3%83%8d%e3%82%bf%e3%83%aa%e3%82%a6%e3%83%a0/",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
-    "id": 48365,
-    "title": "アサヒ飲料工場フェスタ2026 in館林（アサヒ飲料株式会社 群馬工場／館林市）",
-    "emoji": "🎪",
-    "image": "https://www.gunlabo.net/images_c/event/image4667.jpg?1775789946",
-    "category": "festival",
-    "label": "祭り・フェスタ",
-    "area": "館林市",
-    "venue": "アサヒ飲料株式会社 群馬工場（工場見学",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
-    "tags": [
-      "館林市",
-      "街・地域",
-      "家族"
-    ],
-    "desc": "5月17日（日）に「アサヒ飲料工場フェスタ2026 in館林」を開催いたします。\n地域の皆さまにお楽しみいただけるよう…",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=4667",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
-    "id": 48515,
-    "title": "まちなかキャンパス　「インフレと円安が老後資金に与える本当の影響」（前橋市中央公民館／前橋市）",
-    "emoji": "🎈",
-    "image": "https://www.gunlabo.net/images_c/event/image6688.jpg?1776221823",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "前橋市",
-    "venue": "前橋市中央公民館5階　508学習室",
-    "startDate": "2026-05-20",
-    "endDate": "2026-05-20",
-    "tags": [
-      "前橋市",
-      "講演・講座",
-      "学習"
-    ],
-    "desc": "インフレと円安が進む今、老後資金の価値はどう変わるのでしょうか？\n　物価上昇や為替の影響により、これまでの準備だけで…",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=6688",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1084,8 +1255,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "富岡市",
     "venue": "群馬サファリパーク",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "群馬サファリパーク",
       "富岡市",
@@ -1113,6 +1284,26 @@ export const EVENTS = [
     ],
     "desc": "6月12日(金)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/sodan_rinsho/",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 54831,
+    "title": "ルリアンマルシェ（伊勢崎MIRAI PARK・X　PARK1510／伊勢崎市）",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event/image6750.jpg?1779191141",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "伊勢崎市",
+    "venue": "伊勢崎MIRAI PARK・X　PARK1510",
+    "startDate": "2026-05-30",
+    "endDate": "2026-05-30",
+    "tags": [
+      "伊勢崎市",
+      "マルシェ"
+    ],
+    "desc": "ワークショップ26店舗×物販×フリマ×こども店長×キッチンカー\n総勢64店舗の大規模マルシェが伊勢崎に初上陸♡\n見る・…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=6750",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1216,26 +1407,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 56621,
-    "title": "プレミアムドッグフェスタ（Gメッセ群馬／高崎市）",
-    "emoji": "🎪",
-    "image": "https://www.gunlabo.net/images_c/event/image6523.jpg?1770092041",
-    "category": "festival",
-    "label": "祭り・フェスタ",
-    "area": "高崎市",
-    "venue": "Gメッセ群馬（群馬コンベンションセンター",
-    "startDate": "2026-05-16",
-    "endDate": "2026-05-17",
-    "tags": [
-      "高崎市",
-      "ペット・動物"
-    ],
-    "desc": "関東各地で開催中の大型ドッグイベントが、群馬初開催！！\n愛犬が思いっきり遊べて、オーナー様も心から楽しめる特別なイベン…",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=6523",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 56952,
     "title": "＜令和8（2026）年開催中止＞たまむら花火大会",
     "emoji": "🌿",
@@ -1244,8 +1415,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "玉村町",
     "venue": "玉村町上陽地区（上陽小学校西側",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-05-22",
     "tags": [
       "佐波郡玉村町",
       "花火",
@@ -1408,8 +1579,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "桐生市",
     "venue": "ぐんま昆虫の森",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "昆虫の森",
       "桐生市",
@@ -1533,8 +1704,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "富岡市",
     "venue": "群馬サファリパーク",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "群馬サファリパーク",
       "富岡市",
@@ -1644,6 +1815,27 @@ export const EVENTS = [
     ],
     "desc": "【月夜野ホタルの里遊歩道】月夜野ホタルの里の蛍",
     "url": "https://www.jalan.net/event/evt_357116/",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 65464,
+    "title": "令和8年　館林手筒花火大会【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image914.png?1560219254",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "館林市",
+    "venue": "館林城ゆめひろば（館林市役所東広場",
+    "startDate": "2026-07-25",
+    "endDate": "2026-07-25",
+    "tags": [
+      "館林市",
+      "花火",
+      "祭・伝統行事"
+    ],
+    "desc": "館林藩主榊原氏の発祥の地である三河地方に伝わる手筒花火。約10mも火柱が吹き上がる様子は迫力満点！\n手筒花火だけでなく…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=914",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1814,8 +2006,8 @@ export const EVENTS = [
     "label": "祭り・フェスタ",
     "area": "桐生市",
     "venue": "県内各所8会場",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-05-22",
     "tags": [
       "桐生市",
       "家族",
@@ -1836,8 +2028,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "富岡市",
     "venue": "群馬サファリパーク",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "群馬サファリパーク",
       "富岡市",
@@ -1845,27 +2037,6 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/capybara-bathing/",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
-    "id": 71936,
-    "title": "つまみ細工展（前橋市芸術文化れんが蔵／前橋市）",
-    "emoji": "🎈",
-    "image": "https://www.gunlabo.net/images_c/event/image6729.jpg?1778125043",
-    "category": "exhibition",
-    "label": "展覧会",
-    "area": "前橋市",
-    "venue": "前橋市芸術文化れんが蔵",
-    "startDate": "2026-05-15",
-    "endDate": "2026-05-17",
-    "tags": [
-      "前橋市",
-      "販売",
-      "ワークショップ"
-    ],
-    "desc": "つまみ細工の作品展示、作品販売、つまみ細工体験を開催します。",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=6729",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1878,8 +2049,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "玉村町",
     "venue": "玉村町各地",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-05-22",
     "tags": [
       "佐波郡玉村町",
       "植物",
@@ -1913,27 +2084,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 73535,
-    "title": "『スマイルステージ2026』～音楽と食の祭典～（喫茶室サロン かぜくら／太田市）",
-    "emoji": "🎵",
-    "image": "https://www.gunlabo.net/images_c/event/image6567.jpg?1772006973",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "太田市",
-    "venue": "喫茶室サロン かぜくら",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
-    "tags": [
-      "太田市",
-      "音楽",
-      "グルメ"
-    ],
-    "desc": "音楽と美食で街を盛り上げるため、国登録有形文化財の酒蔵内で地域振興イベントを開きます。\n\n・音楽ステージ：ウクレレ、昭…",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=6567",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 76907,
     "title": "ハンドメイドマルシェ　bouquet（ブーケ）（エアリスの小さな森公園／太田市）",
     "emoji": "🌿",
@@ -1956,6 +2106,50 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 77157,
+    "title": "令和8年　大胡祇園まつり【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image931.png?1559883041",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "前橋市",
+    "venue": "下町通り（歩行者天国",
+    "startDate": "2026-07-25",
+    "endDate": "2026-07-26",
+    "tags": [
+      "前橋市",
+      "祭・伝統行事",
+      "伝統芸能",
+      "街・地域"
+    ],
+    "desc": "令和8年の「大胡祇園まつり」を、令和8年7月25日（土曜日）・26日（日曜日）に開催します。\n\n--- ---\n【大胡…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=931",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 77429,
+    "title": "尾島ねぷたまつり【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image1152.jpg?1528942787",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "太田市",
+    "venue": "尾島商店街大通り（県道142号線",
+    "startDate": "2026-08-14",
+    "endDate": "2026-08-15",
+    "tags": [
+      "太田市",
+      "祭・伝統行事",
+      "街・地域",
+      "伝統芸能"
+    ],
+    "desc": "「ねぷた」で有名な青森県弘前市との歴史的なつながりから、昭和61年に誕生した尾島ねぷたまつり。今年で40周年を迎えます…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=1152",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 77538,
     "title": "ミニ企画展「榛名神社丙午還暦大祭の資料展」",
     "emoji": "🎈",
@@ -1970,6 +2164,28 @@ export const EVENTS = [
     ],
     "desc": "ミニ企画展「榛名神社丙午還暦大祭の資料展」",
     "url": "https://www.city.takasaki.gunma.jp/site/cultural-assets/81562.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 77802,
+    "title": "第52回高崎まつり【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image905.jpg?1528942807",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "高崎市",
+    "venue": "あら町、慈光通り、もてなし広場など／烏川河川敷",
+    "startDate": "2026-08-22",
+    "endDate": "2026-08-23",
+    "tags": [
+      "高崎市",
+      "祭・伝統行事",
+      "花火",
+      "街・地域"
+    ],
+    "desc": "高崎まつりは、高崎山車まつりと同時に行われるお祭り。\n神輿のほかに、巨大だるまみこしや創作だるまみこしといった高崎まつ…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=905",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -2016,6 +2232,67 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 81632,
+    "title": "GUNMA outside Festival 2026（観音山ファミリーパーク 森の芝生広場／高崎市）",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image5536.png?1779090761",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "高崎市",
+    "venue": "群馬県立観音山ファミリーパーク",
+    "startDate": "2026-05-30",
+    "endDate": "2026-05-31",
+    "tags": [
+      "高崎市",
+      "野外",
+      "街・地域"
+    ],
+    "desc": "あの体験型アウトドアイベントが、今年も群馬に。\n\n『TOKYO outside Festival』から生まれた\n【GU…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=5536",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 82567,
+    "title": "KIRYU SKY LANTERN（桐生スカイランタン） 2026 （桐生市南公園／桐生市）",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event_tag/0003.png?1322546400",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "桐生市",
+    "venue": "桐生市南公園",
+    "startDate": "2026-10-11",
+    "endDate": "2026-10-11",
+    "tags": [
+      "桐生市",
+      "街・地域"
+    ],
+    "desc": "昨年、多くの感動と笑顔を生み出したスカイランタンの祭典が、今年も桐生の夜空に帰ってきます。\nぜひ、大切な人やご家族と一…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=6123",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 82801,
+    "title": "スマイル撮影会2026（昌賢まえばしホール／前橋市）",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event/image6745.png?1779091866",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "前橋市",
+    "venue": "昌賢学園まえばしホール（前橋市民文化会館",
+    "startDate": "2026-06-06",
+    "endDate": "2026-06-07",
+    "tags": [
+      "前橋市",
+      "子育て"
+    ],
+    "desc": "前橋市民文化会館のパブリックスペースを活用して、育児の情報交換やコミュニケーションの場として、子育て世帯のための交流イ…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=6745",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 83391,
     "title": "昆虫観察館スタンプラリー",
     "emoji": "🦋",
@@ -2023,8 +2300,8 @@ export const EVENTS = [
     "label": "自然・アウトドア",
     "area": "桐生市",
     "venue": "ぐんま昆虫の森",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "昆虫の森",
       "桐生市",
@@ -2044,8 +2321,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "桐生市",
     "venue": "ぐんま昆虫の森",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "昆虫の森",
       "桐生市",
@@ -2148,8 +2425,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "富岡市",
     "venue": "群馬サファリパーク",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "群馬サファリパーク",
       "富岡市",
@@ -2183,6 +2460,28 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 87999,
+    "title": "千代田の祭　川せがき【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image907.jpg?1718672434",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "千代田町",
+    "venue": "【開催場所】群馬県邑楽郡千代田町赤岩地先　利根川河畔",
+    "startDate": "2026-08-18",
+    "endDate": "2026-08-18",
+    "tags": [
+      "邑楽郡千代田町",
+      "祭・伝統行事",
+      "花火",
+      "伝統芸能"
+    ],
+    "desc": "千代田の祭 川せがきは、約150年の歴史を持つ伝統のある祭りです。\n僧侶の読経と灯ろう流し（川せがき）を中心に、打上花…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=907",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 88411,
     "title": "クラフトルーム工作「のびてくるりん♪」",
     "emoji": "🔧",
@@ -2211,8 +2510,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "前橋市",
     "venue": "洗濯工房 COCOA（ココア",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-05-22",
     "tags": [
       "前橋市",
       "ボランティア・チャリティー",
@@ -2267,6 +2566,28 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 92233,
+    "title": "第76回前橋七夕まつり【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image934.jpg?1494983193",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "前橋市",
+    "venue": "前橋中心市街地",
+    "startDate": "2026-07-10",
+    "endDate": "2026-07-12",
+    "tags": [
+      "前橋市",
+      "祭・伝統行事",
+      "街・地域",
+      "季節"
+    ],
+    "desc": "今年で第76回を迎える七夕まつりは、市内を彩る夏の風物詩として広く親しまれています。\n今年の前橋七夕まつりも、ぜひお楽…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=934",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 92697,
     "title": "Let'sじゃがいも掘り@にこFarm（伊勢崎市）",
     "emoji": "🎈",
@@ -2297,8 +2618,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "富岡市",
     "venue": "群馬サファリパーク",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "群馬サファリパーク",
       "富岡市",
@@ -2318,8 +2639,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "富岡市",
     "venue": "群馬サファリパーク",
-    "startDate": "2026-05-17",
-    "endDate": "2026-11-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-11-22",
     "tags": [
       "群馬サファリパーク",
       "富岡市",
@@ -2359,8 +2680,8 @@ export const EVENTS = [
     "label": "文化・学習",
     "area": "太田市",
     "venue": "太田市天神公園内　浜町会館",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
+    "startDate": "2026-05-22",
+    "endDate": "2026-05-22",
     "tags": [
       "太田市",
       "子供",
@@ -2368,6 +2689,26 @@ export const EVENTS = [
     ],
     "desc": "『みんなで作って、みんなで食べよう』をモットーに温かい食事を通じて、孤食を防ぎ、地域コミュニティーの活性化を図ろうと2…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6684",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 93327,
+    "title": "おもいやりプラネタリウム",
+    "emoji": "🌟",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "太田市",
+    "venue": "ぐんまこどもの国 児童会館",
+    "startDate": "2026-05-23",
+    "endDate": "2026-05-23",
+    "tags": [
+      "ぐんまこどもの国",
+      "太田市",
+      "児童会館"
+    ],
+    "desc": "5月23日(土)開催。詳細は公式サイトをご確認ください。",
+    "url": "https://kodomonokuni.or.jp/event/r8omoiyaripurane/",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -2390,28 +2731,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 93808,
-    "title": "第４回ドッグウッドフェス（高崎市）",
-    "emoji": "🎈",
-    "image": "https://www.gunlabo.net/images_c/event/image6700.jpg?1776405793",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "高崎市",
-    "venue": "ハンプティーダンプティー高崎上並榎店 南側駐車場",
-    "startDate": "2026-05-17",
-    "endDate": "2026-05-17",
-    "tags": [
-      "高崎市",
-      "街・地域",
-      "グルメ",
-      "家族"
-    ],
-    "desc": "～ハナミズキ通り商店会の人気店が大集合～\nにぎやかで楽しい地域イベント\n「第4回 ドッグウッドフェス」 を開催します！…",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=6700",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 94725,
     "title": "ちょっと見直す生活習慣教室〜忙しくてもできる血糖値ケア〜",
     "emoji": "🎈",
@@ -2430,6 +2749,50 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 95436,
+    "title": "琉球の風〜沖縄祭りin高崎 2026 （もてなし広場／高崎市）",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event/image5194.jpg?1779411303",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "高崎市",
+    "venue": "高崎市 もてなし広場",
+    "startDate": "2026-10-17",
+    "endDate": "2026-10-17",
+    "tags": [
+      "高崎市",
+      "街・地域",
+      "演劇・ダンス",
+      "グルメ"
+    ],
+    "desc": "沖縄を、群馬で体験できる\n「琉球の風」開催！！\n\n沖縄の魅力を知っていただくために\n沖縄の《食　音　踊》を体感できるイ…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=5194",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 95473,
+    "title": "令和8（2026）年度　第70回前橋花火大会【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event/image901.jpg?1528432646",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "前橋市",
+    "venue": "利根川河畔 (大渡橋南北河川緑地",
+    "startDate": "2026-08-08",
+    "endDate": "2026-08-08",
+    "tags": [
+      "前橋市",
+      "花火",
+      "祭・伝統行事",
+      "街・地域"
+    ],
+    "desc": "毎年、県内外から沢山の観客が訪れる、「前橋花火大会」は夏の風物詩。\n\n前橋市の利根川大渡橋河川敷にて行われる花火大会。…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=901",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 95488,
     "title": "定期歴史講座「かみつけ塾」（6月21日）",
     "emoji": "🏺",
@@ -2444,28 +2807,6 @@ export const EVENTS = [
     ],
     "desc": "定期歴史講座「かみつけ塾」（6月21日） 講演・講座",
     "url": "https://www.city.takasaki.gunma.jp/site/cultural-assets/5542.html",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
-    "id": 96023,
-    "title": "観音山ファミリーパーク 2025　県民参加フェスタ（高崎市）",
-    "emoji": "🎪",
-    "image": "https://www.gunlabo.net/images_c/event/image1225.png?1778742486",
-    "category": "festival",
-    "label": "祭り・フェスタ",
-    "area": "高崎市",
-    "venue": "群馬県立観音山ファミリーパーク",
-    "startDate": "2026-05-16",
-    "endDate": "2026-05-17",
-    "tags": [
-      "高崎市",
-      "野外",
-      "グルメ",
-      "家族"
-    ],
-    "desc": "2026.5.16-17開催決定！\nパーク最大のお祭り「県民参加フェスタ」！！\n熱気球搭乗体験・ミニSL乗車体験・自衛…",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=1225",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -2531,6 +2872,28 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 97568,
+    "title": "令和8年　館林まつり【群馬の花火大会・夏祭り特集2026】",
+    "emoji": "🌿",
+    "image": "https://www.gunlabo.net/images_c/event_tag/0001.png?1322546399",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "館林市",
+    "venue": "本町通り周辺",
+    "startDate": "2026-07-18",
+    "endDate": "2026-07-19",
+    "tags": [
+      "館林市",
+      "祭・伝統行事",
+      "伝統芸能",
+      "街・地域"
+    ],
+    "desc": "館林市の本町通りを中心に開催されるお祭りです。\n夕方からパレードや民踊流し、子どもみこしなどさまなまなイベントが行われ…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=921",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 97625,
     "title": "令和8年度 春のばら園まつりを開催します！",
     "emoji": "🎪",
@@ -2549,28 +2912,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 98159,
-    "title": "前橋まちなか謎巡り〜新人ガイドと歩く商店街の謎解き〜(前橋市街地／前橋市)",
-    "emoji": "🎭",
-    "image": "https://www.gunlabo.net/images_c/event/image6728.jpg?1778074777",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "前橋市",
-    "venue": "前橋市街地",
-    "startDate": "2026-05-16",
-    "endDate": "2026-05-17",
-    "tags": [
-      "前橋市",
-      "野外",
-      "街・地域",
-      "家族"
-    ],
-    "desc": "前橋市街地を舞台にした、少人数制の謎解き街歩きイベントです。\n\n参加者はガイド役キャストと一緒に、中央通り・弁天通り・…",
-    "url": "https://www.gunlabo.net/event/event.shtml?id=6728",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 99402,
     "title": "【定員に達しました】前橋市動物愛護管理センター開設記念講演会を開催します",
     "emoji": "🦁",
@@ -2585,6 +2926,28 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.city.maebashi.gunma.jp/soshiki/kenko/eiseikensa/oshirase/48487.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 99888,
+    "title": "合同ランドセル展示会2026群馬（Gメッセ群馬／高崎市）",
+    "emoji": "🎈",
+    "image": "https://www.gunlabo.net/images_c/event/image6749.jpg?1779177185",
+    "category": "exhibition",
+    "label": "展覧会",
+    "area": "高崎市",
+    "venue": "Gメッセ群馬　メインホール",
+    "startDate": "2026-06-14",
+    "endDate": "2026-06-14",
+    "tags": [
+      "高崎市",
+      "子供",
+      "家族",
+      "子育て"
+    ],
+    "desc": "ランドセル選び決定版！日本最大ランドセル展示会。\n\n各社モデルを一度に見比べられる！\n群馬会場には9メーカー約680本…",
+    "url": "https://www.gunlabo.net/event/event.shtml?id=6749",
     "free": false,
     "age": "詳細は公式サイトへ"
   }
