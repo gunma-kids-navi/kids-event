@@ -43,6 +43,7 @@ import { computed, inject, ref, onMounted, onUnmounted } from "vue";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { EVENTS } from "../data/events";
+import { getStatus, parseDate } from "../composables/useEvents";
 import EventCard from "../components/EventCard.vue";
 
 // Leaflet デフォルトアイコンのパス修正（Vite環境）
@@ -116,7 +117,13 @@ const areas = computed(() => {
   });
 });
 function areaEvents(area) {
-  return EVENTS.filter((e) => e.area === area);
+  return EVENTS.filter((e) => e.area === area).sort((a, b) => {
+    const sa = getStatus(a),
+      sb = getStatus(b);
+    if (sa === "ended" && sb !== "ended") return 1;
+    if (sa !== "ended" && sb === "ended") return -1;
+    return parseDate(a.startDate) - parseDate(b.startDate);
+  });
 }
 
 // 各市区町村の中心座標（群馬県全市町村）

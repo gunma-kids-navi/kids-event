@@ -5,6 +5,7 @@
 
 import { describe, it, expect } from "vitest";
 import { EVENTS } from "../data/events.js";
+import { getStatus, parseDate } from "../composables/useEvents.js";
 
 // 自治体番号順（総務省 地方公共団体コード準拠）
 const MUNICIPALITY_ORDER = [
@@ -180,7 +181,13 @@ describe("AreaView AREA_COORDS 座標品質", () => {
 // ─────────────────────────────────────────────
 describe("AreaView areaEvents", () => {
   function areaEvents(area) {
-    return EVENTS.filter((e) => e.area === area);
+    return EVENTS.filter((e) => e.area === area).sort((a, b) => {
+      const sa = getStatus(a),
+        sb = getStatus(b);
+      if (sa === "ended" && sb !== "ended") return 1;
+      if (sa !== "ended" && sb === "ended") return -1;
+      return parseDate(a.startDate) - parseDate(b.startDate);
+    });
   }
 
   it("前橋市のイベントが取得できる", () => {
@@ -193,18 +200,28 @@ describe("AreaView areaEvents", () => {
     expect(areaEvents("存在しないエリア")).toHaveLength(0);
   });
 
-  it("areaEvents はソートなし（データ配列順）", () => {
-    // BUG: AreaView でも startDate ソートなし。表示順が不定。
+  it("areaEvents は startDate 昇順にソートされる", () => {
     const events = areaEvents("前橋市");
     if (events.length < 2) return;
-    const unsortedDates = events.map((e) => e.startDate);
-    const sortedDates = [...unsortedDates].sort();
-    // ソート済みかどうかを記録（テスト自体は通過させる）
-    const isSorted =
-      JSON.stringify(unsortedDates) === JSON.stringify(sortedDates);
-    if (!isSorted) {
-      console.warn(
-        "[INFO] areaEvents の表示はデータ配列順で、startDate 昇順ではありません",
+    const nonEnded = events.filter((e) => getStatus(e) !== "ended");
+    for (let i = 1; i < nonEnded.length; i++) {
+      expect(parseDate(nonEnded[i].startDate).getTime()).toBeGreaterThanOrEqual(
+        parseDate(nonEnded[i - 1].startDate).getTime(),
+      );
+    }
+  });
+
+  it("終了済みイベントは末尾に来る", () => {
+    const events = areaEvents("前橋市");
+    const endedIndices = events
+      .map((e, i) => (getStatus(e) === "ended" ? i : -1))
+      .filter((i) => i !== -1);
+    const nonEndedIndices = events
+      .map((e, i) => (getStatus(e) !== "ended" ? i : -1))
+      .filter((i) => i !== -1);
+    if (endedIndices.length > 0 && nonEndedIndices.length > 0) {
+      expect(Math.min(...endedIndices)).toBeGreaterThan(
+        Math.max(...nonEndedIndices),
       );
     }
   });
