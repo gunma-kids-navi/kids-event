@@ -333,7 +333,7 @@ export const EVENTS = [
     ],
     "desc": "秋の赤城山で季節ならではの体験やご飯を作るプログラムです。 ご家族で秋の赤城山を体験しませんか？",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=17_%E7%A7%8B%E3%81%AE%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": false,
+    "free": true,
     "age": "年少～一般"
   },
   {
@@ -638,7 +638,7 @@ export const EVENTS = [
     ],
     "desc": "前橋市赤城少年自然の家では、関東でも珍しいカッターボート体験のプログラムを実施！ 夏の思い出作りにスポーツクラブの仲間や同窓会の行事など、大沼で力を合わせてカッターボートを漕いでみませんか？ こちらの講習会を受講していただくとカッターボート",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=09_%E3%82%AB%E3%83%83%E3%82%BF%E3%83%BC%E6%8C%87%E5%B0%8E%E8%80%85%E9%A4%8A%E6%88%90%E8%AC%9B%E7%BF%92%E4%BC%9A",
-    "free": false,
+    "free": true,
     "age": "高校生以上(カッターボート訓練を行う利用団体指導者、及びカッ"
   },
   {
@@ -679,7 +679,7 @@ export const EVENTS = [
     ],
     "desc": "自然豊かな赤城山で、美しい景色を見ながらやきいも体験を楽しめます。 ネイチャークラフトで世界に一つしかない、オリジナルの思い出を作りましょう！ 「特別で充実した時間」を家族や仲間同士と満喫しにぜひお越しください♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=21_%E3%82%84%E3%81%8D%E3%81%84%E3%82%82%EF%BC%86%E3%83%8D%E3%82%A4%E3%83%81%E3%83%A3%E3%83%BC%E3%82%AF%E3%83%A9%E3%83%95%E3%83%88%E4%BD%93%E9%A8%93",
-    "free": false,
+    "free": true,
     "age": "年少～一般"
   },
   {
@@ -758,7 +758,7 @@ export const EVENTS = [
     ],
     "desc": "ハイキングやどんぐりクラフト体験、野外炊事等、仲間たちと協力して楽しく過ごします！ 赤城でチャレンジした事、友だちとの思い出は一生の宝物に♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=19_%E3%81%A9%E3%82%93%E3%81%90%E3%82%8A%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": false,
+    "free": true,
     "age": "小学生"
   },
   {
@@ -799,7 +799,7 @@ export const EVENTS = [
     ],
     "desc": "赤城の自然の中でいろいろなキャンプスポーツをする、アクティビティキャンプです！ 体力があってもなくても、みんなで楽しもう♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=18_%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": false,
+    "free": true,
     "age": "小学生"
   },
   {
@@ -820,7 +820,7 @@ export const EVENTS = [
     ],
     "desc": "7つの山からなる赤城山。赤城山で一番高い黒檜山を登山します。 ガイドと一緒に赤城山を知ることができるプランです♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB+%EF%BD%9E8%2F29%E9%BB%92%E6%AA%9C%E7%99%BB%E5%B1%B1%E3%81%AB%E5%AD%A6%E3%81%B6%EF%BD%9E",
-    "free": false,
+    "free": true,
     "age": "小学5年生～一般"
   },
   {
@@ -863,7 +863,7 @@ export const EVENTS = [
     ],
     "desc": "自然豊かな赤城山でゆったりデイキャンプを楽しみませんか♪ 心地よい大沼湖畔沿い・森林の中でヨガを体験しリフレッシュ！ 午後のノルディックウォークプログラムでは、ウォーキング指導、赤城山のガイドもお楽しみできます♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI+%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E3%83%BC%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E6%A3%AE%E6%9E%97%E3%83%A8%E3%82%AC%EF%BC%86%E3%83%8E%E3%83%AB%E3%83%87%E3%82%A3%E3%83%83%E3%82%AF%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%97%E3%83%A9%E3%83%B3",
-    "free": false,
+    "free": true,
     "age": "小学生～一般"
   },
   {
@@ -948,7 +948,7 @@ export const EVENTS = [
     ],
     "desc": "7つの山からなる赤城山。赤城山で一番高い黒檜山を登山します。 ガイドと一緒に赤城山を知ることができるプランです♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB+%E3%80%80%EF%BD%9E11%2F3%E9%BB%92%E6%AA%9C%E7%99%BB%E5%B1%B1%E3%81%AB%E5%AD%A6%E3%81%B6%EF%BD%9E",
-    "free": false,
+    "free": true,
     "age": "小学5年生～一般"
   },
   {
@@ -969,7 +969,7 @@ export const EVENTS = [
     ],
     "desc": "今年の夏はご家族でテントをたてたり、野外炊事をしたりして、素敵な思い出を作りませんか？",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=10_%E5%A4%8F%E3%81%AE%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": false,
+    "free": true,
     "age": "年少～一般"
   },
   {
@@ -1012,7 +1012,7 @@ export const EVENTS = [
     ],
     "desc": "3食自分たちで自分たちのごはんを作るキャンプ♡ 1泊2日で料理の腕が上がります！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=07_%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E3%81%BF%E3%82%93%E3%81%AA%E3%81%A7%E3%81%A4%E3%81%8F%E3%82%8B%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%81%94%E3%81%AF%E3%82%93%EF%BC%81%EF%BD%9E",
-    "free": false,
+    "free": true,
     "age": "小学生～中学生"
   },
   {
@@ -1033,7 +1033,7 @@ export const EVENTS = [
     ],
     "desc": "年少から年長のおともだち！！！赤城の自然の中で一緒にあそびましょうー！！！ 保護者のみなさま、簡単なキャンプ体験やご飯作り等をします！ スタッフが全力でサポートさせていただきます！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=16_%E8%A6%AA%E5%AD%90%E5%B9%BC%E5%85%90%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E7%A7%8B%E3%81%AE%E8%87%AA%E7%84%B6%E3%81%A7%E9%81%8A%E3%81%BC%E3%81%86%E2%99%AA%EF%BD%9E",
-    "free": false,
+    "free": true,
     "age": "幼児親子"
   },
   {
@@ -1115,26 +1115,6 @@ export const EVENTS = [
     ],
     "desc": "フレッセイ連取店にぐんまちゃんが出動するよ♫\nぐんまちゃんとの写真撮影会のほか、連取店限定抽選会も実施！\n\n①ぐんまち…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6727",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
-    "id": 42847,
-    "title": "2026.5.30-5.31【GUNMA outside Festival 2026 】開催による公園からのお知らせ",
-    "emoji": "🎈",
-    "image": "https://kfp-tomo.org/wp-content/uploads/2025/04/5ba897d6d697425ab4b38f14e988b482.jpg",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "高崎市",
-    "venue": "観音山ファミリーパーク",
-    "startDate": "2026-05-30",
-    "endDate": "2026-05-30",
-    "tags": [
-      "観音山ファミリーパーク",
-      "高崎市"
-    ],
-    "desc": "《観音山ファミリーパークよりお知らせ》 ◆GUNMA outside Festival 20256開催につきまして（5月30日-5月31日） ※詳細な情報は GUNMA outside Festival 2025主催者様-Instagram",
-    "url": "https://kfp-tomo.org/archives/12081",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1302,7 +1282,7 @@ export const EVENTS = [
     ],
     "desc": "景色抜群なツリーイングと、自分で火おこしした火で作る焚火キャンプ飯は格別！！！ 赤城山の自然の中でゆったりとした時間を過ごすイベントです。充実した赤城時間をお楽しみください♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E3%83%84%E3%83%AA%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0%EF%BC%86%E7%84%9A%E7%81%AB%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E9%A3%AF%E3%83%97%E3%83%A9%E3%83%B3%28%EF%BC%97%2F20%29",
-    "free": false,
+    "free": true,
     "age": "小学生以上～一般"
   },
   {
@@ -1364,7 +1344,7 @@ export const EVENTS = [
     ],
     "desc": "仲間と一緒にハロウィンの仮装やお菓子作りをしよう！ 内容はお楽しみに♡",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=20_%E3%83%8F%E3%83%AD%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": false,
+    "free": true,
     "age": "小学生"
   },
   {
@@ -1750,7 +1730,7 @@ export const EVENTS = [
     ],
     "desc": "今年の夏は赤城山で夏の思い出をつくろう！ 友達と力を合わせてご飯をつくったり、活動に取り組んだりして、みんなで一緒に夏の赤城を楽しもう！！！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=14_%E5%A4%8F%E3%81%AE%E6%80%9D%E3%81%84%E5%87%BA%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": false,
+    "free": true,
     "age": "小学1年生～小学3年生"
   },
   {
@@ -2020,7 +2000,7 @@ export const EVENTS = [
     ],
     "desc": "親子で協力して野外活動を楽しんでもらい、家族の絆を深める自然体験プログラム！ ほんのり甘くておいしい棒巻きパンを作って食べましょう♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=08_%E8%A6%AA%E5%AD%90%E3%83%87%E3%82%A4%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E6%A3%92%E5%B7%BB%E3%81%8D%E3%83%91%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86%EF%BC%81%EF%BD%9E",
-    "free": false,
+    "free": true,
     "age": "年少～一般"
   },
   {
@@ -2261,7 +2241,7 @@ export const EVENTS = [
     ],
     "desc": "3食自分たちで考えて作ります！！！ みんなで作るごはん、どんなごはんになるか、楽しみ♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=23_%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E6%96%99%E7%90%86%E3%82%92%E9%80%9A%E3%81%97%E3%81%A6%E5%AD%A6%E3%81%B6%E9%A3%9F%E8%82%B2%E4%BD%93%E9%A8%93%EF%BD%9E",
-    "free": false,
+    "free": true,
     "age": "小学生～中学生"
   },
   {
@@ -2562,7 +2542,7 @@ export const EVENTS = [
     ],
     "desc": "キャンプでやりたい10のことを体験を通して学んでみませんか！ キャンプやアウトドアに関する知識を深め、楽しみながら次のステップに繋げてください！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%80%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E3%81%A7%E3%82%84%E3%82%8A%E3%81%9F%E3%81%8410%E3%81%AE%E3%81%93%E3%81%A8",
-    "free": false,
+    "free": true,
     "age": "小学4年生～一般"
   },
   {
@@ -2583,7 +2563,7 @@ export const EVENTS = [
     ],
     "desc": "電気がない、水が足りない、そんな時に役立つ知識や行動力をキャンプ活動をしながら身につけよう！ 防災ゲームなど、楽しく災害について学ぶ１泊２日のイベントです！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=15_%E9%98%B2%E7%81%BD%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E3%80%80",
-    "free": false,
+    "free": true,
     "age": "小学生～中学生"
   },
   {
@@ -2730,7 +2710,7 @@ export const EVENTS = [
     ],
     "desc": "今しか体験できない赤城山。気分爽快！ ヨガ体験ができるイベントとなっております！この時期のつつじもとてもキレイです♪ 自然豊かなこの環境で赤城山を体感しましょう！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E6%A3%AE%E6%9E%97%E3%83%A8%E3%82%AC%EF%BC%86%E3%81%A4%E3%81%A4%E3%81%98%E3%83%8F%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%84%E3%82%A2%E3%83%BC",
-    "free": false,
+    "free": true,
     "age": "小学生～一般"
   },
   {
@@ -3043,7 +3023,7 @@ export const EVENTS = [
     ],
     "desc": "自然豊かな赤城山で、美しい景色を見ながらやきいも体験を楽しめます。 今回は世界に一つだけ！オリジナルカトラリーも作ります！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=22_%E3%82%84%E3%81%8D%E3%81%84%E3%82%82%EF%BC%86%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%AB%E3%83%88%E3%83%A9%E3%83%AA%E3%83%BC%E4%BD%9C%E3%82%8A",
-    "free": false,
+    "free": true,
     "age": "年少～一般"
   },
   {
@@ -3273,7 +3253,7 @@ export const EVENTS = [
     ],
     "desc": "4泊5日、仲間と一緒に寝る場所やご飯を作ったり、様々な活動などに取り組んだりするプログラムです！ 仲間の大切さ、日常生活のありがたみ、体験を通して「楽しい！」などの感情や達成感が味わえます。",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=13_%E5%A4%A7%E5%86%92%E9%99%BA%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": false,
+    "free": true,
     "age": "小学4年生～中学生"
   },
   {
