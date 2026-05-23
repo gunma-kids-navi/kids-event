@@ -361,14 +361,14 @@ async function scrapeOtaRSS() {
     const xml = await res.text();
     const parser = new XMLParser({ ignoreAttributes: false });
     const result = parser.parse(xml);
-    const items = result?.rss?.channel?.item || [];
+    // 太田市は RDF/RSS 1.0 形式（ルート要素: <rdf:RDF>）
+    const items = result?.["rdf:RDF"]?.item || [];
     const list = Array.isArray(items) ? items : [items];
 
     return list
       .filter(
-        (item) =>
-          isKidsRelated(item.title || "") ||
-          isKidsRelated(item.description || ""),
+        // description は汎用テキストのためタイトルのみで判定
+        (item) => isKidsRelated(item.title || ""),
       )
       .map((item) => {
         const title = item.title || "";
@@ -377,9 +377,16 @@ async function scrapeOtaRSS() {
           .replace(/<[^>]*>/g, "")
           .trim()
           .slice(0, 120);
-        const pubDate = item.pubDate
-          ? new Date(item.pubDate).toISOString().split("T")[0]
+        // nc:event_sdate/nc:event_edate が空の場合は dc:date（公開日）にフォールバック
+        const eventStart =
+          item["nc:event_sdate"] || item["dc:date"] || item.pubDate;
+        const eventEnd = item["nc:event_edate"] || eventStart;
+        const pubDate = eventStart
+          ? new Date(eventStart).toISOString().split("T")[0]
           : null;
+        const endDateStr = eventEnd
+          ? new Date(eventEnd).toISOString().split("T")[0]
+          : pubDate;
         const cat = guessCategory(title + desc);
         return {
           id: stableId(title, link),
@@ -389,7 +396,8 @@ async function scrapeOtaRSS() {
           area: "太田市",
           venue: "太田市（詳細は公式サイト）",
           startDate: pubDate || new Date().toISOString().split("T")[0],
-          endDate: pubDate || new Date().toISOString().split("T")[0],
+          endDate:
+            endDateStr || pubDate || new Date().toISOString().split("T")[0],
           tags: ["太田市"],
           desc: desc || "詳細は公式サイトをご確認ください。",
           url: link,
@@ -581,7 +589,13 @@ async function scrapeOtaCalendar() {
       // ナビ・部署・フォームリンクを除外
       if (/javascript:|^\/soshiki\/|\/life\/\d|\/site\/foreign|#/.test(href))
         return;
-      if (!href.startsWith("/site/") && !href.startsWith("http")) return;
+      // 太田市のイベントページは /page/ 配下にもある（例: /page/1059010.html）
+      if (
+        !href.startsWith("/site/") &&
+        !href.startsWith("/page/") &&
+        !href.startsWith("http")
+      )
+        return;
 
       const surrounding = $el
         .closest("li, dt, div")
