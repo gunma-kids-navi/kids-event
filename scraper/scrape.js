@@ -1942,6 +1942,124 @@ async function scrapeGunmaEsu() {
   return results;
 }
 
+// ===== 前橋市赤城少年自然の家 =====
+async function scrapeAkagiShonen() {
+  const pageUrl = "https://gunma-nsp.com/akagi/event/";
+  console.log(`  [赤城少年自然の家] ${pageUrl}`);
+  const results = [];
+
+  // 令和年号 → YYYY-MM-DD
+  function parseWareki(text) {
+    const m = text.match(/令和\s*(\d+)年\s*(\d{1,2})月\s*(\d{1,2})日/);
+    if (!m) return null;
+    const year = 2018 + parseInt(m[1], 10);
+    return `${year}-${String(m[2]).padStart(2, "0")}-${String(m[3]).padStart(2, "0")}`;
+  }
+
+  try {
+    const res = await fetch(pageUrl, {
+      signal: AbortSignal.timeout(15000),
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)" },
+    });
+    const html = await res.text();
+    const $ = cheerio.load(html);
+
+    const today = new Date().toISOString().split("T")[0];
+    const horizon = new Date();
+    horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
+    const horizonStr = horizon.toISOString().split("T")[0];
+
+    $("h4").each((_, h4El) => {
+      const $h4 = $(h4El);
+      const title = $h4.text().trim().replace(/\s+/g, " ");
+      if (!title || title.length < 4) return;
+
+      // この h4 から次の h4 までの兄弟要素を収集
+      const $siblings = $h4.nextUntil("h4");
+
+      let dateText = "";
+      let targetText = "";
+      let contentText = "";
+      let feeText = "";
+      let reservationUrl = pageUrl;
+
+      // テーブル行からラベル→値を抽出（th=ラベル、td=値の構造）
+      $siblings.find("tr").each((_, tr) => {
+        const label = $(tr)
+          .find("th")
+          .text()
+          .replace(/[　\s]/g, "");
+        const value = $(tr).find("td").text().replace(/\s+/g, " ").trim();
+        if (!label || !value) return;
+        if (/開催日/.test(label)) dateText = value;
+        else if (/対象/.test(label)) targetText = value;
+        else if (/内容/.test(label)) contentText = value;
+        else if (/参加費/.test(label)) feeText = value;
+      });
+
+      // 予約フォームURLを取得
+      $siblings.find("a[href*='reservation']").each((_, a) => {
+        const href = $(a).attr("href") || "";
+        if (href) {
+          reservationUrl = href.startsWith("http")
+            ? href
+            : `https://gunma-nsp.com${href}`;
+          return false; // 最初の1件で止める
+        }
+      });
+
+      if (!dateText) return;
+
+      const startDate = parseWareki(dateText);
+      if (!startDate) return;
+
+      // 終了日パース: "～6月21日" や "～12月28日" などの範囲表記
+      let endDate = startDate;
+      const endRangeM = dateText.match(
+        /[～〜]\s*(?:(\d{1,2})月\s*)?(\d{1,2})日/,
+      );
+      if (endRangeM) {
+        const startYear = startDate.slice(0, 4);
+        const startMonth = startDate.slice(5, 7);
+        const endMonth = endRangeM[1]
+          ? String(endRangeM[1]).padStart(2, "0")
+          : startMonth;
+        const endDay = String(endRangeM[2]).padStart(2, "0");
+        endDate = `${startYear}-${endMonth}-${endDay}`;
+      }
+
+      // 期間外スキップ
+      if (endDate < today || startDate > horizonStr) return;
+
+      const isFree = /無料/.test(feeText + contentText);
+      const combined = title + " " + contentText;
+      const cat = guessCategory(combined);
+
+      results.push({
+        id: stableId(title, reservationUrl),
+        title: title.slice(0, 80),
+        emoji: guessEmoji(combined),
+        ...cat,
+        area: "前橋市",
+        venue: "前橋市赤城少年自然の家",
+        startDate,
+        endDate,
+        tags: ["赤城少年自然の家", "前橋市", "キャンプ", "自然体験"],
+        desc: contentText.slice(0, 120) || "詳細は公式サイトをご確認ください。",
+        url: reservationUrl,
+        free: isFree,
+        age: targetText.slice(0, 30) || "詳細は公式サイトへ",
+        _source: "赤城少年自然の家",
+      });
+    });
+  } catch (e) {
+    console.warn(`    ⚠ 取得失敗: ${e.message}`);
+  }
+
+  console.log(`  [赤城少年自然の家] 取得: ${results.length}件`);
+  return results;
+}
+
 // ===== 明らかにゴミなデータを除外 =====
 const UI_TITLES = new Set([
   "イベント検索",
@@ -2060,16 +2178,18 @@ async function main() {
   console.log("\n📡 ぐんラボ！を取得中...");
   const gunlabo = await scrapeGunlabo().catch(() => []);
 
-  // ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合を並行取得
+  // ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合・赤城少年自然の家を並行取得
   console.log(
-    "\n📡 ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合を取得中...",
+    "\n📡 ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合・赤城少年自然の家を取得中...",
   );
-  const [walkerplus, jalan, gunmaKanko, gunmaEsu] = await Promise.allSettled([
-    scrapeWalkerPlus(),
-    scrapeJalan(),
-    scrapeGunmaKanko(),
-    scrapeGunmaEsu(),
-  ]).then((rs) => rs.map((r) => (r.status === "fulfilled" ? r.value : [])));
+  const [walkerplus, jalan, gunmaKanko, gunmaEsu, akagiShonen] =
+    await Promise.allSettled([
+      scrapeWalkerPlus(),
+      scrapeJalan(),
+      scrapeGunmaKanko(),
+      scrapeGunmaEsu(),
+      scrapeAkagiShonen(),
+    ]).then((rs) => rs.map((r) => (r.status === "fulfilled" ? r.value : [])));
 
   const scrapedRaw = [
     ...otaRss,
@@ -2087,6 +2207,7 @@ async function main() {
     ...jalan,
     ...gunmaKanko,
     ...gunmaEsu,
+    ...akagiShonen,
   ];
 
   console.log(`\n📋 自動収集 raw: ${scrapedRaw.length}件`);

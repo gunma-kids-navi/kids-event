@@ -167,6 +167,18 @@ export const SOURCES = [
     kidsLabel: "子ども向けeスポーツ・ゲームイベント",
     rssUrl: null,
   },
+  {
+    name: "前橋市赤城少年自然の家",
+    icon: "赤",
+    matchUrl: "gunma-nsp.com/akagi",
+    calendarUrl: "https://gunma-nsp.com/akagi/event/",
+    calendarLabel: "イベント情報",
+    newsletterUrl: null,
+    newsletterLabel: null,
+    kidsUrl: "https://gunma-nsp.com/akagi/event/",
+    kidsLabel: "今後のイベント一覧",
+    rssUrl: null,
+  },
 ];
 
 export const KIDS_KEYWORDS = [
