@@ -150,7 +150,7 @@ export const EVENTS = [
     ],
     "desc": "6月14日に前橋中央イベント広場にて地域密着型音楽ライブイベントを行います。ぜひご観覧ください。",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6744",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -172,7 +172,7 @@ export const EVENTS = [
     ],
     "desc": "一般社団法人 きりゅう市民活動推進ネットワークがＪＲ桐生駅前のにぎわい創出を目的にしたダンスイベント、第３回『きりダン…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6555",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -192,7 +192,7 @@ export const EVENTS = [
     ],
     "desc": "【浅間高原シャクナゲ園】浅間高原シャクナゲ園まつり",
     "url": "https://www.jalan.net/event/evt_354935/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -212,7 +212,7 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.astron.pref.gunma.jp/events/26gw.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -234,7 +234,7 @@ export const EVENTS = [
     ],
     "desc": "山レレしようよ。 \n5/24(日) 13:00〜17:00\n（先着順／同時参加 4名まで）\n\n⸻\n\n✨ だいたい20分…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6746",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -272,7 +272,7 @@ export const EVENTS = [
     ],
     "desc": "【小野池あじさい公園】小野池あじさい公園　あじさいまつり",
     "url": "https://www.jalan.net/event/evt_357105/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -292,7 +292,7 @@ export const EVENTS = [
     ],
     "desc": "5月30日(土)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/fuwa/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -312,7 +312,7 @@ export const EVENTS = [
     ],
     "desc": "【群馬サファリパーク】群馬サファリパーク　ナイトサファリバスツアー",
     "url": "https://www.jalan.net/event/evt_354915/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -333,7 +333,7 @@ export const EVENTS = [
     ],
     "desc": "秋の赤城山で季節ならではの体験やご飯を作るプログラムです。 ご家族で秋の赤城山を体験しませんか？",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=17_%E7%A7%8B%E3%81%AE%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": true,
+    "free": false,
     "age": "年少～一般"
   },
   {
@@ -354,7 +354,7 @@ export const EVENTS = [
     ],
     "desc": "ぐんま昆虫の森で毎週開催中の体験プログラムです。詳細は公式サイトをご確認ください。",
     "url": "https://www.pref.gunma.jp/site/giw/618881.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -376,7 +376,7 @@ export const EVENTS = [
     ],
     "desc": "6月6日（土）11：00〜16：30\nアメイジンググレイス前橋にてマルシェを開催します。\n結婚式場の披露宴会場を貸切に…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6716",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -413,7 +413,7 @@ export const EVENTS = [
     ],
     "desc": "100万人のクラシックライブ",
     "url": "https://www.city.ota.gunma.jp/page/1059010.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -435,7 +435,7 @@ export const EVENTS = [
     ],
     "desc": "暑い夏も安心の屋内で、親子で最高の思い出を作ろう！\n\n夏の思い出を彩る、最高のラインナップが勢揃い！\n\n今回も、親子で…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5864",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -473,7 +473,7 @@ export const EVENTS = [
     ],
     "desc": "吾妻エリアで開催。詳細は群馬県観光公式サイトをご確認ください。",
     "url": "https://gunma-kanko.jp/events/269",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -493,7 +493,7 @@ export const EVENTS = [
     ],
     "desc": "6月2日(火)～30日(火)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/%e3%82%af%e3%83%a9%e3%83%95%e3%83%88%e3%83%ab%e3%83%bc%e3%83%a0%e5%b7%a5%e4%bd%9c%e3%80%8c%e3%82%aa%e3%83%aa%e3%82%b8%e3%83%8a%e3%83%ab%e2%98%86%e3%82%b9%e3%83%9d%e3%83%b3%e3%82%b8%e3%82%b1%e3%83%bc/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -513,7 +513,7 @@ export const EVENTS = [
     ],
     "desc": "新作能「小栗」連続講座1「能面能装束の体験」「クイズで知ろう能の世界1」\n\n観世流能楽師・清水義也",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6636",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -533,7 +533,7 @@ export const EVENTS = [
     ],
     "desc": "吾妻エリアで開催。詳細は群馬県観光公式サイトをご確認ください。",
     "url": "https://gunma-kanko.jp/events/285",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -555,7 +555,7 @@ export const EVENTS = [
     ],
     "desc": "田植え前の田んぼで行われる「吉井どろんこ祭り2026」は、大人も子どもも全身どろんこになって楽しめるイベントです。\n親…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=882",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -575,7 +575,7 @@ export const EVENTS = [
     ],
     "desc": "【吾妻峡】国指定名勝「吾妻峡」新緑ウォーキング",
     "url": "https://www.jalan.net/event/evt_354932/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -596,7 +596,7 @@ export const EVENTS = [
     ],
     "desc": "【前橋から世界へ発信する、2年に1度の芸術の祭典が始動】\nアートと建築が誘う、都市生成の物語へ。 第1回 「前橋国際芸…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6085",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -617,7 +617,7 @@ export const EVENTS = [
     ],
     "desc": "人形の構造を説明するワークショップや公演、群馬の人形芝居についてのレクチャーなど、初めての方でも理解を深めながらお楽し…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6255",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -638,7 +638,7 @@ export const EVENTS = [
     ],
     "desc": "前橋市赤城少年自然の家では、関東でも珍しいカッターボート体験のプログラムを実施！ 夏の思い出作りにスポーツクラブの仲間や同窓会の行事など、大沼で力を合わせてカッターボートを漕いでみませんか？ こちらの講習会を受講していただくとカッターボート",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=09_%E3%82%AB%E3%83%83%E3%82%BF%E3%83%BC%E6%8C%87%E5%B0%8E%E8%80%85%E9%A4%8A%E6%88%90%E8%AC%9B%E7%BF%92%E4%BC%9A",
-    "free": true,
+    "free": false,
     "age": "高校生以上(カッターボート訓練を行う利用団体指導者、及びカッ"
   },
   {
@@ -658,7 +658,7 @@ export const EVENTS = [
     ],
     "desc": "5月31日(日)・6月7日(日)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/pasuteru_1000/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -679,7 +679,7 @@ export const EVENTS = [
     ],
     "desc": "自然豊かな赤城山で、美しい景色を見ながらやきいも体験を楽しめます。 ネイチャークラフトで世界に一つしかない、オリジナルの思い出を作りましょう！ 「特別で充実した時間」を家族や仲間同士と満喫しにぜひお越しください♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=21_%E3%82%84%E3%81%8D%E3%81%84%E3%82%82%EF%BC%86%E3%83%8D%E3%82%A4%E3%83%81%E3%83%A3%E3%83%BC%E3%82%AF%E3%83%A9%E3%83%95%E3%83%88%E4%BD%93%E9%A8%93",
-    "free": true,
+    "free": false,
     "age": "年少～一般"
   },
   {
@@ -719,7 +719,7 @@ export const EVENTS = [
     ],
     "desc": "【赤城白樺牧場（受付/赤城山総合観光案内所）】普段は入れない！赤城白樺牧場　秘密の絶景ツアー",
     "url": "https://www.jalan.net/event/evt_357112/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -737,7 +737,7 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.city.ota.gunma.jp/page/1024861.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -758,7 +758,7 @@ export const EVENTS = [
     ],
     "desc": "ハイキングやどんぐりクラフト体験、野外炊事等、仲間たちと協力して楽しく過ごします！ 赤城でチャレンジした事、友だちとの思い出は一生の宝物に♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=19_%E3%81%A9%E3%82%93%E3%81%90%E3%82%8A%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": true,
+    "free": false,
     "age": "小学生"
   },
   {
@@ -778,7 +778,7 @@ export const EVENTS = [
     ],
     "desc": "【老神湿地公園】老神温泉ホタル観賞",
     "url": "https://www.jalan.net/event/evt_357114/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -799,7 +799,7 @@ export const EVENTS = [
     ],
     "desc": "赤城の自然の中でいろいろなキャンプスポーツをする、アクティビティキャンプです！ 体力があってもなくても、みんなで楽しもう♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=18_%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": true,
+    "free": false,
     "age": "小学生"
   },
   {
@@ -820,7 +820,7 @@ export const EVENTS = [
     ],
     "desc": "7つの山からなる赤城山。赤城山で一番高い黒檜山を登山します。 ガイドと一緒に赤城山を知ることができるプランです♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB+%EF%BD%9E8%2F29%E9%BB%92%E6%AA%9C%E7%99%BB%E5%B1%B1%E3%81%AB%E5%AD%A6%E3%81%B6%EF%BD%9E",
-    "free": true,
+    "free": false,
     "age": "小学5年生～一般"
   },
   {
@@ -842,7 +842,7 @@ export const EVENTS = [
     ],
     "desc": "6月の雨は、植物たちを輝かせ、私たちの心を静かに整えてくれる恵みの雨。\n歴史を刻んだ重厚な赤レンガ倉庫を舞台に、\n心と…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6677",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -863,7 +863,7 @@ export const EVENTS = [
     ],
     "desc": "自然豊かな赤城山でゆったりデイキャンプを楽しみませんか♪ 心地よい大沼湖畔沿い・森林の中でヨガを体験しリフレッシュ！ 午後のノルディックウォークプログラムでは、ウォーキング指導、赤城山のガイドもお楽しみできます♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI+%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E3%83%BC%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E6%A3%AE%E6%9E%97%E3%83%A8%E3%82%AC%EF%BC%86%E3%83%8E%E3%83%AB%E3%83%87%E3%82%A3%E3%83%83%E3%82%AF%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%97%E3%83%A9%E3%83%B3",
-    "free": true,
+    "free": false,
     "age": "小学生～一般"
   },
   {
@@ -884,7 +884,7 @@ export const EVENTS = [
     ],
     "desc": "市内外の行政、企業・サークル・大学生　８団体が出展！\n見て、聞いて、試して楽しい、遊んで学べるまちの先生市！\n\n・バイ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5760",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -906,7 +906,7 @@ export const EVENTS = [
     ],
     "desc": "「栄養・食・健康」をテーマに、楽しく美味しく皆さんの生活に活かせる知識を学びながら、「伊勢崎市の地域性」も楽しむイベン…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6734",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -927,7 +927,7 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/snack-time-capybara/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -948,7 +948,7 @@ export const EVENTS = [
     ],
     "desc": "7つの山からなる赤城山。赤城山で一番高い黒檜山を登山します。 ガイドと一緒に赤城山を知ることができるプランです♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB+%E3%80%80%EF%BD%9E11%2F3%E9%BB%92%E6%AA%9C%E7%99%BB%E5%B1%B1%E3%81%AB%E5%AD%A6%E3%81%B6%EF%BD%9E",
-    "free": true,
+    "free": false,
     "age": "小学5年生～一般"
   },
   {
@@ -969,7 +969,7 @@ export const EVENTS = [
     ],
     "desc": "今年の夏はご家族でテントをたてたり、野外炊事をしたりして、素敵な思い出を作りませんか？",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=10_%E5%A4%8F%E3%81%AE%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": true,
+    "free": false,
     "age": "年少～一般"
   },
   {
@@ -991,7 +991,7 @@ export const EVENTS = [
     ],
     "desc": "5月31日（日）\n前橋の結婚式場「アメイジンググレイス前橋」にて「Musuhiマルシェ」開催！\n\nご家族やお友だちをお…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6747",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1012,7 +1012,7 @@ export const EVENTS = [
     ],
     "desc": "3食自分たちで自分たちのごはんを作るキャンプ♡ 1泊2日で料理の腕が上がります！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=07_%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E3%81%BF%E3%82%93%E3%81%AA%E3%81%A7%E3%81%A4%E3%81%8F%E3%82%8B%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%81%94%E3%81%AF%E3%82%93%EF%BC%81%EF%BD%9E",
-    "free": true,
+    "free": false,
     "age": "小学生～中学生"
   },
   {
@@ -1033,7 +1033,7 @@ export const EVENTS = [
     ],
     "desc": "年少から年長のおともだち！！！赤城の自然の中で一緒にあそびましょうー！！！ 保護者のみなさま、簡単なキャンプ体験やご飯作り等をします！ スタッフが全力でサポートさせていただきます！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=16_%E8%A6%AA%E5%AD%90%E5%B9%BC%E5%85%90%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E7%A7%8B%E3%81%AE%E8%87%AA%E7%84%B6%E3%81%A7%E9%81%8A%E3%81%BC%E3%81%86%E2%99%AA%EF%BD%9E",
-    "free": true,
+    "free": false,
     "age": "幼児親子"
   },
   {
@@ -1073,7 +1073,7 @@ export const EVENTS = [
     ],
     "desc": "甘楽町商工会主催の夏まつりに合わせて実施される甘楽町花火大会。\n大輪の花火が、甘楽の真夏の夜空を彩ります。\n\n※開催状…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=2642",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1094,7 +1094,7 @@ export const EVENTS = [
     ],
     "desc": "雅楽演奏会【令和八年　管絃の夕べ】のお知らせ\n\n2026年5月23日（土）の19時より、今年も恒例の雅楽演奏会「管絃の…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5786",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1115,7 +1115,7 @@ export const EVENTS = [
     ],
     "desc": "フレッセイ連取店にぐんまちゃんが出動するよ♫\nぐんまちゃんとの写真撮影会のほか、連取店限定抽選会も実施！\n\n①ぐんまち…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6727",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1135,7 +1135,7 @@ export const EVENTS = [
     ],
     "desc": "6月5日(金)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/baby_oshaberi/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1155,7 +1155,7 @@ export const EVENTS = [
     ],
     "desc": "6月14日(日)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/hougenkaruta/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1177,7 +1177,7 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/carnivore-feeding-experience/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1198,7 +1198,7 @@ export const EVENTS = [
     ],
     "desc": "毎回大好評の「地域安全フェスタ」、今回はHonda Cars群馬 前橋大島店で開催！\n\n群馬県警察やザスパ群馬、前橋東…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5886",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1217,7 +1217,7 @@ export const EVENTS = [
     ],
     "desc": "令和８年度前期イベントガイド 2026年4月1日(水)～2026年9月30日(水) その他",
     "url": "https://www.gmnh.pref.gunma.jp/event/id9372/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1239,7 +1239,7 @@ export const EVENTS = [
     ],
     "desc": "約25,000株もの花しょうぶが咲き誇る赤堀花しょうぶ園で毎年開催されているイベントです。\n紫と白の花の美しいグラデー…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=1303",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1261,7 +1261,7 @@ export const EVENTS = [
     ],
     "desc": "『みんなde Signマルシェ』\nみんなで繋がる、やさしい時間\n手話を使って楽しむ時間\n2026年6月14日(日曜日)…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6740",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1282,7 +1282,7 @@ export const EVENTS = [
     ],
     "desc": "景色抜群なツリーイングと、自分で火おこしした火で作る焚火キャンプ飯は格別！！！ 赤城山の自然の中でゆったりとした時間を過ごすイベントです。充実した赤城時間をお楽しみください♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E3%83%84%E3%83%AA%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0%EF%BC%86%E7%84%9A%E7%81%AB%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E9%A3%AF%E3%83%97%E3%83%A9%E3%83%B3%28%EF%BC%97%2F20%29",
-    "free": true,
+    "free": false,
     "age": "小学生以上～一般"
   },
   {
@@ -1303,7 +1303,7 @@ export const EVENTS = [
     ],
     "desc": "桐生市と近隣の小・中学校、高校、音楽団体などが集い、息の合った音楽演奏を披露します。",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6673",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1323,7 +1323,7 @@ export const EVENTS = [
     ],
     "desc": "〔要予約〕 「観測体験時間」の情報提供等を行います。",
     "url": "https://www.astron.pref.gunma.jp/events/../senyu/usersm2026.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1344,7 +1344,7 @@ export const EVENTS = [
     ],
     "desc": "仲間と一緒にハロウィンの仮装やお菓子作りをしよう！ 内容はお楽しみに♡",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=20_%E3%83%8F%E3%83%AD%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": true,
+    "free": false,
     "age": "小学生"
   },
   {
@@ -1365,7 +1365,7 @@ export const EVENTS = [
     ],
     "desc": "ぐんま昆虫の森で毎日開催中の体験プログラムです。詳細は公式サイトをご確認ください。",
     "url": "https://www.pref.gunma.jp/site/giw/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1386,7 +1386,7 @@ export const EVENTS = [
     ],
     "desc": "台湾祭in群馬太田2026－ 台南ランタン祭 －\n\n開催決定！\n2026年、記念すべき10周年を迎えた「台湾祭」。\n福…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6121",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1406,7 +1406,7 @@ export const EVENTS = [
     ],
     "desc": "6月13日(土)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/%e3%81%a1%e3%82%87%e3%81%93%e3%81%a3%e3%81%a8%e3%83%97%e3%83%a9%e3%83%8d%e3%82%bf%e3%83%aa%e3%82%a6%e3%83%a0/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1427,7 +1427,7 @@ export const EVENTS = [
     ],
     "desc": "今年もやります‼︎\n\n2026年7月4日（土）、当社4回目となる七夕祭りを開催致します☆\n\nイベント内容やタイムテーブ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5812",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1448,7 +1448,7 @@ export const EVENTS = [
     ],
     "desc": "ファミリー向けイベント【にっこりマルシェ】を、高崎市エコラボカフェで開催します。\n家族みんなで楽しめるイベントですので…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6343",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1470,7 +1470,7 @@ export const EVENTS = [
     ],
     "desc": "バギーヨガはベビーカーを使ったヨガです。\n産後バランス力が低下していたり、身体の固い方でもベビーカーを支えにしてポーズ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6733",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1491,7 +1491,7 @@ export const EVENTS = [
     ],
     "desc": "太田市を拠点に活動する無線操縦（RC）飛行機愛好家団体「富嶽を飛ばそうの会」（大塩孝 会長）は多くの方に航空技術への関…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5698",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1513,7 +1513,7 @@ export const EVENTS = [
     ],
     "desc": "主催：全日本ノルディック・ウォーク連盟\n特別協賛：サントリーウエルネス\n\nサントリーロコモア　群馬県ノルディック・ウォ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6722",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1533,7 +1533,7 @@ export const EVENTS = [
     ],
     "desc": "桐生のカルチャーと音楽フェスが融合！\n桐生が誇る祭りや様々な伝統工芸などの文化と、ミュージックカルチャーが同時に楽しめ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6736",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1552,7 +1552,7 @@ export const EVENTS = [
     ],
     "desc": "【開催中】第73回企画展 「‟害虫”たちの大博覧会～見るのはちょっと…？でもね、意... 2026年3月20日(金・祝)～2026年5月24日(日) 企画展",
     "url": "https://www.gmnh.pref.gunma.jp/event/id9223/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1573,7 +1573,7 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/snack-time-mara/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1593,7 +1593,7 @@ export const EVENTS = [
     ],
     "desc": "6月12日(金)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/sodan_rinsho/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1611,7 +1611,7 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.city.ota.gunma.jp/page/1047111.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1631,7 +1631,7 @@ export const EVENTS = [
     ],
     "desc": "ワークショップ26店舗×物販×フリマ×こども店長×キッチンカー\n総勢64店舗の大規模マルシェが伊勢崎に初上陸♡\n見る・…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6750",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1690,7 +1690,7 @@ export const EVENTS = [
     ],
     "desc": "みなかみ町にある「ノルンみなかみフラワーガーデン」は北関東最大級の水仙とチューリップが咲き誇るフラワーガーデンです。\n…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=1200",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1709,7 +1709,7 @@ export const EVENTS = [
     ],
     "desc": "博物館の日イベント 2026年5月17日（日） その他",
     "url": "https://www.gmnh.pref.gunma.jp/event/id10260/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1730,7 +1730,7 @@ export const EVENTS = [
     ],
     "desc": "今年の夏は赤城山で夏の思い出をつくろう！ 友達と力を合わせてご飯をつくったり、活動に取り組んだりして、みんなで一緒に夏の赤城を楽しもう！！！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=14_%E5%A4%8F%E3%81%AE%E6%80%9D%E3%81%84%E5%87%BA%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": true,
+    "free": false,
     "age": "小学1年生～小学3年生"
   },
   {
@@ -1752,7 +1752,7 @@ export const EVENTS = [
     ],
     "desc": "令和8（2026）年の「たまむら花火大会」開催はありません。\n\n\n＊＊＊＊＊＊＊＊＊＊＊＊＊＊\n「群馬の夏は玉村の花火…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=895",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1790,7 +1790,7 @@ export const EVENTS = [
     ],
     "desc": "- 観音様の慈悲のもと和文化の想いに触れる -\n\n観翠会（かんすいえ）とは\n\n新緑に萌える高崎白衣観音の境内にて気楽に…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=4989",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1811,7 +1811,7 @@ export const EVENTS = [
     ],
     "desc": "まつおりかこは、愛らしい動物たちが登場する絵本を数多く手がける絵本作家です。\n本展では、最新作『いつつごうさぎとはなの…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6710",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1832,7 +1832,7 @@ export const EVENTS = [
     ],
     "desc": "フレッセイ×キリンビバレッジ共同企画\n午後の紅茶４０周年特別企画\nぐんまちゃんこども支援プロジェクト。\n\n「午後の紅茶…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6726",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1852,7 +1852,7 @@ export const EVENTS = [
     ],
     "desc": "6月6日(土)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/pc_digital_illustration/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1873,7 +1873,7 @@ export const EVENTS = [
     ],
     "desc": "一般社団法人小栗上野介顕彰会は、令和9年NHK大河ドラマの主人公であり、高崎市ゆかりの幕臣小栗上野介忠順公の功績をより…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=1259",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1895,7 +1895,7 @@ export const EVENTS = [
     ],
     "desc": "【群馬にクリエイターの祭典を！】\n2回目の開催となる【ぐんくま2026】は、\n全て手探りだった第１回開催を元にさらに楽…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5695",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1916,7 +1916,7 @@ export const EVENTS = [
     ],
     "desc": "ぐんま昆虫の森で毎日開催中の体験プログラムです。詳細は公式サイトをご確認ください。",
     "url": "https://www.pref.gunma.jp/site/giw/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1937,7 +1937,7 @@ export const EVENTS = [
     ],
     "desc": "市内最大規模の祭り。市街地の夜を彩る祭りちょうちん、勇壮で華やかな山車、そして活気あふれるお囃子と踊り連の大競演などが…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=264",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1959,7 +1959,7 @@ export const EVENTS = [
     ],
     "desc": "約50社のコープ商品や産直品が大集合！\nコープデリ宅配や店舗で取り扱っている商品の試食・販売に加え、コープぐんまのさま…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6603",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -1979,7 +1979,7 @@ export const EVENTS = [
     ],
     "desc": "【八幡ホタルの郷】八幡ホタルの郷の蛍",
     "url": "https://www.jalan.net/event/evt_357115/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2000,7 +2000,7 @@ export const EVENTS = [
     ],
     "desc": "親子で協力して野外活動を楽しんでもらい、家族の絆を深める自然体験プログラム！ ほんのり甘くておいしい棒巻きパンを作って食べましょう♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=08_%E8%A6%AA%E5%AD%90%E3%83%87%E3%82%A4%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E6%A3%92%E5%B7%BB%E3%81%8D%E3%83%91%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86%EF%BC%81%EF%BD%9E",
-    "free": true,
+    "free": false,
     "age": "年少～一般"
   },
   {
@@ -2020,7 +2020,7 @@ export const EVENTS = [
     ],
     "desc": "〔要申込〕 望遠鏡で指定された星を導入する速さを競う大会です",
     "url": "https://www.astron.pref.gunma.jp/events/260607starcatch.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2038,7 +2038,7 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.city.ota.gunma.jp/page/1058597.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2058,7 +2058,7 @@ export const EVENTS = [
     ],
     "desc": "吾妻エリアで開催。詳細は群馬県観光公式サイトをご確認ください。",
     "url": "https://gunma-kanko.jp/events/282",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2079,7 +2079,7 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/herbivore-feeding-experience/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2101,7 +2101,7 @@ export const EVENTS = [
     ],
     "desc": "■わんぱく相撲とは\n日本国内の青年会議所主催の予選大会から勝ち上がった選手が集まり全国大会が開かれる、全国で約４０，０…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=1194",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2119,7 +2119,7 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.city.ota.gunma.jp/site/kosodate/1028029.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2141,7 +2141,7 @@ export const EVENTS = [
     ],
     "desc": "「第1回たまコス」5/23(土)開催！！\n\n⁡たまコスとは…\n色とりどり⁡のバラが咲き誇る玉村町北部公園のバラ園をメイ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6731",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2161,7 +2161,7 @@ export const EVENTS = [
     ],
     "desc": "【楽山園】大名庭園のホタル観賞会",
     "url": "https://www.jalan.net/event/evt_357117/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2199,7 +2199,7 @@ export const EVENTS = [
     ],
     "desc": "【月夜野ホタルの里遊歩道】月夜野ホタルの里の蛍",
     "url": "https://www.jalan.net/event/evt_357116/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2220,7 +2220,7 @@ export const EVENTS = [
     ],
     "desc": "館林藩主榊原氏の発祥の地である三河地方に伝わる手筒花火。約10mも火柱が吹き上がる様子は迫力満点！\n手筒花火だけでなく…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=914",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2241,7 +2241,7 @@ export const EVENTS = [
     ],
     "desc": "3食自分たちで考えて作ります！！！ みんなで作るごはん、どんなごはんになるか、楽しみ♪",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=23_%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E6%96%99%E7%90%86%E3%82%92%E9%80%9A%E3%81%97%E3%81%A6%E5%AD%A6%E3%81%B6%E9%A3%9F%E8%82%B2%E4%BD%93%E9%A8%93%EF%BD%9E",
-    "free": true,
+    "free": false,
     "age": "小学生～中学生"
   },
   {
@@ -2259,7 +2259,7 @@ export const EVENTS = [
     ],
     "desc": "太田市立大隅俊平美術館 花結び講座「梅結び　バックチャーム」をご紹介しています。本行事は、参加者が江戸紐でバックチャームを作る体験講座です。",
     "url": "https://www.city.ota.gunma.jp/page/1030602.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2279,7 +2279,7 @@ export const EVENTS = [
     ],
     "desc": "5月24日(日)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/papamama_dance/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2299,7 +2299,7 @@ export const EVENTS = [
     ],
     "desc": "6月13日(土)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/pc_programming/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2320,7 +2320,7 @@ export const EVENTS = [
     ],
     "desc": "今年の いせさき花火大会は...\n\n＼ 利根川坂東大橋花火大会 ／\n\n坂東大橋上流を打上場所として\n本庄市と合同で花火…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=918",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2338,7 +2338,7 @@ export const EVENTS = [
     ],
     "desc": "新着情報、イベント情報、観光情報、施設予約、行財政改革、医療情報、公共施設案内、防災情報、市議会情報、入札・契約情報、キッズサイトなど豊富な情報を掲載。",
     "url": "https://www.city.ota.gunma.jp/site/kosodate/1023934.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2358,7 +2358,7 @@ export const EVENTS = [
     ],
     "desc": "5月31日(日)・6月7日(日)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/pasuteru_1330/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2377,7 +2377,7 @@ export const EVENTS = [
     ],
     "desc": "【満員御礼】第1回みんなの自然観察会「川の水生昆虫の世界をのぞいてみよう」 2026年5月31日(日) みんなの自然観察会",
     "url": "https://www.gmnh.pref.gunma.jp/event/id10208/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2397,7 +2397,7 @@ export const EVENTS = [
     ],
     "desc": "“害虫”――\n\nその名前だけで、つい苦手に感じてしまう生きものたち。\n家の中や庭で姿を見かけると、驚かされ、ときには困…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6624",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2435,7 +2435,7 @@ export const EVENTS = [
     ],
     "desc": "歯と口の健康フェア\n■お口の中のばい菌を見てみよう\n□フッ素を塗って丈夫な歯\n■歯みがき指導\n□歯科相談\n■型取り体験…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6725",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2457,7 +2457,7 @@ export const EVENTS = [
     ],
     "desc": "今年も県内8会場で開催します。ご家族、お友だち、ご近所の方々などみなさんでご参加ください。お待ちしています！\n\n※各会…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=1255",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2478,7 +2478,7 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/capybara-bathing/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2499,7 +2499,7 @@ export const EVENTS = [
     ],
     "desc": "町ではこの春も、花と緑あふれるまちづくりと、町民の皆さんが丹精込めて育てている「お庭」で人と人の交流の輪を広げていくこ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6690",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2521,7 +2521,7 @@ export const EVENTS = [
     ],
     "desc": "敷島公園門倉テクノばら園で春のばら園まつりを開催します。\n\nばら園には、世界バラ会議進出の殿堂入りバラ全種や、成長ごと…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=1249",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2542,7 +2542,7 @@ export const EVENTS = [
     ],
     "desc": "キャンプでやりたい10のことを体験を通して学んでみませんか！ キャンプやアウトドアに関する知識を深め、楽しみながら次のステップに繋げてください！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%80%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E3%81%A7%E3%82%84%E3%82%8A%E3%81%9F%E3%81%8410%E3%81%AE%E3%81%93%E3%81%A8",
-    "free": true,
+    "free": false,
     "age": "小学4年生～一般"
   },
   {
@@ -2563,7 +2563,7 @@ export const EVENTS = [
     ],
     "desc": "電気がない、水が足りない、そんな時に役立つ知識や行動力をキャンプ活動をしながら身につけよう！ 防災ゲームなど、楽しく災害について学ぶ１泊２日のイベントです！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=15_%E9%98%B2%E7%81%BD%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E3%80%80",
-    "free": true,
+    "free": false,
     "age": "小学生～中学生"
   },
   {
@@ -2585,7 +2585,7 @@ export const EVENTS = [
     ],
     "desc": "今年も、群馬県太田市にあるエアリスの小さな森公園にて、「ハンドメイドマルシェ」を開催いたします。\n花と緑に囲まれた自然…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6192",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2607,7 +2607,7 @@ export const EVENTS = [
     ],
     "desc": "令和8年の「大胡祇園まつり」を、令和8年7月25日（土曜日）・26日（日曜日）に開催します。\n\n--- ---\n【大胡…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=931",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2629,7 +2629,7 @@ export const EVENTS = [
     ],
     "desc": "「ねぷた」で有名な青森県弘前市との歴史的なつながりから、昭和61年に誕生した尾島ねぷたまつり。今年で40周年を迎えます…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=1152",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2669,7 +2669,7 @@ export const EVENTS = [
     ],
     "desc": "高崎まつりは、高崎山車まつりと同時に行われるお祭り。\n神輿のほかに、巨大だるまみこしや創作だるまみこしといった高崎まつ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=905",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2689,7 +2689,7 @@ export const EVENTS = [
     ],
     "desc": "【吾妻公園】吾妻公園　花菖蒲まつり",
     "url": "https://www.jalan.net/event/evt_357109/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2710,7 +2710,7 @@ export const EVENTS = [
     ],
     "desc": "今しか体験できない赤城山。気分爽快！ ヨガ体験ができるイベントとなっております！この時期のつつじもとてもキレイです♪ 自然豊かなこの環境で赤城山を体感しましょう！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E6%A3%AE%E6%9E%97%E3%83%A8%E3%82%AC%EF%BC%86%E3%81%A4%E3%81%A4%E3%81%98%E3%83%8F%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%84%E3%82%A2%E3%83%BC",
-    "free": true,
+    "free": false,
     "age": "小学生～一般"
   },
   {
@@ -2753,7 +2753,7 @@ export const EVENTS = [
     ],
     "desc": "あの体験型アウトドアイベントが、今年も群馬に。\n\n『TOKYO outside Festival』から生まれた\n【GU…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5536",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2773,7 +2773,7 @@ export const EVENTS = [
     ],
     "desc": "昨年、多くの感動と笑顔を生み出したスカイランタンの祭典が、今年も桐生の夜空に帰ってきます。\nぜひ、大切な人やご家族と一…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6123",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2793,7 +2793,7 @@ export const EVENTS = [
     ],
     "desc": "前橋市民文化会館のパブリックスペースを活用して、育児の情報交換やコミュニケーションの場として、子育て世帯のための交流イ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6745",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2814,7 +2814,7 @@ export const EVENTS = [
     ],
     "desc": "ぐんま昆虫の森で毎日開催中の体験プログラムです。詳細は公式サイトをご確認ください。",
     "url": "https://www.pref.gunma.jp/site/giw/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2835,7 +2835,7 @@ export const EVENTS = [
     ],
     "desc": "ぐんま昆虫の森で毎日開催中の体験プログラムです。詳細は公式サイトをご確認ください。",
     "url": "https://www.pref.gunma.jp/site/giw/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2855,7 +2855,7 @@ export const EVENTS = [
     ],
     "desc": "持参したスマホまたはコンパクトデジカメで月の撮影に挑戦できます。",
     "url": "https://www.astron.pref.gunma.jp/events/26digicam.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2875,7 +2875,7 @@ export const EVENTS = [
     ],
     "desc": "吾妻エリアで開催。詳細は群馬県観光公式サイトをご確認ください。",
     "url": "https://gunma-kanko.jp/events/284",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2897,7 +2897,7 @@ export const EVENTS = [
     ],
     "desc": "今年もココルンシティの年に一度の大イベント、ココルンシティフェスタを開催します！\nマルシェやキッチンカーでの販売や屋外…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5768",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2917,7 +2917,7 @@ export const EVENTS = [
     ],
     "desc": "吾妻エリアで開催。詳細は群馬県観光公式サイトをご確認ください。",
     "url": "https://gunma-kanko.jp/events/242",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2938,7 +2938,7 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/flying-show/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2960,7 +2960,7 @@ export const EVENTS = [
     ],
     "desc": "花や昆虫、動物を細密に描き、「プチ・ファーブル」と呼ばれた熊田千佳慕（くまだちかぼ・1911~2009）の世界を紹介す…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6649",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -2982,7 +2982,7 @@ export const EVENTS = [
     ],
     "desc": "千代田の祭 川せがきは、約150年の歴史を持つ伝統のある祭りです。\n僧侶の読経と灯ろう流し（川せがき）を中心に、打上花…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=907",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3002,7 +3002,7 @@ export const EVENTS = [
     ],
     "desc": "5月8日(金)～31日(日)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/craft_kururin/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3023,7 +3023,7 @@ export const EVENTS = [
     ],
     "desc": "自然豊かな赤城山で、美しい景色を見ながらやきいも体験を楽しめます。 今回は世界に一つだけ！オリジナルカトラリーも作ります！",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=22_%E3%82%84%E3%81%8D%E3%81%84%E3%82%82%EF%BC%86%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%AB%E3%83%88%E3%83%A9%E3%83%AA%E3%83%BC%E4%BD%9C%E3%82%8A",
-    "free": true,
+    "free": false,
     "age": "年少～一般"
   },
   {
@@ -3045,7 +3045,7 @@ export const EVENTS = [
     ],
     "desc": "前橋市の中学校を卒業した等で制服が「いらなくなった」「譲りたい」ご家庭から、「譲って欲しい」ご家庭へクリーニング済の中…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=3882",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3067,7 +3067,7 @@ export const EVENTS = [
     ],
     "desc": "ダンス・ボイストレーニングスクールNAYUTAS高崎校ダンスWS開催\n\n▶︎▷どなたでも参加可能！\n\n日時\n2026年…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6704",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3087,7 +3087,7 @@ export const EVENTS = [
     ],
     "desc": "【館林花菖蒲園（つつじが岡第二公園）】たてばやし花菖蒲まつり",
     "url": "https://www.jalan.net/event/evt_354930/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3109,7 +3109,7 @@ export const EVENTS = [
     ],
     "desc": "今年で第76回を迎える七夕まつりは、市内を彩る夏の風物詩として広く親しまれています。\n今年の前橋七夕まつりも、ぜひお楽…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=934",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3131,7 +3131,7 @@ export const EVENTS = [
     ],
     "desc": "宝探し気分でじゃがいもを掘り起こそう‼︎\n赤城山を背景とした開放的な空間で、土の匂いや感触、鳥のさえずりなど様々な刺激…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6648",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3152,7 +3152,7 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/snack-time-sichuan-red-panda/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3173,7 +3173,7 @@ export const EVENTS = [
     ],
     "desc": "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
     "url": "https://safari.co.jp/event/guinea-pig-parade/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3193,7 +3193,7 @@ export const EVENTS = [
     ],
     "desc": "5月31日(日)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/asobo_kendama-koma/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3214,7 +3214,7 @@ export const EVENTS = [
     ],
     "desc": "『みんなで作って、みんなで食べよう』をモットーに温かい食事を通じて、孤食を防ぎ、地域コミュニティーの活性化を図ろうと2…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6684",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3253,7 +3253,7 @@ export const EVENTS = [
     ],
     "desc": "4泊5日、仲間と一緒に寝る場所やご飯を作ったり、様々な活動などに取り組んだりするプログラムです！ 仲間の大切さ、日常生活のありがたみ、体験を通して「楽しい！」などの感情や達成感が味わえます。",
     "url": "https://gunma-nsp.com/akagi/reservation/?event_name=13_%E5%A4%A7%E5%86%92%E9%99%BA%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
-    "free": true,
+    "free": false,
     "age": "小学4年生～中学生"
   },
   {
@@ -3271,7 +3271,7 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.city.maebashi.gunma.jp/soshiki/kenko/kenkozoshin/gyomu/4/3/1/3993.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3293,7 +3293,7 @@ export const EVENTS = [
     ],
     "desc": "沖縄を、群馬で体験できる\n「琉球の風」開催！！\n\n沖縄の魅力を知っていただくために\n沖縄の《食　音　踊》を体感できるイ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=5194",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3315,7 +3315,7 @@ export const EVENTS = [
     ],
     "desc": "毎年、県内外から沢山の観客が訪れる、「前橋花火大会」は夏の風物詩。\n\n前橋市の利根川大渡橋河川敷にて行われる花火大会。…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=901",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3353,7 +3353,7 @@ export const EVENTS = [
     ],
     "desc": "5月24日(日)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/%e3%83%97%e3%83%81%e3%82%b5%e3%82%a4%e3%82%a8%e3%83%b3%e3%82%b9%e3%82%b7%e3%83%a7%e3%83%bc%e3%80%8c%e7%a7%91%e5%ad%a6%e3%83%9e%e3%82%b8%e3%83%83%e3%82%af%e3%80%8d/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3373,7 +3373,7 @@ export const EVENTS = [
     ],
     "desc": "5月23日(土）開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/kazarimakizushi/",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3395,7 +3395,7 @@ export const EVENTS = [
     ],
     "desc": "館林市の本町通りを中心に開催されるお祭りです。\n夕方からパレードや民踊流し、子どもみこしなどさまなまなイベントが行われ…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=921",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3413,7 +3413,7 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.city.maebashi.gunma.jp/soshiki/kensetsu/koenkanrijimusho/oshirase/34838.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3431,7 +3431,7 @@ export const EVENTS = [
     ],
     "desc": "詳細は公式サイトをご確認ください。",
     "url": "https://www.city.maebashi.gunma.jp/soshiki/kenko/eiseikensa/oshirase/48487.html",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   },
   {
@@ -3453,7 +3453,7 @@ export const EVENTS = [
     ],
     "desc": "ランドセル選び決定版！日本最大ランドセル展示会。\n\n各社モデルを一度に見比べられる！\n群馬会場には9メーカー約680本…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6749",
-    "free": false,
+    "free": null,
     "age": "詳細は公式サイトへ"
   }
 ];
