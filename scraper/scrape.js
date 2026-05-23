@@ -1057,7 +1057,13 @@ async function scrapeKannonzanFP() {
             "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
           },
         });
-        data = await res2.json();
+        const text2 = await res2.text();
+        if (text2.trimStart().startsWith("<")) {
+          console.warn(`    ⚠ plain API でも HTML レスポンス。取得スキップ。`);
+          console.log(`  [観音山ファミリーパーク] 取得: 0件`);
+          return results;
+        }
+        data = JSON.parse(text2);
       } else {
         data = JSON.parse(text);
       }
@@ -1069,7 +1075,13 @@ async function scrapeKannonzanFP() {
           "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
         },
       });
-      data = await res2.json();
+      const text2 = await res2.text();
+      if (text2.trimStart().startsWith("<")) {
+        console.warn(`    ⚠ plain API でも HTML レスポンス。取得スキップ。`);
+        console.log(`  [観音山ファミリーパーク] 取得: 0件`);
+        return results;
+      }
+      data = JSON.parse(text2);
     }
 
     const today = new Date().toISOString().split("T")[0];
