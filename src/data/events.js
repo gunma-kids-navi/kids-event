@@ -316,6 +316,27 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 17945,
+    "title": "17_秋のファミリーキャンプ",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-10-03",
+    "endDate": "2026-10-03",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "秋の赤城山で季節ならではの体験やご飯を作るプログラムです。 ご家族で秋の赤城山を体験しませんか？",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=17_%E7%A7%8B%E3%81%AE%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
+    "free": false,
+    "age": "年少～一般"
+  },
+  {
     "id": 18766,
     "title": "飼育室探検ツアー",
     "emoji": "🎈",
@@ -600,6 +621,27 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 30356,
+    "title": "09_カッター指導者養成講習会",
+    "emoji": "🌿",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-07-04",
+    "endDate": "2026-07-04",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "前橋市赤城少年自然の家では、関東でも珍しいカッターボート体験のプログラムを実施！ 夏の思い出作りにスポーツクラブの仲間や同窓会の行事など、大沼で力を合わせてカッターボートを漕いでみませんか？ こちらの講習会を受講していただくとカッターボート",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=09_%E3%82%AB%E3%83%83%E3%82%BF%E3%83%BC%E6%8C%87%E5%B0%8E%E8%80%85%E9%A4%8A%E6%88%90%E8%AC%9B%E7%BF%92%E4%BC%9A",
+    "free": false,
+    "age": "高校生以上(カッターボート訓練を行う利用団体指導者、及びカッ"
+  },
+  {
     "id": 31686,
     "title": "科学講座パステルアートと色の科学10：00の回",
     "emoji": "🎨",
@@ -618,6 +660,27 @@ export const EVENTS = [
     "url": "https://kodomonokuni.or.jp/event/pasuteru_1000/",
     "free": false,
     "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 32387,
+    "title": "21_やきいも＆ネイチャークラフト体験",
+    "emoji": "🌿",
+    "category": "experience",
+    "label": "体験・工作",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-11-14",
+    "endDate": "2026-11-14",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "自然豊かな赤城山で、美しい景色を見ながらやきいも体験を楽しめます。 ネイチャークラフトで世界に一つしかない、オリジナルの思い出を作りましょう！ 「特別で充実した時間」を家族や仲間同士と満喫しにぜひお越しください♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=21_%E3%82%84%E3%81%8D%E3%81%84%E3%82%82%EF%BC%86%E3%83%8D%E3%82%A4%E3%83%81%E3%83%A3%E3%83%BC%E3%82%AF%E3%83%A9%E3%83%95%E3%83%88%E4%BD%93%E9%A8%93",
+    "free": false,
+    "age": "年少～一般"
   },
   {
     "id": 33843,
@@ -678,6 +741,27 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 34268,
+    "title": "19_どんぐりキャンプ",
+    "emoji": "🏕️",
+    "category": "experience",
+    "label": "体験・工作",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-10-17",
+    "endDate": "2026-10-18",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "ハイキングやどんぐりクラフト体験、野外炊事等、仲間たちと協力して楽しく過ごします！ 赤城でチャレンジした事、友だちとの思い出は一生の宝物に♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=19_%E3%81%A9%E3%82%93%E3%81%90%E3%82%8A%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
+    "free": false,
+    "age": "小学生"
+  },
+  {
     "id": 34350,
     "title": "老神温泉ホタル観賞",
     "emoji": "🎈",
@@ -696,6 +780,48 @@ export const EVENTS = [
     "url": "https://www.jalan.net/event/evt_357114/",
     "free": false,
     "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 34636,
+    "title": "18_アクティビティキャンプ",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-10-10",
+    "endDate": "2026-10-11",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "赤城の自然の中でいろいろなキャンプスポーツをする、アクティビティキャンプです！ 体力があってもなくても、みんなで楽しもう♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=18_%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
+    "free": false,
+    "age": "小学生"
+  },
+  {
+    "id": 34659,
+    "title": "アウトドアスクール ～8/29黒檜登山に学ぶ～",
+    "emoji": "🎈",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-08-29",
+    "endDate": "2026-08-29",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "7つの山からなる赤城山。赤城山で一番高い黒檜山を登山します。 ガイドと一緒に赤城山を知ることができるプランです♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB+%EF%BD%9E8%2F29%E9%BB%92%E6%AA%9C%E7%99%BB%E5%B1%B1%E3%81%AB%E5%AD%A6%E3%81%B6%EF%BD%9E",
+    "free": false,
+    "age": "小学5年生～一般"
   },
   {
     "id": 35593,
@@ -718,6 +844,27 @@ export const EVENTS = [
     "url": "https://www.gunlabo.net/event/event.shtml?id=6677",
     "free": false,
     "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 35831,
+    "title": "AKAGI アクティビティー倶楽部 森林ヨガ＆ノルディックウォークプラン",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-09-05",
+    "endDate": "2026-09-05",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "自然豊かな赤城山でゆったりデイキャンプを楽しみませんか♪ 心地よい大沼湖畔沿い・森林の中でヨガを体験しリフレッシュ！ 午後のノルディックウォークプログラムでは、ウォーキング指導、赤城山のガイドもお楽しみできます♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI+%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E3%83%BC%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E6%A3%AE%E6%9E%97%E3%83%A8%E3%82%AC%EF%BC%86%E3%83%8E%E3%83%AB%E3%83%87%E3%82%A3%E3%83%83%E3%82%AF%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AF%E3%83%97%E3%83%A9%E3%83%B3",
+    "free": false,
+    "age": "小学生～一般"
   },
   {
     "id": 36412,
@@ -784,6 +931,48 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 38719,
+    "title": "アウトドアスクール ～11/3黒檜登山に学ぶ～",
+    "emoji": "🎈",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-11-03",
+    "endDate": "2026-11-03",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "7つの山からなる赤城山。赤城山で一番高い黒檜山を登山します。 ガイドと一緒に赤城山を知ることができるプランです♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB+%E3%80%80%EF%BD%9E11%2F3%E9%BB%92%E6%AA%9C%E7%99%BB%E5%B1%B1%E3%81%AB%E5%AD%A6%E3%81%B6%EF%BD%9E",
+    "free": false,
+    "age": "小学5年生～一般"
+  },
+  {
+    "id": 39484,
+    "title": "10_夏のファミリーキャンプ",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-07-11",
+    "endDate": "2026-07-12",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "今年の夏はご家族でテントをたてたり、野外炊事をしたりして、素敵な思い出を作りませんか？",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=10_%E5%A4%8F%E3%81%AE%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
+    "free": false,
+    "age": "年少～一般"
+  },
+  {
     "id": 40131,
     "title": "Musuhiマルシェ（アメイジンググレイス前橋・パティスリーアメイジンググレイスカフェ／前橋市）",
     "emoji": "🎈",
@@ -804,6 +993,48 @@ export const EVENTS = [
     "url": "https://www.gunlabo.net/event/event.shtml?id=6747",
     "free": false,
     "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 40269,
+    "title": "07_クッキングキャンプ～みんなでつくるアウトドアごはん！～",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-06-20",
+    "endDate": "2026-06-21",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "3食自分たちで自分たちのごはんを作るキャンプ♡ 1泊2日で料理の腕が上がります！",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=07_%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E3%81%BF%E3%82%93%E3%81%AA%E3%81%A7%E3%81%A4%E3%81%8F%E3%82%8B%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%81%94%E3%81%AF%E3%82%93%EF%BC%81%EF%BD%9E",
+    "free": false,
+    "age": "小学生～中学生"
+  },
+  {
+    "id": 40619,
+    "title": "16_親子幼児キャンプ～秋の自然で遊ぼう♪～",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-09-19",
+    "endDate": "2026-09-19",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "年少から年長のおともだち！！！赤城の自然の中で一緒にあそびましょうー！！！ 保護者のみなさま、簡単なキャンプ体験やご飯作り等をします！ スタッフが全力でサポートさせていただきます！",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=16_%E8%A6%AA%E5%AD%90%E5%B9%BC%E5%85%90%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E7%A7%8B%E3%81%AE%E8%87%AA%E7%84%B6%E3%81%A7%E9%81%8A%E3%81%BC%E3%81%86%E2%99%AA%EF%BD%9E",
+    "free": false,
+    "age": "幼児親子"
   },
   {
     "id": 40798,
@@ -904,6 +1135,26 @@ export const EVENTS = [
     ],
     "desc": "6月5日(金)開催。詳細は公式サイトをご確認ください。",
     "url": "https://kodomonokuni.or.jp/event/baby_oshaberi/",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 43159,
+    "title": "ぐんま方言かるた体験会",
+    "emoji": "🎈",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "太田市",
+    "venue": "ぐんまこどもの国 児童会館",
+    "startDate": "2026-06-14",
+    "endDate": "2026-06-14",
+    "tags": [
+      "ぐんまこどもの国",
+      "太田市",
+      "児童会館"
+    ],
+    "desc": "6月14日(日)開催。詳細は公式サイトをご確認ください。",
+    "url": "https://kodomonokuni.or.jp/event/hougenkaruta/",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1014,6 +1265,27 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 43699,
+    "title": "AKAGIアクティビティ倶楽部 ツリーイング＆焚火キャンプ飯プラン(７/20)",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-07-20",
+    "endDate": "2026-07-20",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "景色抜群なツリーイングと、自分で火おこしした火で作る焚火キャンプ飯は格別！！！ 赤城山の自然の中でゆったりとした時間を過ごすイベントです。充実した赤城時間をお楽しみください♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E3%83%84%E3%83%AA%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0%EF%BC%86%E7%84%9A%E7%81%AB%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E9%A3%AF%E3%83%97%E3%83%A9%E3%83%B3%28%EF%BC%97%2F20%29",
+    "free": false,
+    "age": "小学生以上～一般"
+  },
+  {
     "id": 43848,
     "title": "桐生市マーチングフェスティバル（桐生ガススポーツセンター／桐生市）",
     "emoji": "🎵",
@@ -1053,6 +1325,27 @@ export const EVENTS = [
     "url": "https://www.astron.pref.gunma.jp/events/../senyu/usersm2026.html",
     "free": false,
     "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 44339,
+    "title": "20_ハロウィンキャンプ",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-10-31",
+    "endDate": "2026-11-01",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "仲間と一緒にハロウィンの仮装やお菓子作りをしよう！ 内容はお楽しみに♡",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=20_%E3%83%8F%E3%83%AD%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
+    "free": false,
+    "age": "小学生"
   },
   {
     "id": 45580,
@@ -1420,6 +1713,27 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 56743,
+    "title": "14_夏の思い出キャンプ",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-08-16",
+    "endDate": "2026-08-17",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "今年の夏は赤城山で夏の思い出をつくろう！ 友達と力を合わせてご飯をつくったり、活動に取り組んだりして、みんなで一緒に夏の赤城を楽しもう！！！",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=14_%E5%A4%8F%E3%81%AE%E6%80%9D%E3%81%84%E5%87%BA%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
+    "free": false,
+    "age": "小学1年生～小学3年生"
+  },
+  {
     "id": 56952,
     "title": "＜令和8（2026）年開催中止＞たまむら花火大会",
     "emoji": "🌿",
@@ -1669,6 +1983,27 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 62501,
+    "title": "08_親子デイキャンプ～棒巻きパンを作ろう！～",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-06-28",
+    "endDate": "2026-06-28",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "親子で協力して野外活動を楽しんでもらい、家族の絆を深める自然体験プログラム！ ほんのり甘くておいしい棒巻きパンを作って食べましょう♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=08_%E8%A6%AA%E5%AD%90%E3%83%87%E3%82%A4%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E6%A3%92%E5%B7%BB%E3%81%8D%E3%83%91%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8D%E3%81%86%EF%BC%81%EF%BD%9E",
+    "free": false,
+    "age": "年少～一般"
+  },
+  {
     "id": 62734,
     "title": "スターキャッチコンテスト",
     "emoji": "🌟",
@@ -1887,6 +2222,27 @@ export const EVENTS = [
     "url": "https://www.gunlabo.net/event/event.shtml?id=914",
     "free": false,
     "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 65488,
+    "title": "23_クッキングキャンプ～料理を通して学ぶ食育体験～",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-11-21",
+    "endDate": "2026-11-22",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "3食自分たちで考えて作ります！！！ みんなで作るごはん、どんなごはんになるか、楽しみ♪",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=23_%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%EF%BD%9E%E6%96%99%E7%90%86%E3%82%92%E9%80%9A%E3%81%97%E3%81%A6%E5%AD%A6%E3%81%B6%E9%A3%9F%E8%82%B2%E4%BD%93%E9%A8%93%EF%BD%9E",
+    "free": false,
+    "age": "小学生～中学生"
   },
   {
     "id": 65527,
@@ -2169,6 +2525,48 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 74631,
+    "title": "アウトドアスクール キャンプでやりたい10のこと",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-09-21",
+    "endDate": "2026-09-22",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "キャンプでやりたい10のことを体験を通して学んでみませんか！ キャンプやアウトドアに関する知識を深め、楽しみながら次のステップに繋げてください！",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%80%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E3%81%A7%E3%82%84%E3%82%8A%E3%81%9F%E3%81%8410%E3%81%AE%E3%81%93%E3%81%A8",
+    "free": false,
+    "age": "小学4年生～一般"
+  },
+  {
+    "id": 76597,
+    "title": "15_防災キャンプ",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-09-12",
+    "endDate": "2026-09-13",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "電気がない、水が足りない、そんな時に役立つ知識や行動力をキャンプ活動をしながら身につけよう！ 防災ゲームなど、楽しく災害について学ぶ１泊２日のイベントです！",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=15_%E9%98%B2%E7%81%BD%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%E3%80%80",
+    "free": false,
+    "age": "小学生～中学生"
+  },
+  {
     "id": 76907,
     "title": "ハンドメイドマルシェ　bouquet（ブーケ）（エアリスの小さな森公園／太田市）",
     "emoji": "🌿",
@@ -2293,6 +2691,27 @@ export const EVENTS = [
     "url": "https://www.jalan.net/event/evt_357109/",
     "free": false,
     "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 81085,
+    "title": "AKAGIアクティビティ倶楽部 森林ヨガ＆つつじハイキングツアー",
+    "emoji": "🌿",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-06-07",
+    "endDate": "2026-06-07",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "今しか体験できない赤城山。気分爽快！ ヨガ体験ができるイベントとなっております！この時期のつつじもとてもキレイです♪ 自然豊かなこの環境で赤城山を体感しましょう！",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=AKAGI%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%93%E3%83%86%E3%82%A3%E5%80%B6%E6%A5%BD%E9%83%A8%E3%80%80%E6%A3%AE%E6%9E%97%E3%83%A8%E3%82%AC%EF%BC%86%E3%81%A4%E3%81%A4%E3%81%98%E3%83%8F%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%84%E3%82%A2%E3%83%BC",
+    "free": false,
+    "age": "小学生～一般"
   },
   {
     "id": 81155,
@@ -2587,6 +3006,27 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 88442,
+    "title": "22_やきいも＆オリジナルカトラリー作り",
+    "emoji": "🌿",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-11-15",
+    "endDate": "2026-11-15",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "自然豊かな赤城山で、美しい景色を見ながらやきいも体験を楽しめます。 今回は世界に一つだけ！オリジナルカトラリーも作ります！",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=22_%E3%82%84%E3%81%8D%E3%81%84%E3%82%82%EF%BC%86%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%82%AB%E3%83%88%E3%83%A9%E3%83%AA%E3%83%BC%E4%BD%9C%E3%82%8A",
+    "free": false,
+    "age": "年少～一般"
+  },
+  {
     "id": 89319,
     "title": "制服バンク（洗濯工房 ココア／前橋市）",
     "emoji": "🎈",
@@ -2778,26 +3218,6 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
-    "id": 93327,
-    "title": "おもいやりプラネタリウム",
-    "emoji": "🌟",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "太田市",
-    "venue": "ぐんまこどもの国 児童会館",
-    "startDate": "2026-05-23",
-    "endDate": "2026-05-23",
-    "tags": [
-      "ぐんまこどもの国",
-      "太田市",
-      "児童会館"
-    ],
-    "desc": "5月23日(土)開催。詳細は公式サイトをご確認ください。",
-    "url": "https://kodomonokuni.or.jp/event/r8omoiyaripurane/",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
     "id": 93655,
     "title": "藍染で木綿のＴシャツを染める",
     "emoji": "🎨",
@@ -2814,6 +3234,27 @@ export const EVENTS = [
     "url": "https://www.city.takasaki.gunma.jp/site/senryou/67020.html",
     "free": false,
     "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 94575,
+    "title": "13_大冒険キャンプ",
+    "emoji": "🏕️",
+    "category": "nature",
+    "label": "自然・アウトドア",
+    "area": "前橋市",
+    "venue": "前橋市赤城少年自然の家",
+    "startDate": "2026-08-08",
+    "endDate": "2026-08-12",
+    "tags": [
+      "赤城少年自然の家",
+      "前橋市",
+      "キャンプ",
+      "自然体験"
+    ],
+    "desc": "4泊5日、仲間と一緒に寝る場所やご飯を作ったり、様々な活動などに取り組んだりするプログラムです！ 仲間の大切さ、日常生活のありがたみ、体験を通して「楽しい！」などの感情や達成感が味わえます。",
+    "url": "https://gunma-nsp.com/akagi/reservation/?event_name=13_%E5%A4%A7%E5%86%92%E9%99%BA%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97",
+    "free": false,
+    "age": "小学4年生～中学生"
   },
   {
     "id": 94725,
