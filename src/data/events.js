@@ -378,6 +378,24 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 22708,
+    "title": "100万人のクラシックライブ　ぐんまこどもの国児童会館（令和8年7月20日）",
+    "emoji": "🎈",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "太田市",
+    "venue": "太田市（詳細は公式サイト）",
+    "startDate": "2026-05-16",
+    "endDate": "2026-05-16",
+    "tags": [
+      "太田市"
+    ],
+    "desc": "100万人のクラシックライブ",
+    "url": "https://www.city.ota.gunma.jp/page/1059010.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 22797,
     "title": "OYAKO NATU FES（桐生織物会館／桐生市）",
     "emoji": "🎈",
@@ -642,6 +660,24 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 34145,
+    "title": "おおたまつり（南会場）",
+    "emoji": "🎪",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "太田市",
+    "venue": "太田市（詳細は公式サイト）",
+    "startDate": "2026-05-21",
+    "endDate": "2026-05-21",
+    "tags": [
+      "太田市"
+    ],
+    "desc": "詳細は公式サイトをご確認ください。",
+    "url": "https://www.city.ota.gunma.jp/page/1024861.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 34350,
     "title": "老神温泉ホタル観賞",
     "emoji": "🎈",
@@ -848,26 +884,6 @@ export const EVENTS = [
     ],
     "desc": "フレッセイ連取店にぐんまちゃんが出動するよ♫\nぐんまちゃんとの写真撮影会のほか、連取店限定抽選会も実施！\n\n①ぐんまち…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=6727",
-    "free": false,
-    "age": "詳細は公式サイトへ"
-  },
-  {
-    "id": 42847,
-    "title": "2026.5.30-5.31【GUNMA outside Festival 2026 】開催による公園からのお知らせ",
-    "emoji": "🎈",
-    "image": "https://kfp-tomo.org/wp-content/uploads/2025/04/5ba897d6d697425ab4b38f14e988b482.jpg",
-    "category": "culture",
-    "label": "文化・学習",
-    "area": "高崎市",
-    "venue": "観音山ファミリーパーク",
-    "startDate": "2026-05-30",
-    "endDate": "2026-05-30",
-    "tags": [
-      "観音山ファミリーパーク",
-      "高崎市"
-    ],
-    "desc": "《観音山ファミリーパークよりお知らせ》 ◆GUNMA outside Festival 20256開催につきまして（5月30日-5月31日） ※詳細な情報は GUNMA outside Festival 2025主催者様-Instagram",
-    "url": "https://kfp-tomo.org/archives/12081",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1288,6 +1304,24 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 54119,
+    "title": "【小学生対象】　英検・漢検の受検料半額を助成します",
+    "emoji": "🎈",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "太田市",
+    "venue": "太田市（詳細は公式サイト）",
+    "startDate": "2026-04-30",
+    "endDate": "2026-04-30",
+    "tags": [
+      "太田市"
+    ],
+    "desc": "詳細は公式サイトをご確認ください。",
+    "url": "https://www.city.ota.gunma.jp/page/1047111.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 54831,
     "title": "ルリアンマルシェ（伊勢崎MIRAI PARK・X　PARK1510／伊勢崎市）",
     "emoji": "🎈",
@@ -1655,6 +1689,24 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 62991,
+    "title": "5月30日（土曜日）、31日（日曜日）　OTAスマイルフェスタ2026へお越しください",
+    "emoji": "🎪",
+    "category": "festival",
+    "label": "祭り・フェスタ",
+    "area": "太田市",
+    "venue": "太田市（詳細は公式サイト）",
+    "startDate": "2026-05-14",
+    "endDate": "2026-05-14",
+    "tags": [
+      "太田市"
+    ],
+    "desc": "詳細は公式サイトをご確認ください。",
+    "url": "https://www.city.ota.gunma.jp/page/1058597.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 63091,
     "title": "嵩山の鯉のぼり（中之条町）【5月24日（日）まで】",
     "emoji": "🎈",
@@ -1714,6 +1766,24 @@ export const EVENTS = [
     ],
     "desc": "■わんぱく相撲とは\n日本国内の青年会議所主催の予選大会から勝ち上がった選手が集まり全国大会が開かれる、全国で約４０，０…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=1194",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 64327,
+    "title": "こどもプラッツ入室申込は随時受け付けています",
+    "emoji": "🎈",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "太田市",
+    "venue": "太田市（詳細は公式サイト）",
+    "startDate": "2026-04-24",
+    "endDate": "2026-04-24",
+    "tags": [
+      "太田市"
+    ],
+    "desc": "詳細は公式サイトをご確認ください。",
+    "url": "https://www.city.ota.gunma.jp/site/kosodate/1028029.html",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
@@ -1819,6 +1889,24 @@ export const EVENTS = [
     "age": "詳細は公式サイトへ"
   },
   {
+    "id": 65527,
+    "title": "花結び講座「梅結びのバックチャーム」（大隅俊平美術館）",
+    "emoji": "🌿",
+    "category": "exhibition",
+    "label": "展覧会",
+    "area": "太田市",
+    "venue": "太田市（詳細は公式サイト）",
+    "startDate": "2026-06-11",
+    "endDate": "2026-06-12",
+    "tags": [
+      "太田市"
+    ],
+    "desc": "太田市立大隅俊平美術館 花結び講座「梅結び　バックチャーム」をご紹介しています。本行事は、参加者が江戸紐でバックチャームを作る体験講座です。",
+    "url": "https://www.city.ota.gunma.jp/page/1030602.html",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
     "id": 65694,
     "title": "パパ＆ママとenjoy！「親子でLet’s DANCE」",
     "emoji": "🎈",
@@ -1876,6 +1964,24 @@ export const EVENTS = [
     ],
     "desc": "今年の いせさき花火大会は...\n\n＼ 利根川坂東大橋花火大会 ／\n\n坂東大橋上流を打上場所として\n本庄市と合同で花火…",
     "url": "https://www.gunlabo.net/event/event.shtml?id=918",
+    "free": false,
+    "age": "詳細は公式サイトへ"
+  },
+  {
+    "id": 68915,
+    "title": "令和8年度「こどもプラッツ」有償ボランティアスタッフ募集",
+    "emoji": "🎈",
+    "category": "culture",
+    "label": "文化・学習",
+    "area": "太田市",
+    "venue": "太田市（詳細は公式サイト）",
+    "startDate": "2026-04-02",
+    "endDate": "2026-04-02",
+    "tags": [
+      "太田市"
+    ],
+    "desc": "新着情報、イベント情報、観光情報、施設予約、行財政改革、医療情報、公共施設案内、防災情報、市議会情報、入札・契約情報、キッズサイトなど豊富な情報を掲載。",
+    "url": "https://www.city.ota.gunma.jp/site/kosodate/1023934.html",
     "free": false,
     "age": "詳細は公式サイトへ"
   },
