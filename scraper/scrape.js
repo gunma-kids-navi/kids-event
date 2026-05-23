@@ -329,6 +329,15 @@ function isKidsRelated(text) {
   return KIDS_KEYWORDS.some((kw) => text.includes(kw)) && !isNgContent(text);
 }
 
+// ===== 無料イベント判定 =====
+// 「無料」以外にも「0円」「費用なし」等の表現に対応
+const FREE_PATTERNS =
+  /無料|0円|０円|費用なし|入場料なし|入場無料|参加無料|参加費不要|参加費.*?0円|参加費.*?０円|無償|料金なし/;
+
+function isFreeText(text) {
+  return FREE_PATTERNS.test(text);
+}
+
 // ===== 既存の events.js から手動イベント（id < 10000）を読み取る =====
 function loadManualEvents() {
   try {
@@ -401,7 +410,7 @@ async function scrapeOtaRSS() {
           tags: ["太田市"],
           desc: desc || "詳細は公式サイトをご確認ください。",
           url: link,
-          free: /無料/.test(title + desc),
+          free: isFreeText(title + desc),
           age: "詳細は公式サイトへ",
           _source: "太田市RSS",
         };
@@ -476,7 +485,7 @@ async function scrapeTakasakiCalendar() {
           ? parseJapaneseDate(endDateMatch[1])
           : startDate;
 
-        const isFree = /無料|申込不要/.test(surrounding);
+        const isFree = isFreeText(surrounding);
         const cat = guessCategory(title + surrounding);
 
         results.push({
@@ -556,7 +565,7 @@ async function scrapeMaebashiCalendar() {
         tags: ["前橋市"],
         desc: "詳細は公式サイトをご確認ください。",
         url,
-        free: false,
+        free: isFreeText(title + " " + venue),
         age: "詳細は公式サイトへ",
         _source: "前橋市カレンダー",
       });
@@ -626,7 +635,7 @@ async function scrapeOtaCalendar() {
           surrounding.slice(0, 120).trim() ||
           "詳細は公式サイトをご確認ください。",
         url: fullUrl,
-        free: /無料/.test(surrounding),
+        free: isFreeText(surrounding),
         age: "詳細は公式サイトへ",
         _source: "太田市カレンダー",
       });
@@ -699,7 +708,7 @@ async function scrapeNaturalHistory() {
           surrounding.slice(0, 120).trim() ||
           "詳細は公式サイトをご確認ください。",
         url: fullUrl,
-        free: /無料/.test(surrounding),
+        free: isFreeText(surrounding),
         age: "詳細は公式サイトへ",
         _source: "群馬県立自然史博物館",
       });
@@ -738,6 +747,8 @@ async function scrapeGunmaKonchu() {
       const period = $(cells[1]).text().trim();
       if (!name || !/毎日|毎週/.test(period)) return;
 
+      // テーブル行全体のテキストで無料判定
+      const rowText = $(tr).text();
       const link = $(cells[2]).find("a").attr("href") || "";
       const fullUrl = link
         ? link.startsWith("http")
@@ -758,7 +769,7 @@ async function scrapeGunmaKonchu() {
         tags: ["昆虫の森", "桐生市", "昆虫", period],
         desc: `ぐんま昆虫の森で${period}開催中の体験プログラムです。詳細は公式サイトをご確認ください。`,
         url: fullUrl || base,
-        free: false,
+        free: isFreeText(rowText),
         age: "詳細は公式サイトへ",
         _source: "ぐんま昆虫の森",
       });
@@ -833,7 +844,7 @@ async function scrapeGunmaSafari() {
         tags,
         desc: "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
         url: href,
-        free: false,
+        free: isFreeText(title),
         age: "詳細は公式サイトへ",
         _source: "群馬サファリパーク",
       });
@@ -916,7 +927,7 @@ async function scrapeGunmaTenmonDai() {
           tags: ["天文台", "中之条町", "星"],
           desc: desc || "詳細は公式サイトをご確認ください。",
           url: fullUrl,
-          free: /無料/.test(combined),
+          free: isFreeText(combined),
           age: "詳細は公式サイトへ",
           _source: "ぐんま天文台",
         });
@@ -1028,7 +1039,7 @@ async function scrapeGunmaKodomonoKuni() {
         tags: ["ぐんまこどもの国", "太田市", "児童会館"],
         desc: `${dateText}開催。詳細は公式サイトをご確認ください。`,
         url: href,
-        free: /無料/.test(title),
+        free: isFreeText(title),
         age: "詳細は公式サイトへ",
         _source: "ぐんまこどもの国",
       });
@@ -1168,7 +1179,7 @@ async function scrapeKannonzanFP() {
         tags: ["観音山ファミリーパーク", "高崎市"],
         desc: content.slice(0, 120) || "詳細は公式サイトをご確認ください。",
         url: link,
-        free: /無料/.test(combined),
+        free: isFreeText(combined),
         age: "詳細は公式サイトへ",
         _source: "観音山ファミリーパーク",
       });
@@ -1325,7 +1336,7 @@ async function scrapeWalkerPlus() {
           ],
           desc: (placeText ? `【${placeText}】` : "") + title.slice(0, 100),
           url: fullUrl,
-          free: /無料/.test(combined),
+          free: isFreeText(combined),
           age: "詳細は公式サイトへ",
           _source: "ウォーカープラス",
         });
@@ -1461,7 +1472,7 @@ async function scrapeJalan() {
           tags: [...new Set(["じゃらん", area, "観光"].filter(Boolean))],
           desc: (venue ? `【${venue}】` : "") + title.slice(0, 100),
           url: evUrl,
-          free: /無料/.test(combined),
+          free: isFreeText(combined),
           age: "詳細は公式サイトへ",
           _source: "じゃらん",
         });
@@ -1506,7 +1517,7 @@ async function scrapeJalan() {
           tags: ["じゃらん", "観光"],
           desc: title.slice(0, 100),
           url: fullUrl,
-          free: /無料/.test(combined),
+          free: isFreeText(combined),
           age: "詳細は公式サイトへ",
           _source: "じゃらん",
         });
@@ -1631,7 +1642,7 @@ async function scrapeGunmaKanko() {
         tags: [...new Set(["群馬県観光公式", area, rawArea].filter(Boolean))],
         desc: `${rawArea ?? "群馬"}で開催。詳細は群馬県観光公式サイトをご確認ください。`,
         url: fullUrl,
-        free: /無料/.test(text),
+        free: isFreeText(text),
         age: "詳細は公式サイトへ",
         _source: "群馬県観光公式",
       });
@@ -1745,7 +1756,7 @@ async function scrapeGunlabo() {
           tags: [...new Set([area, ...tags])],
           desc: desc.slice(0, 120) || "詳細は公式サイトをご確認ください。",
           url: fullUrl,
-          free: /無料/.test(title + desc),
+          free: isFreeText(title + desc),
           age: "詳細は公式サイトへ",
           _source: "ぐんラボ！",
         });
@@ -1922,7 +1933,7 @@ async function scrapeGunmaEsu() {
           ],
           desc: desc.slice(0, 120),
           url,
-          free: /無料/.test(bodyText),
+          free: isFreeText(bodyText),
           age: "詳細は公式サイトへ",
           _source: "群馬eスポーツ連合",
         };
@@ -2031,7 +2042,7 @@ async function scrapeAkagiShonen() {
       // 期間外スキップ
       if (endDate < today || startDate > horizonStr) return;
 
-      const isFree = /無料/.test(feeText + contentText);
+      const isFree = isFreeText(feeText + contentText);
       const combined = title + " " + contentText;
       const cat = guessCategory(combined);
 
