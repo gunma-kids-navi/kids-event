@@ -36,7 +36,11 @@
           <div class="modal-info-row">
             <span class="modal-info-label">💴 費用</span>
             <span>{{
-              event.free ? "無料" : "有料（詳細は主催者サイトへ）"
+              event.free === true
+                ? "無料"
+                : event.free === false
+                  ? "有料（詳細は主催者サイトへ）"
+                  : "詳細は主催者サイトへ"
             }}</span>
           </div>
         </div>

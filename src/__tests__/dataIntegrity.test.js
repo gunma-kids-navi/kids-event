@@ -200,11 +200,12 @@ describe("EVENTS データ整合性", () => {
     });
   });
 
-  it("全イベントの free が boolean", () => {
+  it("全イベントの free が boolean または null", () => {
     EVENTS.forEach((ev) => {
-      expect(typeof ev.free, `event id:${ev.id} free is not boolean`).toBe(
-        "boolean",
-      );
+      expect(
+        ev.free === true || ev.free === false || ev.free === null,
+        `event id:${ev.id} free is not boolean or null`,
+      ).toBe(true);
     });
   });
 

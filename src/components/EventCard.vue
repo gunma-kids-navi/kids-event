@@ -40,7 +40,7 @@
         >📅 {{ formatDateRange(event.startDate, event.endDate) }}</span
       >
       <span
-        v-if="event.free"
+        v-if="event.free === true"
         style="color: #16a34a; font-size: 0.8125rem; font-weight: 700"
         >✓ 無料イベント</span
       >

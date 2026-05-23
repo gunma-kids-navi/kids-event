@@ -411,7 +411,7 @@ async function scrapeOtaRSS() {
           tags: ["太田市"],
           desc: desc || "詳細は公式サイトをご確認ください。",
           url: link,
-          free: isFreeText(title + desc),
+          free: isFreeText(title + desc) ? true : null,
           age: "詳細は公式サイトへ",
           _source: "太田市RSS",
         };
@@ -566,7 +566,7 @@ async function scrapeMaebashiCalendar() {
         tags: ["前橋市"],
         desc: "詳細は公式サイトをご確認ください。",
         url,
-        free: isFreeText(title + " " + venue),
+        free: isFreeText(title + " " + venue) ? true : null,
         age: "詳細は公式サイトへ",
         _source: "前橋市カレンダー",
       });
@@ -636,7 +636,7 @@ async function scrapeOtaCalendar() {
           surrounding.slice(0, 120).trim() ||
           "詳細は公式サイトをご確認ください。",
         url: fullUrl,
-        free: isFreeText(surrounding),
+        free: isFreeText(surrounding) ? true : null,
         age: "詳細は公式サイトへ",
         _source: "太田市カレンダー",
       });
@@ -709,7 +709,7 @@ async function scrapeNaturalHistory() {
           surrounding.slice(0, 120).trim() ||
           "詳細は公式サイトをご確認ください。",
         url: fullUrl,
-        free: isFreeText(surrounding),
+        free: isFreeText(surrounding) ? true : null,
         age: "詳細は公式サイトへ",
         _source: "群馬県立自然史博物館",
       });
@@ -770,7 +770,7 @@ async function scrapeGunmaKonchu() {
         tags: ["昆虫の森", "桐生市", "昆虫", period],
         desc: `ぐんま昆虫の森で${period}開催中の体験プログラムです。詳細は公式サイトをご確認ください。`,
         url: fullUrl || base,
-        free: isFreeText(rowText),
+        free: isFreeText(rowText) ? true : null,
         age: "詳細は公式サイトへ",
         _source: "ぐんま昆虫の森",
       });
@@ -845,7 +845,7 @@ async function scrapeGunmaSafari() {
         tags,
         desc: "群馬サファリパークで毎日開催中のショー・体験イベントです。詳細は公式サイトをご確認ください。",
         url: href,
-        free: isFreeText(title),
+        free: isFreeText(title) ? true : null,
         age: "詳細は公式サイトへ",
         _source: "群馬サファリパーク",
       });
@@ -928,7 +928,7 @@ async function scrapeGunmaTenmonDai() {
           tags: ["天文台", "中之条町", "星"],
           desc: desc || "詳細は公式サイトをご確認ください。",
           url: fullUrl,
-          free: isFreeText(combined),
+          free: isFreeText(combined) ? true : null,
           age: "詳細は公式サイトへ",
           _source: "ぐんま天文台",
         });
@@ -1040,7 +1040,7 @@ async function scrapeGunmaKodomonoKuni() {
         tags: ["ぐんまこどもの国", "太田市", "児童会館"],
         desc: `${dateText}開催。詳細は公式サイトをご確認ください。`,
         url: href,
-        free: isFreeText(title),
+        free: isFreeText(title) ? true : null,
         age: "詳細は公式サイトへ",
         _source: "ぐんまこどもの国",
       });
@@ -1180,7 +1180,7 @@ async function scrapeKannonzanFP() {
         tags: ["観音山ファミリーパーク", "高崎市"],
         desc: content.slice(0, 120) || "詳細は公式サイトをご確認ください。",
         url: link,
-        free: isFreeText(combined),
+        free: isFreeText(combined) ? true : null,
         age: "詳細は公式サイトへ",
         _source: "観音山ファミリーパーク",
       });
@@ -1337,7 +1337,7 @@ async function scrapeWalkerPlus() {
           ],
           desc: (placeText ? `【${placeText}】` : "") + title.slice(0, 100),
           url: fullUrl,
-          free: isFreeText(combined),
+          free: isFreeText(combined) ? true : null,
           age: "詳細は公式サイトへ",
           _source: "ウォーカープラス",
         });
@@ -1473,7 +1473,7 @@ async function scrapeJalan() {
           tags: [...new Set(["じゃらん", area, "観光"].filter(Boolean))],
           desc: (venue ? `【${venue}】` : "") + title.slice(0, 100),
           url: evUrl,
-          free: isFreeText(combined),
+          free: isFreeText(combined) ? true : null,
           age: "詳細は公式サイトへ",
           _source: "じゃらん",
         });
@@ -1518,7 +1518,7 @@ async function scrapeJalan() {
           tags: ["じゃらん", "観光"],
           desc: title.slice(0, 100),
           url: fullUrl,
-          free: isFreeText(combined),
+          free: isFreeText(combined) ? true : null,
           age: "詳細は公式サイトへ",
           _source: "じゃらん",
         });
@@ -1643,7 +1643,7 @@ async function scrapeGunmaKanko() {
         tags: [...new Set(["群馬県観光公式", area, rawArea].filter(Boolean))],
         desc: `${rawArea ?? "群馬"}で開催。詳細は群馬県観光公式サイトをご確認ください。`,
         url: fullUrl,
-        free: isFreeText(text),
+        free: isFreeText(text) ? true : null,
         age: "詳細は公式サイトへ",
         _source: "群馬県観光公式",
       });
@@ -1757,7 +1757,7 @@ async function scrapeGunlabo() {
           tags: [...new Set([area, ...tags])],
           desc: desc.slice(0, 120) || "詳細は公式サイトをご確認ください。",
           url: fullUrl,
-          free: isFreeText(title + desc),
+          free: isFreeText(title + desc) ? true : null,
           age: "詳細は公式サイトへ",
           _source: "ぐんラボ！",
         });
@@ -1934,7 +1934,7 @@ async function scrapeGunmaEsu() {
           ],
           desc: desc.slice(0, 120),
           url,
-          free: isFreeText(bodyText),
+          free: isFreeText(bodyText) ? true : null,
           age: "詳細は公式サイトへ",
           _source: "群馬eスポーツ連合",
         };

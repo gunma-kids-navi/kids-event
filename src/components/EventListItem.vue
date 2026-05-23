@@ -18,7 +18,7 @@
         <span>📍 {{ event.venue }}（{{ event.area }}）</span>
         <span>📅 {{ formatDateRange(event.startDate, event.endDate) }}</span>
         <span>🏷 {{ event.label || event.categoryLabel }}</span>
-        <span v-if="event.free" style="color: #16a34a; font-weight: 700"
+        <span v-if="event.free === true" style="color: #16a34a; font-weight: 700"
           >無料</span
         >
       </div>
