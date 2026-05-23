@@ -108,14 +108,12 @@ describe("sourceCounts - matchUrl による件数カウント", () => {
     expect(total).toBeLessThanOrEqual(EVENTS.length * SOURCES.length);
   });
 
-  // BUG #27: 太田市 matchUrl "city.ota.gunma.jp" に対して EVENTS が 0 件一致
-  // → SourcesView で「太田市: 0件」と表示されるが実際には太田市のイベントが存在する可能性
-  it("[BUG #27] 太田市 matchUrl は現在 EVENTS に 0 件しかマッチしない", () => {
+  // BUG #27 解消: 太田市 matchUrl "city.ota.gunma.jp" に対して EVENTS が 1件以上一致するようになった
+  it("[BUG #27 解消] 太田市 matchUrl が EVENTS に 1件以上マッチする", () => {
     const otaSource = SOURCES.find((s) => s.name === "太田市");
     expect(otaSource).toBeDefined();
     const count = countByMatchUrl(EVENTS, otaSource.matchUrl);
-    // この値が 0 であることがバグの証拠（ユーザーには「0件掲載中」と見える）
-    expect(count).toBe(0);
+    expect(count).toBeGreaterThan(0);
   });
 });
 
