@@ -133,6 +133,21 @@ export const EVENTS = [
     "age": "どなたでも"
   },
   {
+    "id": 7,
+    "title": "まえばし元気フェスタ2026",
+    "emoji": "🎪",
+    "category": "festival",
+    "area": "前橋市",
+    "venue": "ミヤケン元気21（前橋プラザ元気２１）　にぎわいホール",
+    "startDate": "2026-06-07",
+    "endDate": "2026-06-07",
+    "desc": "<img width=\"582\" height=\"800\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/3eb7cca9-44a3-4c16-aa89-2da2f107cdb0\" />\n🔸日時：６/７（日）10:00～16:00\n🔸会場：ミヤケン元気21（前橋プラザ元気２１）　にぎわいホール\n🔸参加無料\n\n18の体験型のブースが出展！お子様から大人まで楽しめます😊\n３つ以上のブースをまわって抽選会に参加しよう！\n「マルエ商品券」が当たる🤩\n全員に参加賞をプレゼント✨\n\n会場３階で『歯と口の健康フェア』同日開催🦷\n\nぜひご家族、お友達と一緒にご来場ください♪",
+    "url": "https://www.instagram.com/p/DYrcEO_jaW7/",
+    "free": true,
+    "age": "どなたでも",
+    "image": "https://github.com/user-attachments/assets/3eb7cca9-44a3-4c16-aa89-2da2f107cdb0"
+  },
+  {
     "id": 10832,
     "title": "六華地蔵祭　ROCKAZIZO(前橋市中央イベント広場／前橋市)",
     "emoji": "🎵",
