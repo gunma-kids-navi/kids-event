@@ -1,0 +1,115 @@
+name: 📅 イベント追加
+description: 新しいイベントをサイトに追加します（すぐーるなどの手動入力用）
+title: "[イベント追加] "
+labels: ["new-event"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: タイトル
+      placeholder: 例：〇〇フェスティバル 2026
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: カテゴリ
+      options:
+        - 体験 (experience)
+        - 展示 (exhibition)
+        - 自然 (nature)
+        - 文化 (culture)
+        - 祭り・イベント (festival)
+    validations:
+      required: true
+
+  - type: input
+    id: label
+    attributes:
+      label: ラベル（任意）
+      description: カードに表示するバッジテキスト
+      placeholder: 例：夏祭り、体験教室、コンサート
+
+  - type: input
+    id: emoji
+    attributes:
+      label: 絵文字（任意、省略で自動設定）
+      placeholder: 例：🎪
+
+  - type: input
+    id: area
+    attributes:
+      label: エリア
+      placeholder: 例：前橋市
+    validations:
+      required: true
+
+  - type: input
+    id: venue
+    attributes:
+      label: 会場
+      placeholder: 例：群馬県民会館
+    validations:
+      required: true
+
+  - type: input
+    id: startDate
+    attributes:
+      label: 開始日
+      description: 「６月７日」「6月7日」「2026年6月7日」「2026-06-07」どの形式でもOK
+      placeholder: 例：６月７日
+    validations:
+      required: true
+
+  - type: input
+    id: endDate
+    attributes:
+      label: 終了日
+      description: 1日のみの場合は開始日と同じ日付を入力。「６月７日」形式でもOK
+      placeholder: 例：６月７日
+    validations:
+      required: true
+
+  - type: textarea
+    id: desc
+    attributes:
+      label: 説明
+      placeholder: イベントの概要を入力してください
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL（任意）
+      placeholder: https://
+
+  - type: dropdown
+    id: free
+    attributes:
+      label: 入場料
+      options:
+        - 無料
+        - 有料
+    validations:
+      required: true
+
+  - type: input
+    id: age
+    attributes:
+      label: 対象年齢（任意、省略で「どなたでも」）
+      placeholder: 例：小学生以上、未就学児可
+
+  - type: input
+    id: tags
+    attributes:
+      label: タグ（カンマ区切り、任意）
+      placeholder: 例：夏祭り,花火,前橋市
+
+  - type: input
+    id: image
+    attributes:
+      label: 画像URL（任意）
+      description: このIssueのコメント欄に画像をドラッグ&ドロップするとURLが生成されます。そのURLをここに貼ってください。
+      placeholder: https://user-images.githubusercontent.com/...
