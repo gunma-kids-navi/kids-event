@@ -61,7 +61,8 @@ function parseDate(str) {
 function parseIssueBody(body) {
   const fields = {};
   // "### フィールド名\n\n値" という形式で出力される
-  const sections = body.split(/\n###\s+/);
+  // 先頭が ### で始まる場合も含めて分割
+  const sections = body.split(/(?:^|\n)###\s+/);
   for (const section of sections) {
     if (!section.trim()) continue;
     const newlineIdx = section.indexOf("\n");
