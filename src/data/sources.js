@@ -179,6 +179,18 @@ export const SOURCES = [
     kidsLabel: "今後のイベント一覧",
     rssUrl: null,
   },
+  {
+    name: "前橋観光コンベンション協会",
+    icon: "C",
+    matchUrl: "maebashi-cvb.com",
+    calendarUrl: "https://www.maebashi-cvb.com/event",
+    calendarLabel: "前橋のイベント一覧",
+    newsletterUrl: null,
+    newsletterLabel: null,
+    kidsUrl: null,
+    kidsLabel: null,
+    rssUrl: null,
+  },
 ];
 
 export const KIDS_KEYWORDS = [

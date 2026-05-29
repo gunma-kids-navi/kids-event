@@ -21,6 +21,7 @@
  *   - ウォーカープラス          https://www.walkerplus.com/event_list/ar0310/
  *   - じゃらん                  https://www.jalan.net/event/090000/
  *   - 群馬県観光公式サイト      https://gunma-kanko.jp/events
+ *   - 前橋観光コンベンション協会 https://www.maebashi-cvb.com/event
  *
  * 全国展開時の拡張方法:
  *   WALKER_AREA_CODE と JALAN_PREF_CODE を変更するだけで他県に対応
@@ -2072,6 +2073,133 @@ async function scrapeAkagiShonen() {
   return results;
 }
 
+// ===== 前橋観光コンベンション協会 =====
+async function scrapeMaebashiCVB() {
+  const BASE = "https://www.maebashi-cvb.com";
+  const today = new Date().toISOString().split("T")[0];
+  const horizon = new Date();
+  horizon.setMonth(horizon.getMonth() + HORIZON_MONTHS);
+  const horizonStr = horizon.toISOString().split("T")[0];
+
+  const results = [];
+  const seen = new Set();
+
+  // 令和 or 西暦の日付文字列 → YYYY-MM-DD
+  function parseCvbDate(text) {
+    const reiwa = text.match(/令和\s*(\d+)年\s*(\d{1,2})月\s*(\d{1,2})日/);
+    if (reiwa) {
+      const y = 2018 + parseInt(reiwa[1], 10);
+      return `${y}-${String(reiwa[2]).padStart(2, "0")}-${String(reiwa[3]).padStart(2, "0")}`;
+    }
+    return parseJapaneseDate(text);
+  }
+
+  for (let page = 1; page <= 5; page++) {
+    const url =
+      page === 1
+        ? `${BASE}/event`
+        : `${BASE}/page:${page}?controller=event&action=index`;
+    console.log(`  [前橋CVB] page=${page}`);
+    try {
+      if (page > 1) await new Promise((r) => setTimeout(r, 1000));
+      const res = await fetch(url, {
+        signal: AbortSignal.timeout(12000),
+        headers: {
+          "User-Agent": "Mozilla/5.0 (compatible; GunmaEventsBot/1.0)",
+        },
+      });
+      if (!res.ok) break;
+      const html = await res.text();
+      const $ = cheerio.load(html);
+
+      let foundOnPage = 0;
+
+      // 各イベントカード: .spotContent が1カードに対応
+      $(".spotContent").each((_, el) => {
+        const $el = $(el);
+        const href = $el.find("a[href*='/event/']").first().attr("href") || "";
+        if (!href || !/\/event\/\d+/.test(href)) return;
+        const fullUrl = href.startsWith("http") ? href : `${BASE}${href}`;
+        if (seen.has(fullUrl)) return;
+        seen.add(fullUrl);
+
+        const title = $el.find("h3").first().text().trim();
+        if (!title || title.length < 4) return;
+
+        // .lead に "開催期間: ..." + 説明文が入る
+        const leadText = $el.find(".lead").text().replace(/\s+/g, " ").trim();
+
+        // 開催終了イベントはスキップ
+        if (leadText.includes("開催終了") || title.includes("開催終了")) return;
+
+        // 日付パース
+        const startDate = parseCvbDate(leadText);
+        if (!startDate) return; // 日付のないイベントはスキップ
+
+        // 終了日: ～M月D日 or 〜令和X年M月D日
+        let endDate = startDate;
+        const endRangeM = leadText.match(
+          /[～〜]\s*(?:令和\s*\d+年\s*)?(?:(\d{1,2})月\s*)?(\d{1,2})日/,
+        );
+        if (endRangeM) {
+          const startYear = startDate.slice(0, 4);
+          const startMonth = startDate.slice(5, 7);
+          const endMonth = endRangeM[1]
+            ? String(endRangeM[1]).padStart(2, "0")
+            : startMonth;
+          const endDay = String(endRangeM[2]).padStart(2, "0");
+          endDate = `${startYear}-${endMonth}-${endDay}`;
+        }
+
+        // 期間外スキップ
+        if (endDate < today || startDate > horizonStr) return;
+
+        // 説明文: 日付部分を除いたテキスト
+        const desc =
+          leadText
+            .replace(/開催期間[：:][^\s]{5,50}\s*/, "")
+            .replace(/令和\d+年[^\s]*/g, "")
+            .trim()
+            .slice(0, 120) || "詳細は公式サイトをご確認ください。";
+
+        // 広めのファミリーフィルタ
+        if (!isBroadlyFamilyFriendly(title + " " + desc)) return;
+
+        const combined = title + " " + desc;
+        const cat = guessCategory(combined);
+        const area = resolveAreaFromText(leadText) || "前橋市";
+
+        results.push({
+          id: stableId(title, fullUrl),
+          title: title.slice(0, 80),
+          emoji: guessEmoji(combined),
+          ...cat,
+          area,
+          venue: area,
+          startDate,
+          endDate,
+          tags: [...new Set(["前橋CVB", area].filter(Boolean))],
+          desc,
+          url: fullUrl,
+          free: isFreeText(leadText) ? true : null,
+          age: "詳細は公式サイトへ",
+          _source: "前橋観光コンベンション協会",
+        });
+        foundOnPage++;
+      });
+
+      // 次ページがなければ終了
+      if (!html.includes("次へ") || foundOnPage === 0) break;
+    } catch (e) {
+      console.warn(`    ⚠ 取得失敗: ${e.message}`);
+      break;
+    }
+  }
+
+  console.log(`  [前橋CVB] 取得: ${results.length}件`);
+  return results;
+}
+
 // ===== 明らかにゴミなデータを除外 =====
 const UI_TITLES = new Set([
   "イベント検索",
@@ -2190,17 +2318,18 @@ async function main() {
   console.log("\n📡 ぐんラボ！を取得中...");
   const gunlabo = await scrapeGunlabo().catch(() => []);
 
-  // ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合・赤城少年自然の家を並行取得
+  // ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合・赤城少年自然の家・前橋CVBを並行取得
   console.log(
-    "\n📡 ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合・赤城少年自然の家を取得中...",
+    "\n📡 ウォーカープラス・じゃらん・群馬県観光公式・群馬eスポーツ連合・赤城少年自然の家・前橋CVBを取得中...",
   );
-  const [walkerplus, jalan, gunmaKanko, gunmaEsu, akagiShonen] =
+  const [walkerplus, jalan, gunmaKanko, gunmaEsu, akagiShonen, maebashiCVB] =
     await Promise.allSettled([
       scrapeWalkerPlus(),
       scrapeJalan(),
       scrapeGunmaKanko(),
       scrapeGunmaEsu(),
       scrapeAkagiShonen(),
+      scrapeMaebashiCVB(),
     ]).then((rs) => rs.map((r) => (r.status === "fulfilled" ? r.value : [])));
 
   const scrapedRaw = [
@@ -2220,6 +2349,7 @@ async function main() {
     ...gunmaKanko,
     ...gunmaEsu,
     ...akagiShonen,
+    ...maebashiCVB,
   ];
 
   console.log(`\n📋 自動収集 raw: ${scrapedRaw.length}件`);
