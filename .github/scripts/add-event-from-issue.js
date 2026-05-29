@@ -161,7 +161,10 @@ function main() {
       .map((t) => t.trim())
       .filter(Boolean);
   }
-  event.desc = fields["説明"];
+  event.desc = (fields["説明"] || "")
+    .replace(/<[^>]+>/g, "")   // HTMLタグを除去
+    .replace(/\n/g, " ")       // 改行をスペースに
+    .trim();
   if (fields["URL（任意）"]) event.url = fields["URL（任意）"];
   event.free = fields["入場料"] === "無料";
   event.age = fields["対象年齢（任意、省略で「どなたでも」）"] || "どなたでも";
