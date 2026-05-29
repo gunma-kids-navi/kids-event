@@ -45,6 +45,18 @@ jobs:
           git commit -m "feat: イベント追加 (close #${{ github.event.issue.number }})"
           git push
 
+      - name: デプロイワークフローを起動
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yml',
+              ref: 'main'
+            })
+
       - name: Issueにコメントしてクローズ
         if: success()
         uses: actions/github-script@v7
