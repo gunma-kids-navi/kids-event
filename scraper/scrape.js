@@ -275,6 +275,22 @@ const NG_KEYWORDS = [
   "在宅医療",
   "緩和ケア",
   "リハビリ",
+  // 大人向け健康・疾病
+  "高血圧",
+  "糖尿病",
+  "脂質異常",
+  "生活習慣病",
+  "がん検診",
+  "健康診断",
+  "特定健診",
+  "市民健康講座",
+  "健康講座",
+  "脳卒中",
+  "心筋梗塞",
+  "骨粗しょう症",
+  "更年期",
+  "禁煙",
+  "節酒",
   // シニア・高齢者向け
   "シニア",
   "高齢者",
@@ -542,14 +558,16 @@ async function scrapeMaebashiCalendar() {
       const url = item.url || "";
       if (!url) continue;
 
-      // 日付リスト（複数期間対応）から最初の開始日を取得
+      // 日付リスト（複数期間対応）から「今日以降で最初の開催日」を取得
+      // date_list は定期開催イベントで複数エントリを持つ場合がある
+      // 先頭をそのまま使うと過去の初回開催日が startDate になってしまうため、
+      // 今日以降の最初のエントリを採用する
       const dateList = item.date_list || [];
       if (!dateList.length) continue;
-      const startDate = dateList[0][0];
-      const endDate = dateList[dateList.length - 1][1] || startDate;
-
-      // 終了日が過去のイベントをスキップ
-      if (endDate < today) continue;
+      const futureDates = dateList.filter((d) => (d[1] || d[0]) >= today);
+      if (!futureDates.length) continue;
+      const startDate = futureDates[0][0];
+      const endDate = futureDates[0][1] || startDate;
 
       const combined = title + " " + venue;
       if (!isKidsRelated(combined)) continue;
