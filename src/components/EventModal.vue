@@ -9,7 +9,13 @@
         ✕
       </button>
       <div class="modal-body">
-        <span class="modal-emoji">{{ event.emoji }}</span>
+        <img
+          v-if="event.image"
+          :src="event.image"
+          :alt="event.title"
+          class="modal-image"
+        />
+        <span v-else class="modal-emoji">{{ event.emoji }}</span>
         <span
           class="modal-badge event-card-badge"
           :class="statusClass(status)"
