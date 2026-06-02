@@ -761,6 +761,21 @@ a {
 .cal-day--holiday.cal-day--today .cal-today-dot {
   background: #ef4444;
 }
+.cal-area-filter {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--surface);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+}
+.cal-area-filter .filter-label {
+  padding-top: 0.2rem;
+  white-space: nowrap;
+}
 .cal-events-header {
   display: flex;
   align-items: center;

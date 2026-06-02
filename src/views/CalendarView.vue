@@ -71,6 +71,29 @@
 
       <!-- Monthly list -->
       <div class="calendar-events">
+        <!-- エリア絞り込み -->
+        <div v-if="areaOptions.length > 1" class="cal-area-filter">
+          <label class="filter-label">市町村</label>
+          <div class="filter-chips">
+            <button
+              class="chip"
+              :class="{ active: filterArea === 'all' }"
+              @click="filterArea = 'all'"
+            >
+              すべて
+            </button>
+            <button
+              v-for="area in areaOptions"
+              :key="area"
+              class="chip"
+              :class="{ active: filterArea === area }"
+              @click="filterArea = area"
+            >
+              {{ area }}
+            </button>
+          </div>
+        </div>
+
         <div class="cal-events-header">
           <h3 class="cal-events-title" id="cal-events-title">
             <template v-if="selectedDay">
@@ -80,7 +103,7 @@
             </template>
             <template v-else>
               {{ calYear }}年{{ calMonth + 1 }}月のイベント（{{
-                monthEvents.length
+                displayEvents.length
               }}件）
             </template>
           </h3>
@@ -147,6 +170,7 @@ const openModal = inject("openModal");
 const calYear = ref(TODAY.getFullYear());
 const calMonth = ref(TODAY.getMonth());
 const selectedDay = ref(null); // null = 選択なし、数値 = 選択した日
+const filterArea = ref("all");
 
 const firstDay = computed(() =>
   new Date(calYear.value, calMonth.value, 1).getDay(),
@@ -166,10 +190,68 @@ const monthEvents = computed(() => {
   }).sort((a, b) => parseDate(a.startDate) - parseDate(b.startDate));
 });
 
-// 選択日があればその日のイベントのみ、なければ月全体
+// 自治体コード順
+const MUNICIPALITY_ORDER = [
+  "前橋市",
+  "高崎市",
+  "桐生市",
+  "伊勢崎市",
+  "太田市",
+  "沼田市",
+  "館林市",
+  "渋川市",
+  "藤岡市",
+  "富岡市",
+  "安中市",
+  "みどり市",
+  "榛東村",
+  "吉岡町",
+  "上野村",
+  "神流町",
+  "下仁田町",
+  "南牧村",
+  "甘楽町",
+  "中之条町",
+  "長野原町",
+  "嬬恋村",
+  "草津町",
+  "高山村",
+  "東吾妻町",
+  "片品村",
+  "川場村",
+  "昭和村",
+  "みなかみ町",
+  "玉村町",
+  "板倉町",
+  "明和町",
+  "千代田町",
+  "大泉町",
+  "邑楽町",
+];
+
+// 月内イベントに存在するエリア一覧（自治体コード順）
+const areaOptions = computed(() => {
+  const base = selectedDay.value
+    ? eventsOnDay(selectedDay.value)
+    : monthEvents.value;
+  const unique = [...new Set(base.map((e) => e.area))];
+  return unique.sort((a, b) => {
+    const ai = MUNICIPALITY_ORDER.indexOf(a);
+    const bi = MUNICIPALITY_ORDER.indexOf(b);
+    if (ai === -1 && bi === -1) return a.localeCompare(b, "ja");
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+});
+
+// 選択日があればその日のイベントのみ、なければ月全体。さらにエリアで絞り込み
 const displayEvents = computed(() => {
-  if (!selectedDay.value) return monthEvents.value;
-  return eventsOnDay(selectedDay.value);
+  const base = selectedDay.value
+    ? eventsOnDay(selectedDay.value)
+    : monthEvents.value;
+  if (filterArea.value === "all") return base;
+  return base.filter((ev) => ev.area === filterArea.value);
 });
 
 function dayOfWeek(d) {
@@ -194,6 +276,7 @@ function toggleDay(d) {
   // イベントがない日はクリックできない
   if (eventsOnDay(d).length === 0) return;
   selectedDay.value = selectedDay.value === d ? null : d;
+  filterArea.value = "all"; // 日付変更時はエリア選択をリセット
   // 絞り込み後はリストまでスクロール
   if (selectedDay.value !== null) {
     setTimeout(() => {
@@ -210,7 +293,8 @@ function prevMonth() {
     calMonth.value = 11;
     calYear.value--;
   }
-  selectedDay.value = null; // 月変更時は選択をリセット
+  selectedDay.value = null;
+  filterArea.value = "all"; // 月変更時はエリア選択もリセット
 }
 // 2ヶ月前を下限とする
 const MIN_DATE = new Date(TODAY);
@@ -243,6 +327,7 @@ function nextMonth() {
     calMonth.value = 0;
     calYear.value++;
   }
-  selectedDay.value = null; // 月変更時は選択をリセット
+  selectedDay.value = null;
+  filterArea.value = "all"; // 月変更時はエリア選択もリセット
 }
 </script>
