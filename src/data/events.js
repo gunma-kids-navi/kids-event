@@ -113,6 +113,7 @@ export const EVENTS = [
     title: "まえばし元気フェスタ2026",
     emoji: "🎪",
     category: "festival",
+    label: "祭り・フェスタ",
     area: "前橋市",
     venue: "ミヤケン元気21（前橋プラザ元気２１）　にぎわいホール",
     startDate: "2026-06-07",
@@ -121,6 +122,7 @@ export const EVENTS = [
     url: "https://www.instagram.com/p/DYrcEO_jaW7/",
     free: true,
     age: "どなたでも",
+    tags: ["前橋市", "体験", "祭り"],
     image:
       "https://github.com/user-attachments/assets/3eb7cca9-44a3-4c16-aa89-2da2f107cdb0",
   },
