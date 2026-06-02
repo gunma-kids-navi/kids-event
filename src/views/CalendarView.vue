@@ -117,26 +117,13 @@
         </div>
         <div id="cal-events-list">
           <template v-if="displayEvents.length">
-            <div
-              v-for="ev in displayEvents"
-              :key="ev.id"
-              class="cal-event-item"
-              style="cursor: pointer"
-              @click="openModal(ev)"
-            >
-              <span class="cal-event-emoji">{{ ev.emoji }}</span>
-              <div class="cal-event-info">
-                <div class="cal-event-name">{{ ev.title }}</div>
-                <div class="cal-event-meta">
-                  📍 {{ ev.area }} ／
-                  {{ formatDateRange(ev.startDate, ev.endDate) }}
-                </div>
-              </div>
-              <span
-                class="event-card-badge"
-                :class="statusClass(getStatus(ev))"
-                >{{ statusLabel(getStatus(ev)) }}</span
-              >
+            <div class="events-grid">
+              <EventCard
+                v-for="ev in displayEvents"
+                :key="ev.id"
+                :event="ev"
+                @open-modal="openModal(ev)"
+              />
             </div>
           </template>
           <p v-else style="color: var(--text-muted); padding: 1rem 0">
@@ -164,6 +151,7 @@ import {
   statusLabel,
   statusClass,
 } from "../composables/useEvents";
+import EventCard from "../components/EventCard.vue";
 
 const openModal = inject("openModal");
 
